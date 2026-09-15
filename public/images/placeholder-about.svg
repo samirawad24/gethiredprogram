@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="700" viewBox="0 0 700 700" role="img" aria-label="Placeholder photo">
+  <!-- PLACEHOLDER: replace with a real photo of Ana (square crop) -->
+  <rect width="700" height="700" fill="#dcebe7"/>
+  <rect x="90" y="430" width="520" height="30" rx="6" fill="#b59c82"/>
+  <rect x="250" y="300" width="200" height="130" rx="10" fill="#2b2521"/>
+  <circle cx="350" cy="200" r="90" fill="#b59c82"/>
+  <path d="M190 700c0-150 72-240 160-240s160 90 160 240z" fill="#0f5f5c"/>
+  <rect x="215" y="560" width="270" height="56" rx="28" fill="#fbf7f0"/>
+  <text x="350" y="597" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#0a4744" letter-spacing="3">PLACEHOLDER</text>
+</svg>
