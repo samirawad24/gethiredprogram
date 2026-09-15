@@ -6,7 +6,7 @@ type Props = { lang: Locale; dict: Dictionary };
 
 // Person + ProfessionalService structured data, linked to each other by @id.
 export default function JsonLd({ lang, dict }: Props) {
-  const pageUrl = `${site.url}/${lang}`;
+  const pageUrl = `${site.url}/${lang}/`;
   const personId = `${site.url}/#person`;
   const serviceId = `${site.url}/#service`;
 
@@ -31,7 +31,7 @@ export default function JsonLd({ lang, dict }: Props) {
         name: site.brand,
         url: pageUrl,
         description: dict.schema.serviceDescription,
-        image: `${site.url}/${lang}/opengraph-image`,
+        image: `${site.url}/${lang}/og.png`,
         email: site.email,
         founder: { "@id": personId },
         availableLanguage: ["English", "Spanish"],

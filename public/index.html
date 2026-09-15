@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Get Hired Program</title>
+    <meta name="robots" content="noindex" />
+    <!-- Sends visitors to /es/ if their browser prefers Spanish, otherwise /en/. -->
+    <script>
+      var lang = (navigator.language || "").toLowerCase().indexOf("es") === 0 ? "es" : "en";
+      location.replace("./" + lang + "/");
+    </script>
+    <meta http-equiv="refresh" content="0; url=./en/" />
+  </head>
+  <body>
+    <p><a href="./en/">English</a> · <a href="./es/">Español</a></p>
+  </body>
+</html>

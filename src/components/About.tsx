@@ -1,6 +1,6 @@
 import Image from "next/image";
 import type { Dictionary } from "@/dictionaries";
-import { site } from "@/lib/site";
+import { asset, site } from "@/lib/site";
 
 export default function About({ dict }: { dict: Dictionary }) {
   return (
@@ -8,11 +8,10 @@ export default function About({ dict }: { dict: Dictionary }) {
       <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-20 sm:px-8 md:grid-cols-[0.8fr_1.2fr] md:gap-16 md:py-28">
         {/* PLACEHOLDER image: replace site.images.about in src/lib/site.ts */}
         <Image
-          src={site.images.about}
+          src={asset(site.images.about)}
           alt={dict.about.imageAlt}
           width={700}
           height={700}
-          unoptimized={site.images.about.endsWith(".svg")}
           sizes="(min-width: 768px) 35vw, 100vw"
           className="aspect-square w-full max-w-md rounded-full object-cover"
         />

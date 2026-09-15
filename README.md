@@ -14,14 +14,14 @@ cp .env.example .env.local   # then edit the values
 npm run dev
 ```
 
-Open http://localhost:3000. You land on `/en` or `/es` depending on your browser language. The button in the header switches languages.
+Open http://localhost:3000/en/ or http://localhost:3000/es/. The button in the header switches languages. On the live site, the root URL sends visitors to `/en/` or `/es/` based on browser language.
 
 Other commands:
 
 ```bash
-npm run build   # production build
-npm run start   # serve the production build
+npm run build   # static export into out/
 npm run lint
+npx serve out   # preview the exported files
 ```
 
 ## Environment variables
@@ -29,10 +29,11 @@ npm run lint
 | Variable | Example | What it does |
 | --- | --- | --- |
 | `NEXT_PUBLIC_CAL_LINK` | `anaprato/free-consultation` | Cal.com event shown in the booking section. Use the part of your Cal.com URL after `cal.com/`. |
-| `NEXT_PUBLIC_SITE_URL` | `https://gethiredprogram.com` | Live domain, no trailing slash. Used for canonical URLs, hreflang, sitemap, robots and Open Graph. |
+| `NEXT_PUBLIC_SITE_URL` | `https://gethiredprogram.com` | Public URL including any subfolder, no trailing slash. Used for canonical URLs, hreflang, sitemap, robots and Open Graph. |
+| `NEXT_PUBLIC_BASE_PATH` | `/gethiredprogram` | Subfolder the site lives in. Empty locally and on a custom domain. |
 
 - **Locally:** put them in `.env.local` (git ignores it). Restart `npm run dev` after changing them.
-- **On Vercel:** Project Settings > Environment Variables. Add both for Production and Preview, then redeploy. `NEXT_PUBLIC_` values get baked in at build time, so a change only shows up after a new deploy.
+- **On GitHub Pages:** repo Settings > Secrets and variables > Actions > Variables tab. Add a variable with the same name, then re-run the deploy (Actions tab > Deploy to GitHub Pages > Run workflow). Values get baked in at build time, so a change only shows up after a new deploy. Without variables, the workflow builds for `https://samirawad24.github.io/gethiredprogram`.
 
 If `NEXT_PUBLIC_CAL_LINK` is empty, the booking section shows the contact email instead of the calendar.
 
@@ -62,38 +63,37 @@ src/
   app/
     [lang]/layout.tsx          html shell, fonts, metadata, Open Graph, hreflang
     [lang]/page.tsx            assembles the sections
-    [lang]/opengraph-image.tsx generated social share image per language
+    [lang]/og.png/route.tsx    generated social share image per language
     sitemap.ts, robots.ts
     globals.css                brand colours
   components/                  one small component per section
   dictionaries/                en.ts, es.ts
   lib/site.ts                  brand, links, env vars, image paths
-  proxy.ts                     redirects / to /en or /es
+public/index.html              root redirect to /en/ or /es/
+.github/workflows/deploy.yml   builds and publishes to GitHub Pages
 ```
 
-## Deploy
+## Deploy (GitHub Pages)
 
-### 1. Push to GitHub
+Repository: https://github.com/samirawad24/gethiredprogram
+Live site: https://samirawad24.github.io/gethiredprogram/
 
-Create an empty repository on GitHub (no README), then:
+Every push to `main` runs `.github/workflows/deploy.yml`, which builds the static site and publishes it. Watch progress in the repo's Actions tab.
 
 ```bash
-git remote add origin https://github.com/YOUR-USERNAME/gethiredprogram.git
-git push -u origin main
+git add -A
+git commit -m "Describe the change"
+git push
 ```
 
-### 2. Import into Vercel
+### Connect gethiredprogram.com
 
-1. Go to https://vercel.com/new and import the GitHub repository.
-2. Vercel detects Next.js. Leave the build settings as they are.
-3. Add `NEXT_PUBLIC_CAL_LINK` and `NEXT_PUBLIC_SITE_URL` under Environment Variables.
-4. Click Deploy.
+1. Repo Settings > Pages > Custom domain: enter `gethiredprogram.com` and save. Follow GitHub's DNS instructions at your domain registrar.
+2. Settings > Secrets and variables > Actions > Variables: set `NEXT_PUBLIC_BASE_PATH` to `/` and `NEXT_PUBLIC_SITE_URL` to `https://gethiredprogram.com`.
+3. Re-run the deploy workflow, then tick "Enforce HTTPS" in Settings > Pages.
+4. Submit `https://gethiredprogram.com/sitemap.xml` in Google Search Console.
 
-After that, every push to `main` deploys production, and every other branch or pull request gets its own live preview URL.
-
-### 3. Connect the domain
-
-In Vercel: Project > Settings > Domains, add `gethiredprogram.com` and follow the DNS instructions. Then submit `https://gethiredprogram.com/sitemap.xml` in Google Search Console.
+The site is plain static files in `out/`, so Vercel, Netlify or any static host also works.
 
 ## SEO checklist
 

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import type { Dictionary } from "@/dictionaries";
-import { site } from "@/lib/site";
+import { asset, site } from "@/lib/site";
 import Button from "./Button";
 
 export default function Hero({ dict }: { dict: Dictionary }) {
@@ -27,12 +27,11 @@ export default function Hero({ dict }: { dict: Dictionary }) {
       <div className="order-1 md:order-2">
         {/* PLACEHOLDER image: replace site.images.hero in src/lib/site.ts */}
         <Image
-          src={site.images.hero}
+          src={asset(site.images.hero)}
           alt={dict.hero.imageAlt}
           width={900}
           height={1100}
           priority
-          unoptimized={site.images.hero.endsWith(".svg")}
           sizes="(min-width: 768px) 45vw, 100vw"
           className="aspect-[4/5] w-full rounded-[2rem] object-cover shadow-[0_30px_60px_-30px_rgba(43,37,33,0.35)]"
         />

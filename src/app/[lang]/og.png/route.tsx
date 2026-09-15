@@ -2,20 +2,15 @@ import { ImageResponse } from "next/og";
 import { getDictionary } from "@/dictionaries";
 import { hasLocale, locales, site } from "@/lib/site";
 
-// Generated social share card (1200x630). Swap for a photo-based PNG later if you like.
-export const size = { width: 1200, height: 630 };
-export const contentType = "image/png";
-export const alt = "Get Hired Program, career coaching with Ana Prato";
+// Social share card (1200x630), exported as /en/og.png and /es/og.png.
+// Swap for a photo-based PNG later if you like.
+export const dynamic = "force-static";
 
 export function generateStaticParams() {
   return locales.map((lang) => ({ lang }));
 }
 
-export default async function Image({
-  params,
-}: {
-  params: Promise<{ lang: string }>;
-}) {
+export async function GET(_request: Request, { params }: RouteContext<"/[lang]/og.png">) {
   const { lang } = await params;
   const dict = getDictionary(hasLocale(lang) ? lang : "en");
 
@@ -57,6 +52,6 @@ export default async function Image({
         </div>
       </div>
     ),
-    size,
+    { width: 1200, height: 630 },
   );
 }
