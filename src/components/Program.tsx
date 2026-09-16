@@ -5,13 +5,15 @@ export default function Program({ dict }: { dict: Dictionary }) {
   const { program } = dict;
 
   return (
-    <section id="program" aria-labelledby="program-heading" className="bg-sand">
-      <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 md:py-28">
+    <section id="program" aria-labelledby="program-heading" className="section section--alt">
+      <div className="shell">
         <div className="max-w-2xl">
-          <h2 id="program-heading" className="font-serif text-4xl font-semibold tracking-tight sm:text-5xl">
+          <p className="eyebrow">{program.eyebrow}</p>
+          <h2 id="program-heading" className="display mt-3 text-4xl sm:text-5xl">
             {program.heading}
           </h2>
-          <p className="mt-4 text-lg leading-relaxed text-muted">{program.intro}</p>
+          <span aria-hidden="true" className="rule mt-5" />
+          <p className="lead mt-5 text-lg">{program.intro}</p>
         </div>
 
         <ol className="mt-14 grid gap-x-10 md:grid-cols-2">
