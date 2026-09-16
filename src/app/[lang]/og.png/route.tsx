@@ -24,28 +24,28 @@ export async function GET(_request: Request, { params }: RouteContext<"/[lang]/o
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "80px",
-          background: "#fbf7f0",
-          color: "#2b2521",
+          background: "#0b1b31",
+          color: "#ffffff",
         }}
       >
-        <div style={{ fontSize: 32, color: "#0f5f5c", letterSpacing: 2 }}>
+        <div style={{ fontSize: 32, color: "#e0a43a", letterSpacing: 2 }}>
           {site.brand.toUpperCase()}
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ fontSize: 96, fontWeight: 700 }}>{site.coachName}</div>
-          <div style={{ fontSize: 44, color: "#6b6058", marginTop: 12 }}>
-            {dict.hero.role}
+          <div style={{ fontSize: 44, color: "rgba(255,255,255,0.78)", marginTop: 12 }}>
+            {dict.schema.jobTitle}
           </div>
         </div>
         <div
           style={{
             display: "flex",
             alignSelf: "flex-start",
-            background: "#0f5f5c",
-            color: "#fbf7f0",
+            background: "#e0a43a",
+            color: "#0b1b31",
             fontSize: 32,
             padding: "18px 36px",
-            borderRadius: 999,
+            borderRadius: 8,
           }}
         >
           {dict.hero.cta}

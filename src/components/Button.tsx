@@ -1,22 +1,24 @@
 type Props = {
   href: string;
   children: React.ReactNode;
-  variant?: "primary" | "secondary" | "inverse";
+  variant?: "primary" | "navy" | "outline" | "cta";
+  size?: "md" | "sm";
   className?: string;
 };
 
-const styles = {
-  primary: "bg-teal text-cream hover:bg-teal-dark",
-  inverse: "bg-cream text-teal-dark hover:bg-white",
-  secondary: "border border-ink/20 text-ink hover:border-teal hover:text-teal",
-};
-
-// In-page anchor styled as a button. Smooth scrolling comes from globals.css.
-export default function Button({ href, children, variant = "primary", className = "" }: Props) {
+// In-page anchor styled as a button. The .btn classes live in globals.css so
+// each theme can restyle every button at once. Smooth scrolling is global too.
+export default function Button({
+  href,
+  children,
+  variant = "primary",
+  size = "md",
+  className = "",
+}: Props) {
   return (
     <a
       href={href}
-      className={`inline-flex items-center justify-center rounded-full px-7 py-3.5 text-base font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal ${styles[variant]} ${className}`}
+      className={`btn btn--${variant} ${size === "sm" ? "btn--sm" : ""} ${className}`}
     >
       {children}
     </a>

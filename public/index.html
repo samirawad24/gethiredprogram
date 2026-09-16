@@ -7,7 +7,8 @@
     <!-- Sends visitors to /es/ if their browser prefers Spanish, otherwise /en/. -->
     <script>
       var lang = (navigator.language || "").toLowerCase().indexOf("es") === 0 ? "es" : "en";
-      location.replace("./" + lang + "/");
+      // Keep the query string so links like /?theme=bold still pick that design.
+      location.replace("./" + lang + "/" + location.search);
     </script>
     <meta http-equiv="refresh" content="0; url=./en/" />
   </head>

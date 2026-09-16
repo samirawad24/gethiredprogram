@@ -11,9 +11,10 @@ const en = {
   skipLink: "Skip to content",
   nav: {
     about: "About",
+    services: "Services",
     program: "Program",
     testimonials: "Stories",
-    book: "Book a call",
+    book: "Book a session",
     home: "Get Hired Program home",
   },
   languageToggle: {
@@ -21,18 +22,59 @@ const en = {
     ariaLabel: "Ver el sitio en español",
   },
   hero: {
-    eyebrow: "Get Hired Program",
-    role: "Career coach",
+    eyebrow: "Career coaching in English and Spanish",
+    // Two-line headline, gold second line, as on the design boards.
+    headlineLead: "You've done the work.",
+    headlineAccent: "Now let's get you hired.",
     // PLACEHOLDER: confirm years of experience
     promise:
       "I've spent 15 years on the hiring side, and I'll show you how recruiters decide so you walk into your next interview ready.",
     cta: "Book a free consultation",
     secondaryCta: "See the program",
-    languages: "Coaching in English and Spanish",
+    note: "Ana Prato · Career coach · 15+ years on the hiring side",
     // PLACEHOLDER: rewrite to describe the real photo
     imageAlt: "Ana Prato, career coach, smiling in a bright home office",
   },
+  stats: {
+    // PLACEHOLDER: delete this note once every number below is real.
+    placeholderNote: "Confirmed numbers shown. Add the ones still marked with a dash before launch.",
+    items: [
+      { value: "15+", label: "Years in talent acquisition" },
+      { value: "8", label: "Sessions in the program" },
+      { value: "2", label: "Languages: English and Spanish" },
+      // PLACEHOLDER: ask Ana for the real count of people coached.
+      { value: "—", label: "Students coached" },
+    ],
+  },
+  services: {
+    eyebrow: "Services",
+    heading: "How I can help",
+    intro: "Practical guidance, built on how hiring decisions actually get made.",
+    items: [
+      {
+        icon: "resume" as const,
+        title: "Resume review",
+        text: "ATS-friendly and written for the roles you actually want.",
+      },
+      {
+        icon: "linkedin" as const,
+        title: "LinkedIn optimization",
+        text: "A headline, summary and keywords recruiters search for.",
+      },
+      {
+        icon: "interview" as const,
+        title: "Interview preparation",
+        text: "Mock interviews with straight feedback after every answer.",
+      },
+      {
+        icon: "strategy" as const,
+        title: "Career strategy",
+        text: "Target roles, an outreach plan and a story that holds together.",
+      },
+    ],
+  },
   about: {
+    eyebrow: "About me",
     heading: "Hi, I'm Ana.",
     // PLACEHOLDER: confirm employers and background with Ana
     paragraphs: [
@@ -44,10 +86,12 @@ const en = {
       "Bilingual: English and Spanish",
       "Based in Ohio, coaching online",
     ],
+    cta: "Work with me",
     // PLACEHOLDER: rewrite to describe the real photo
     imageAlt: "Ana Prato at her desk, reviewing a client's resume on a laptop",
   },
   audiences: {
+    eyebrow: "Who it's for",
     heading: "Who I work with",
     intro: "Pick the path that sounds like you.",
     students: {
@@ -72,6 +116,7 @@ const en = {
     },
   },
   program: {
+    eyebrow: "The program",
     heading: "The eight-session program",
     // PLACEHOLDER: confirm session format and cadence
     intro:
@@ -112,7 +157,11 @@ const en = {
       },
     ],
   },
+  values: {
+    items: ["Confidence today.", "Interviews tomorrow.", "A career you'll love."],
+  },
   testimonials: {
+    eyebrow: "Real students. Real results.",
     heading: "What clients say",
     // PLACEHOLDER: remove this note once real quotes are in
     placeholderNote: "Sample quotes for layout. Replace with real client stories before launch.",
@@ -137,7 +186,13 @@ const en = {
       },
     ],
   },
+  cta: {
+    heading: "Your future is waiting.",
+    sub: "Let's make sure you're ready for it.",
+    button: "Book a session",
+  },
   booking: {
+    eyebrow: "Let's work together",
     heading: "Book your free consultation",
     // PLACEHOLDER: confirm call length
     intro:
@@ -156,6 +211,16 @@ const en = {
     jobTitle: "Career Coach",
     serviceDescription:
       "An eight-session career coaching program for students, recent graduates and professionals changing careers, taught in English and Spanish.",
+  },
+  // PREVIEW TOOL: delete this block together with ThemeSwitcher.tsx once a
+  // design direction is chosen.
+  themePicker: {
+    label: "Design preview",
+    classic: "1 · Clean & classic",
+    bold: "2 · Modern & bold",
+    minimal: "3 · Elevated & minimal",
+    note: "Preview only. This panel is not part of the published site.",
+    hide: "Hide the design preview",
   },
 };
 

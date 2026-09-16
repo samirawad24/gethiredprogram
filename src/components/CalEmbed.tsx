@@ -7,13 +7,13 @@ type Props = { calLink: string; title: string };
 
 const namespace = "consultation";
 
-// Inline Cal.com calendar, themed with the site's teal.
+// Inline Cal.com calendar, themed with the site's navy.
 export default function CalEmbed({ calLink, title }: Props) {
   useEffect(() => {
     getCalApi({ namespace }).then((cal) => {
       cal("ui", {
         theme: "light",
-        cssVarsPerTheme: { light: { "cal-brand": "#0f5f5c" }, dark: { "cal-brand": "#dcebe7" } },
+        cssVarsPerTheme: { light: { "cal-brand": "#12294a" }, dark: { "cal-brand": "#e0a43a" } },
         hideEventTypeDetails: false,
         layout: "month_view",
       });
