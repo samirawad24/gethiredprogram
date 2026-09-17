@@ -24,9 +24,15 @@ export const site = {
   linkedin: "https://www.linkedin.com/in/anaprato/",
   instagram: "https://www.instagram.com/gethired.program/",
   instagramHandle: "@gethired.program",
-  // PLACEHOLDER images: drop real photos into /public/images and update these paths.
+  // Brand art in /public/images/art. Each one is a slot for a real photo:
+  // drop a file into /public/images and change the path here, nothing else.
+  // Shapes: hero 4:5 portrait, heroWide 16:9, about 1:1, notebook 7:5,
+  // backdrop 16:9. See "Swap in real photos" in README.md.
   images: {
-    hero: "/images/placeholder-hero.svg",
-    about: "/images/placeholder-about.svg",
+    hero: "/images/art/hero-portrait.svg",
+    heroWide: "/images/art/hero-wide.svg",
+    about: "/images/art/about-desk.svg",
+    notebook: "/images/art/notebook.svg",
+    backdrop: "/images/art/desk-soft.svg",
   },
 } as const;

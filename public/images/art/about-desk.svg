@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="1100" viewBox="0 0 1100 1100" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
+  <!-- Stand-in for Ana's photo. Swap site.images.about for a real portrait. -->
+  <defs>
+    <linearGradient id="abWall" x1="0" y1="0" x2="0.3" y2="1">
+      <stop offset="0" stop-color="#fdfaf5"/>
+      <stop offset="1" stop-color="#eadfcd"/>
+    </linearGradient>
+    <linearGradient id="abDesk" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#cfb087"/>
+      <stop offset="1" stop-color="#b08d5c"/>
+    </linearGradient>
+    <linearGradient id="abLeaf" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0" stop-color="#92a487"/>
+      <stop offset="1" stop-color="#65765d"/>
+    </linearGradient>
+    <filter id="abSoft" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="26"/>
+    </filter>
+  </defs>
+
+  <rect width="1100" height="1100" fill="url(#abWall)"/>
+  <circle cx="880" cy="200" r="250" fill="#ffffff" opacity="0.55" filter="url(#abSoft)"/>
+  <rect y="742" width="1100" height="358" fill="url(#abDesk)"/>
+  <rect y="742" width="1100" height="12" fill="#e4cda6" opacity="0.8"/>
+
+  <!-- framed print on the wall -->
+  <g>
+    <rect x="120" y="150" width="300" height="380" rx="8" fill="#fbf8f2" stroke="#d8ccb8" stroke-width="8"/>
+    <rect x="160" y="196" width="220" height="230" rx="6" fill="#12294a" opacity="0.9"/>
+    <circle cx="270" cy="300" r="56" fill="none" stroke="#e0a43a" stroke-width="4"/>
+    <text x="270" y="312" text-anchor="middle" font-family="Georgia, serif" font-size="34" fill="#e0a43a">GH</text>
+    <rect x="186" y="462" width="168" height="10" rx="5" fill="#12294a" opacity="0.35"/>
+  </g>
+
+  <!-- books and mug on the desk -->
+  <g font-family="Helvetica, Arial, sans-serif" font-weight="700" letter-spacing="2.5">
+    <ellipse cx="700" cy="756" rx="230" ry="22" fill="#7d5f38" opacity="0.3" filter="url(#abSoft)"/>
+    <rect x="500" y="672" width="400" height="62" rx="8" fill="#12294a"/>
+    <text x="530" y="711" font-size="21" fill="#ffffff" opacity="0.9">CONFIDENCE</text>
+    <rect x="516" y="608" width="370" height="60" rx="8" fill="#e0a43a"/>
+    <text x="546" y="646" font-size="21" fill="#0b1b31">OPPORTUNITY</text>
+    <rect x="534" y="546" width="336" height="58" rx="8" fill="#fbf8f2"/>
+    <text x="564" y="583" font-size="21" fill="#12294a">SKILLS</text>
+  </g>
+
+  <g>
+    <ellipse cx="236" cy="880" rx="96" ry="18" fill="#7d5f38" opacity="0.32" filter="url(#abSoft)"/>
+    <path d="M312 756h28a38 38 0 0 1 0 76h-28z" fill="none" stroke="#12294a" stroke-width="14"/>
+    <rect x="150" y="744" width="168" height="136" rx="18" fill="#12294a"/>
+    <ellipse cx="234" cy="748" rx="84" ry="15" fill="#1d3c68"/>
+    <circle cx="234" cy="812" r="32" fill="none" stroke="#e0a43a" stroke-width="3"/>
+  </g>
+
+  <!-- plant -->
+  <g>
+    <g fill="url(#abLeaf)">
+      <ellipse cx="960" cy="520" rx="22" ry="62"/>
+      <ellipse cx="908" cy="552" rx="20" ry="56" transform="rotate(-30 908 552)"/>
+      <ellipse cx="1012" cy="552" rx="20" ry="56" transform="rotate(30 1012 552)"/>
+      <ellipse cx="924" cy="608" rx="18" ry="48" transform="rotate(-50 924 608)"/>
+      <ellipse cx="996" cy="608" rx="18" ry="48" transform="rotate(50 996 608)"/>
+    </g>
+    <path d="M902 646h116l-14 116H916z" fill="#f1e7d7"/>
+    <rect x="896" y="634" width="128" height="24" rx="8" fill="#fbf8f2"/>
+  </g>
+</svg>

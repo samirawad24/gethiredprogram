@@ -97,8 +97,8 @@ Fonts are Playfair Display (headings) and Figtree (body), self-hosted by
 
 `src/app/[lang]/page.tsx` assembles them in this order:
 
-Header · Hero · Stats · Services · About · ValueBand · Audiences · Program ·
-Testimonials · CtaBand · Booking · Footer
+Header · Hero · Stats · Services · About · ValueBand · Audiences · PromiseBand ·
+Program · Testimonials · CtaBand · Booking · Footer
 
 ## Swap in real content
 
@@ -108,8 +108,8 @@ Search the project for `PLACEHOLDER` to find every spot.
 | --- | --- |
 | All page text (English) | `src/dictionaries/en.ts` |
 | All page text (Spanish) | `src/dictionaries/es.ts` |
-| Photos | Add files to `public/images/`, then update `images` in `src/lib/site.ts` |
-| Image alt text | `hero.imageAlt` and `about.imageAlt` in both dictionaries |
+| Photos | See [Swap in real photos](#swap-in-real-photos) |
+| Image alt text | `hero.imageAlt`, `about.imageAlt` and `promise.imageAlt` in both dictionaries |
 | Email, LinkedIn, Instagram | `src/lib/site.ts` |
 | Testimonials | `testimonials.items` in both dictionaries. Delete `placeholderNote` and its line in `src/components/Testimonials.tsx` when real quotes are in. |
 | The four numbers under the hero | `stats.items` in both dictionaries. One is still a dash. Delete `placeholderNote` and its line in `src/components/Stats.tsx` when they are all real. |
@@ -120,7 +120,52 @@ Search the project for `PLACEHOLDER` to find every spot.
 
 Both dictionaries share one TypeScript type, so the build fails if you add a string to one language and forget the other.
 
-Photo tips: hero works best as a portrait around 900 x 1100 px, about photo as a square around 700 x 700 px. JPG or WebP; Next.js optimizes them.
+
+
+## Swap in real photos
+
+Every picture on the site is brand art drawn in SVG, living in
+`public/images/art/`. Each one is a slot: drop a real photo into
+`public/images/`, change one path in `src/lib/site.ts`, and update its alt text
+in both dictionaries. Nothing else moves.
+
+| Slot | `site.images` key | Shape | Where it shows | What to shoot or buy |
+| --- | --- | --- | --- | --- |
+| Hero portrait | `hero` | 4:5, ~1200 x 1500 | Beside the headline in the classic and minimal themes | Ana at her desk, or a bright workspace. Leave the left third calm — the headline sits next to it. |
+| Hero wide | `heroWide` | 16:9, ~1920 x 1080 | Fills the hero in the bold theme, behind a navy scrim | Something with depth and a horizon: a city at dusk, an open office. Detail is lost under the scrim, so mood matters more than sharpness. |
+| About | `about` | 1:1, ~1100 x 1100 | Next to "Hi, I'm Ana" | **Ana's real portrait.** This is the one photo a stock image cannot do. |
+| Promise band | `notebook` | 7:5, ~1400 x 1000 | The full-width band mid-page | A desk detail: notebook and pen, coffee, hands writing. Shot close. |
+| Section backdrop | `backdrop` | 16:9, ~1920 x 1080 | Behind the closing call to action and the booking section, under a heavy scrim | Anything soft and out of focus. It is 90% covered; it only adds depth. |
+
+JPG or WebP. Keep each file under about 400 KB — the site is a static export, so
+nothing compresses them for you at runtime.
+
+Two judgement calls worth keeping:
+
+- **The testimonial cards use initials, not faces.** The quotes are still
+  placeholders. Putting stock headshots next to invented quotes makes fabricated
+  social proof look real, which is both dishonest and, for a business making
+  claims about results, a legal problem. Once real clients give real quotes,
+  their own photos can replace the initials.
+- **No stock photo should stand in for Ana.** The art in the `about` slot shows a
+  workspace rather than a person for exactly this reason.
+
+### Backgrounds
+
+`src/components/Backdrop.tsx` puts an image behind a section. The section needs
+`.has-backdrop` and its content needs to be in a `.shell`:
+
+```tsx
+<section className="has-backdrop section">
+  <Backdrop scrim="navy-deep" watermark />
+  <div className="shell">...</div>
+</section>
+```
+
+`scrim` is `navy`, `navy-deep` or `light` — how hard the image is knocked back.
+`watermark` adds the ghosted badge in the corner. Use it once per stretch of
+page; two in a row reads as a mistake. `.section--wash` adds a soft colour
+gradient to a light section, and `.grain` adds paper texture.
 
 ## Project structure
 
@@ -133,9 +178,11 @@ src/
     sitemap.ts, robots.ts
     globals.css                palette, the three themes, shared classes
   components/                  one small component per section
+  components/Backdrop.tsx      background image + scrim + badge watermark
   dictionaries/                en.ts, es.ts
   lib/site.ts                  brand, links, env vars, image paths
   lib/theme.ts                 theme list and the pre-paint init script
+public/images/art/             brand art, one file per photo slot
 public/index.html              root redirect to /en/ or /es/
 .github/workflows/deploy.yml   builds and publishes to GitHub Pages
 ```

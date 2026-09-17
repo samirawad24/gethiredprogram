@@ -5,7 +5,7 @@ export default function Audiences({ dict }: { dict: Dictionary }) {
   const { audiences } = dict;
 
   return (
-    <section id="who" aria-labelledby="who-heading" className="section">
+    <section id="who" aria-labelledby="who-heading" className="section section--wash">
       <div className="shell">
         <div className="max-w-2xl">
           <p className="eyebrow">{audiences.eyebrow}</p>

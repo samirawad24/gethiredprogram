@@ -8,16 +8,23 @@ export default function About({ dict }: { dict: Dictionary }) {
   return (
     <section id="about" aria-labelledby="about-heading" className="section">
       <div className="shell grid items-center gap-10 md:grid-cols-2 md:gap-16">
-        {/* PLACEHOLDER image: replace site.images.about in src/lib/site.ts */}
-        <Image
-          src={asset(site.images.about)}
-          alt={dict.about.imageAlt}
-          width={700}
-          height={700}
-          sizes="(min-width: 768px) 45vw, 100vw"
-          className="w-full rounded-[var(--radius-media)] object-cover"
-          style={{ aspectRatio: "1 / 1" }}
-        />
+        {/* Offset gold frame behind the image, as on board 1. Swap the art
+            for a real portrait via site.images.about. */}
+        <div className="relative">
+          <span
+            aria-hidden="true"
+            className="absolute -bottom-4 -left-4 h-full w-full rounded-[var(--radius-media)] border border-gold/45 md:-bottom-6 md:-left-6"
+          />
+          <Image
+            src={asset(site.images.about)}
+            alt={dict.about.imageAlt}
+            width={1100}
+            height={1100}
+            sizes="(min-width: 768px) 45vw, 100vw"
+            className="relative w-full rounded-[var(--radius-media)] object-cover"
+            style={{ aspectRatio: "1 / 1" }}
+          />
+        </div>
 
         <div>
           <p className="eyebrow">{dict.about.eyebrow}</p>

@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
+  <!-- Out-of-focus desk, used behind sections under a scrim. The blur is the
+       point: it gives depth without competing with the text on top. -->
+  <defs>
+    <linearGradient id="dsWall" x1="0" y1="0" x2="0.25" y2="1">
+      <stop offset="0" stop-color="#fdfaf5"/>
+      <stop offset="0.6" stop-color="#efe6d7"/>
+      <stop offset="1" stop-color="#ddcdb2"/>
+    </linearGradient>
+    <linearGradient id="dsDesk" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#c9a87d"/>
+      <stop offset="1" stop-color="#a5824f"/>
+    </linearGradient>
+    <linearGradient id="dsLeaf" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0" stop-color="#93a588"/>
+      <stop offset="1" stop-color="#5f7057"/>
+    </linearGradient>
+    <filter id="dsBlur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="22"/>
+    </filter>
+    <filter id="dsBlurHard" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="46"/>
+    </filter>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#dsWall)"/>
+
+  <!-- light pools -->
+  <g filter="url(#dsBlurHard)" opacity="0.8">
+    <circle cx="1560" cy="180" r="340" fill="#ffffff"/>
+    <circle cx="300" cy="300" r="240" fill="#ffffff" opacity="0.7"/>
+  </g>
+
+  <rect y="700" width="1920" height="380" fill="url(#dsDesk)" filter="url(#dsBlur)"/>
+
+  <!-- plants and objects, all defocused -->
+  <g filter="url(#dsBlur)">
+    <g fill="url(#dsLeaf)" opacity="0.92">
+      <ellipse cx="250" cy="520" rx="34" ry="104"/>
+      <ellipse cx="170" cy="572" rx="30" ry="92" transform="rotate(-30 170 572)"/>
+      <ellipse cx="330" cy="572" rx="30" ry="92" transform="rotate(30 330 572)"/>
+      <ellipse cx="196" cy="662" rx="26" ry="78" transform="rotate(-52 196 662)"/>
+      <ellipse cx="304" cy="662" rx="26" ry="78" transform="rotate(52 304 662)"/>
+    </g>
+    <path d="M160 712h180l-22 176H182z" fill="#f2e8d8"/>
+
+    <g fill="url(#dsLeaf)" opacity="0.8">
+      <ellipse cx="1680" cy="560" rx="28" ry="88"/>
+      <ellipse cx="1612" cy="606" rx="25" ry="78" transform="rotate(-30 1612 606)"/>
+      <ellipse cx="1748" cy="606" rx="25" ry="78" transform="rotate(30 1748 606)"/>
+    </g>
+    <path d="M1612 700h136l-16 142h-104z" fill="#eadfcb"/>
+
+    <!-- book stack -->
+    <rect x="720" y="642" width="420" height="58" rx="8" fill="#12294a" opacity="0.92"/>
+    <rect x="740" y="584" width="384" height="56" rx="8" fill="#e0a43a" opacity="0.92"/>
+    <rect x="762" y="528" width="344" height="54" rx="8" fill="#fbf8f2"/>
+
+    <!-- mug -->
+    <rect x="1280" y="604" width="150" height="122" rx="16" fill="#12294a" opacity="0.9"/>
+    <ellipse cx="1355" cy="608" rx="75" ry="14" fill="#1d3c68"/>
+  </g>
+
+  <!-- warm wash to tie it together -->
+  <rect width="1920" height="1080" fill="#e0a43a" opacity="0.06"/>
+</svg>

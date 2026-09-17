@@ -8,6 +8,7 @@ import Services from "@/components/Services";
 import About from "@/components/About";
 import ValueBand from "@/components/ValueBand";
 import Audiences from "@/components/Audiences";
+import PromiseBand from "@/components/PromiseBand";
 import Program from "@/components/Program";
 import Testimonials from "@/components/Testimonials";
 import CtaBand from "@/components/CtaBand";
@@ -38,6 +39,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         <About dict={dict} />
         <ValueBand dict={dict} />
         <Audiences dict={dict} />
+        <PromiseBand dict={dict} />
         <Program dict={dict} />
         <Testimonials dict={dict} />
         <CtaBand dict={dict} />
