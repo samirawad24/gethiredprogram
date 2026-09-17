@@ -5,7 +5,7 @@ const es = {
   meta: {
     title: "Ana Prato, Coach de Carrera | Get Hired Program",
     description:
-      "Coaching de carrera bilingüe con una reclutadora con más de 15 años del lado de la contratación. Un programa de ocho sesiones para estudiantes, recién graduados y quienes cambian de carrera. Agenda una consulta gratuita.",
+      "Coaching de carrera bilingüe y uno a uno, con una reclutadora con más de 15 años del lado de la contratación. Una práctica pequeña a propósito, para estudiantes, recién graduados y quienes cambian de carrera, dentro y fuera de Estados Unidos. Agenda una consulta gratuita.",
     ogAlt: "Get Hired Program, coaching de carrera con Ana Prato",
   },
   skipLink: "Ir al contenido",
@@ -22,7 +22,7 @@ const es = {
     ariaLabel: "View the site in English",
   },
   hero: {
-    eyebrow: "Coaching de carrera en español e inglés",
+    eyebrow: "Coaching de carrera uno a uno, en español e inglés",
     // Titular de dos líneas, segunda línea en dorado, como en los diseños.
     headlineLead: "Ya hiciste el trabajo.",
     headlineAccent: "Ahora consigamos el empleo.",
@@ -31,21 +31,19 @@ const es = {
       "Llevo 15 años del lado de la contratación y te muestro cómo deciden los reclutadores, para que llegues listo a tu próxima entrevista.",
     cta: "Agenda tu consulta gratuita",
     secondaryCta: "Ver el programa",
-    note: "Ana Prato · Coach de carrera · Más de 15 años del lado de la contratación",
+    note: "Ana Prato · Coach de carrera · Más de 15 años del lado de la contratación · Clientes dentro y fuera de EE. UU.",
     // Describe la ilustración de marca. Reescribir cuando haya una foto real.
     imageAlt:
       "Un escritorio iluminado con una laptop, una taza de Get Hired y libros que dicen mejor currículum, mejores oportunidades, más confianza en ti",
   },
+  // Un número de clientes iría en contra del mensaje: la práctica es pequeña
+  // a propósito. Estos cuatro dicen cómo es el coaching, no cuánto ha habido.
   stats: {
-    // PLACEHOLDER: quitar esta nota cuando todos los números sean reales.
-    placeholderNote:
-      "Se muestran los números confirmados. Completa los que siguen con un guion antes de publicar.",
     items: [
       { value: "15+", label: "Años en adquisición de talento" },
-      { value: "8", label: "Sesiones del programa" },
+      { value: "1:1", label: "Cada sesión, uno a uno" },
       { value: "2", label: "Idiomas: español e inglés" },
-      // PLACEHOLDER: pedir a Ana el número real de personas asesoradas.
-      { value: "—", label: "Estudiantes asesorados" },
+      { value: "Global", label: "Clientes en EE. UU. y en el extranjero" },
     ],
   },
   services: {
@@ -75,6 +73,29 @@ const es = {
       },
     ],
   },
+  approach: {
+    eyebrow: "Cómo trabajo",
+    heading: "Una práctica pequeña, a propósito.",
+    intro:
+      "Mantengo mi lista de clientes corta. Es la única forma de que cada currículum, cada entrevista de práctica y cada plan reciban atención de verdad, hechos para una persona y no salidos de una plantilla.",
+    items: [
+      {
+        icon: "smallGroup" as const,
+        title: "Pocos clientes a la vez",
+        text: "Limito cuántas personas acepto, para que tus sesiones nunca se sientan hechas en serie.",
+      },
+      {
+        icon: "tailored" as const,
+        title: "Hecho para tus metas",
+        text: "Cada sesión parte de dónde estás, los puestos que quieres y lo que de verdad te está frenando.",
+      },
+      {
+        icon: "globe" as const,
+        title: "Donde sea que estés",
+        text: "El coaching es en línea, en español o inglés, para clientes dentro y fuera de Estados Unidos.",
+      },
+    ],
+  },
   about: {
     eyebrow: "Sobre mí",
     heading: "Hola, soy Ana.",
@@ -86,7 +107,8 @@ const es = {
     facts: [
       "Más de 15 años en adquisición de talento",
       "Bilingüe: español e inglés",
-      "En Ohio, con coaching en línea",
+      "Lista de clientes corta, a propósito",
+      "En Ohio, con clientes en todo el mundo",
     ],
     cta: "Trabajemos juntos",
     // Describe la ilustración de marca. Reescribir cuando haya una foto real.
@@ -214,7 +236,7 @@ const es = {
     calendarTitle: "Calendario de reservas",
   },
   footer: {
-    tagline: "Coaching de carrera en español e inglés.",
+    tagline: "Coaching de carrera uno a uno en español e inglés, donde sea que estés.",
     contact: "Contacto",
     follow: "Sígueme",
     rights: "Todos los derechos reservados.",
@@ -222,7 +244,7 @@ const es = {
   schema: {
     jobTitle: "Coach de Carrera",
     serviceDescription:
-      "Un programa de coaching de carrera de ocho sesiones para estudiantes, recién graduados y profesionales que cambian de carrera, en español e inglés.",
+      "Un programa de coaching de carrera uno a uno, de ocho sesiones, para estudiantes, recién graduados y profesionales que cambian de carrera, en español e inglés, con una lista de clientes corta a propósito y clientes dentro y fuera de Estados Unidos.",
   },
   // HERRAMIENTA DE VISTA PREVIA: borrar junto con ThemeSwitcher.tsx cuando se
   // elija una dirección de diseño.

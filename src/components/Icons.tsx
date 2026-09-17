@@ -56,6 +56,45 @@ export function CheckIcon({ className }: IconProps) {
   );
 }
 
+export function SmallGroupIcon({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <circle cx="12" cy="8" r="3.2" />
+      <path d="M6.2 19.5a5.8 5.8 0 0 1 11.6 0" />
+      <path d="M4.5 11.2a2.4 2.4 0 1 0-.9-4.3M19.5 11.2a2.4 2.4 0 1 0 .9-4.3" opacity="0.5" />
+    </svg>
+  );
+}
+
+export function TailoredIcon({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M5 7h14M5 12h14M5 17h14" />
+      <circle cx="9" cy="7" r="2" fill="currentColor" stroke="none" />
+      <circle cx="15" cy="12" r="2" fill="currentColor" stroke="none" />
+      <circle cx="8" cy="17" r="2" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+export function GlobeIcon({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M3 12h18" />
+      <path d="M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18Z" />
+    </svg>
+  );
+}
+
+export const approachIcons = {
+  smallGroup: SmallGroupIcon,
+  tailored: TailoredIcon,
+  globe: GlobeIcon,
+} as const;
+
+export type ApproachIconName = keyof typeof approachIcons;
+
 export const serviceIcons = {
   resume: ResumeIcon,
   linkedin: LinkedInIcon,

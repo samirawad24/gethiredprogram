@@ -602,6 +602,17 @@ section[id] {
     }
   }
 
+  /* Stat values are client-editable, and the bold theme sets them in heavy
+     uppercase. Fluid sizing keeps a long word like "Worldwide" inside its
+     column on a phone. Keep values to about six characters and they stay big;
+     the wrap rule is a last resort for anything longer. */
+  .stat__value {
+    display: block;
+    font-size: clamp(1.9rem, 8vw, 3rem);
+    line-height: 1.05;
+    overflow-wrap: anywhere;
+  }
+
   /* --- Monogram avatars for the testimonial cards ------------------------- */
   .avatar {
     display: inline-flex;
