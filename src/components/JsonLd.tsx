@@ -35,7 +35,7 @@ export default function JsonLd({ lang, dict }: Props) {
         email: site.email,
         founder: { "@id": personId },
         availableLanguage: ["English", "Spanish"],
-        areaServed: "US",
+        areaServed: "Worldwide",
         // PLACEHOLDER: confirm business location
         address: {
           "@type": "PostalAddress",

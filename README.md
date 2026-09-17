@@ -97,8 +97,8 @@ Fonts are Playfair Display (headings) and Figtree (body), self-hosted by
 
 `src/app/[lang]/page.tsx` assembles them in this order:
 
-Header · Hero · Stats · Services · About · ValueBand · Audiences · PromiseBand ·
-Program · Testimonials · CtaBand · Booking · Footer
+Header · Hero · Stats · Services · Approach · About · ValueBand · Audiences ·
+PromiseBand · Program · Testimonials · CtaBand · Booking · Footer
 
 ## Swap in real content
 
@@ -112,8 +112,9 @@ Search the project for `PLACEHOLDER` to find every spot.
 | Image alt text | `hero.imageAlt`, `about.imageAlt` and `promise.imageAlt` in both dictionaries |
 | Email, LinkedIn, Instagram | `src/lib/site.ts` |
 | Testimonials | `testimonials.items` in both dictionaries. Delete `placeholderNote` and its line in `src/components/Testimonials.tsx` when real quotes are in. |
-| The four numbers under the hero | `stats.items` in both dictionaries. One is still a dash. Delete `placeholderNote` and its line in `src/components/Stats.tsx` when they are all real. |
+| The four numbers under the hero | `stats.items` in both dictionaries. Keep each `value` to about six characters so it stays large on a phone; longer values shrink, then wrap. Note there is deliberately no client head count — see below. |
 | Service cards | `services.items` in both dictionaries. `icon` picks from `src/components/Icons.tsx`. |
+| How I work | `approach.items` in both dictionaries, same icon set. |
 | Logo | `src/components/Logo.tsx` draws the badge in SVG. Replace with a real file when one exists. |
 | Colours and fonts | `src/app/globals.css` (colours, themes) and `src/app/[lang]/layout.tsx` (fonts) |
 | Structured data details | `src/components/JsonLd.tsx` |
@@ -121,6 +122,23 @@ Search the project for `PLACEHOLDER` to find every spot.
 Both dictionaries share one TypeScript type, so the build fails if you add a string to one language and forget the other.
 
 
+
+## What the site is selling
+
+Two things set this coaching apart, and the copy leans on both:
+
+- **The practice is deliberately small.** Ana caps how many clients she takes at
+  once so every resume, mock interview and plan gets real attention. The
+  `approach` section says this outright, and it is why the stat bar has **no
+  client head count**: a volume number argues against the pitch. The four stats
+  describe what the coaching *is* instead of how much of it there has been.
+- **Clients are not limited to the US.** Coaching is online, in English or
+  Spanish, for people inside and outside the United States. This shows up in the
+  hero, the stat bar, the `approach` section and the JSON-LD (`areaServed` is
+  `Worldwide`, not `US`).
+
+If either changes, both dictionaries and `src/components/JsonLd.tsx` need
+updating together.
 
 ## Swap in real photos
 

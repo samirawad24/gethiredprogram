@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Stats from "@/components/Stats";
 import Services from "@/components/Services";
+import Approach from "@/components/Approach";
 import About from "@/components/About";
 import ValueBand from "@/components/ValueBand";
 import Audiences from "@/components/Audiences";
@@ -36,6 +37,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         <Hero dict={dict} />
         <Stats dict={dict} />
         <Services dict={dict} />
+        <Approach dict={dict} />
         <About dict={dict} />
         <ValueBand dict={dict} />
         <Audiences dict={dict} />

@@ -5,7 +5,7 @@ const en = {
   meta: {
     title: "Ana Prato, Career Coach | Get Hired Program",
     description:
-      "Bilingual career coaching from a recruiter with 15+ years on the hiring side. An eight-session program for students, recent graduates and career changers. Book a free consultation.",
+      "One-to-one bilingual career coaching from a recruiter with 15+ years on the hiring side. A deliberately small practice, for students, recent graduates and career changers in the US and abroad. Book a free consultation.",
     ogAlt: "Get Hired Program, career coaching with Ana Prato",
   },
   skipLink: "Skip to content",
@@ -22,7 +22,7 @@ const en = {
     ariaLabel: "Ver el sitio en español",
   },
   hero: {
-    eyebrow: "Career coaching in English and Spanish",
+    eyebrow: "One-to-one career coaching, in English and Spanish",
     // Two-line headline, gold second line, as on the design boards.
     headlineLead: "You've done the work.",
     headlineAccent: "Now let's get you hired.",
@@ -31,20 +31,20 @@ const en = {
       "I've spent 15 years on the hiring side, and I'll show you how recruiters decide so you walk into your next interview ready.",
     cta: "Book a free consultation",
     secondaryCta: "See the program",
-    note: "Ana Prato · Career coach · 15+ years on the hiring side",
+    note: "Ana Prato · Career coach · 15+ years on the hiring side · Clients in the US and abroad",
     // Describes the brand art. Rewrite when a real photo replaces it.
     imageAlt:
       "A sunlit desk with a laptop, a Get Hired mug, and a stack of books reading better resume, brighter opportunities, a more confident you",
   },
+  // A head count would work against the pitch: the practice is small on
+  // purpose. These four say what the coaching is instead of how much of it
+  // there has been.
   stats: {
-    // PLACEHOLDER: delete this note once every number below is real.
-    placeholderNote: "Confirmed numbers shown. Add the ones still marked with a dash before launch.",
     items: [
       { value: "15+", label: "Years in talent acquisition" },
-      { value: "8", label: "Sessions in the program" },
+      { value: "1:1", label: "Every session, one to one" },
       { value: "2", label: "Languages: English and Spanish" },
-      // PLACEHOLDER: ask Ana for the real count of people coached.
-      { value: "—", label: "Students coached" },
+      { value: "Global", label: "Clients in the US and abroad" },
     ],
   },
   services: {
@@ -74,6 +74,29 @@ const en = {
       },
     ],
   },
+  approach: {
+    eyebrow: "How I work",
+    heading: "A small practice, on purpose.",
+    intro:
+      "I keep my client list short. It is the only way every resume, every mock interview and every plan gets real attention, built around one person instead of run off a template.",
+    items: [
+      {
+        icon: "smallGroup" as const,
+        title: "Only a few clients at a time",
+        text: "I cap how many people I take on, so your sessions never feel like a production line.",
+      },
+      {
+        icon: "tailored" as const,
+        title: "Built around your goals",
+        text: "Every session starts from where you are, the roles you want, and what is actually getting in the way.",
+      },
+      {
+        icon: "globe" as const,
+        title: "Wherever you are",
+        text: "Coaching happens online, in English or Spanish, for clients inside and outside the United States.",
+      },
+    ],
+  },
   about: {
     eyebrow: "About me",
     heading: "Hi, I'm Ana.",
@@ -85,7 +108,8 @@ const en = {
     facts: [
       "15+ years in talent acquisition",
       "Bilingual: English and Spanish",
-      "Based in Ohio, coaching online",
+      "A short client list, on purpose",
+      "Based in Ohio, coaching clients worldwide",
     ],
     cta: "Work with me",
     // Describes the brand art. Rewrite when a real photo replaces it.
@@ -212,7 +236,7 @@ const en = {
     calendarTitle: "Booking calendar",
   },
   footer: {
-    tagline: "Career coaching in English and Spanish.",
+    tagline: "One-to-one career coaching in English and Spanish, wherever you are.",
     contact: "Contact",
     follow: "Follow",
     rights: "All rights reserved.",
@@ -220,7 +244,7 @@ const en = {
   schema: {
     jobTitle: "Career Coach",
     serviceDescription:
-      "An eight-session career coaching program for students, recent graduates and professionals changing careers, taught in English and Spanish.",
+      "A one-to-one, eight-session career coaching program for students, recent graduates and professionals changing careers, taught in English and Spanish, with a deliberately short client list and clients in the United States and abroad.",
   },
   // PREVIEW TOOL: delete this block together with ThemeSwitcher.tsx once a
   // design direction is chosen.
