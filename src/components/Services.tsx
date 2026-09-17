@@ -5,7 +5,7 @@ export default function Services({ dict }: { dict: Dictionary }) {
   const { services } = dict;
 
   return (
-    <section id="services" aria-labelledby="services-heading" className="section section--alt">
+    <section id="services" aria-labelledby="services-heading" className="section section--alt section--wash">
       <div className="shell">
         <div className="max-w-2xl">
           <p className="eyebrow">{services.eyebrow}</p>

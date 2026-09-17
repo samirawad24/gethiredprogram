@@ -1,12 +1,15 @@
 import type { Dictionary } from "@/dictionaries";
 import { site } from "@/lib/site";
+import Backdrop from "./Backdrop";
 import CalEmbed from "./CalEmbed";
 
 export default function Booking({ dict }: { dict: Dictionary }) {
   const { booking } = dict;
 
   return (
-    <section id="booking" aria-labelledby="booking-heading" className="section section--alt">
+    <section id="booking" aria-labelledby="booking-heading" className="has-backdrop section section--alt">
+      <Backdrop scrim="light" />
+
       <div className="shell">
         <div className="mx-auto max-w-2xl text-center">
           <p className="eyebrow">{booking.eyebrow}</p>

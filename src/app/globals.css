@@ -433,6 +433,204 @@ section[id] {
     color: var(--color-navy);
   }
 
+
+  /* --- Background image layers -------------------------------------------
+     A section gets .has-backdrop, a <Backdrop /> and a .shell for its
+     content. The image fills the section, a scrim knocks it back, and the
+     content sits above both.
+  ------------------------------------------------------------------------ */
+  .has-backdrop {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .has-backdrop > .shell,
+  .has-backdrop > .hero__inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  .backdrop {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .backdrop__img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .backdrop__scrim {
+    position: absolute;
+    inset: 0;
+  }
+
+  .backdrop__scrim--navy {
+    background: linear-gradient(
+      100deg,
+      rgba(18, 41, 74, 0.97) 0%,
+      rgba(18, 41, 74, 0.92) 55%,
+      rgba(18, 41, 74, 0.82) 100%
+    );
+  }
+
+  .backdrop__scrim--navy-deep {
+    background: linear-gradient(
+      160deg,
+      rgba(11, 27, 49, 0.97) 0%,
+      rgba(11, 27, 49, 0.93) 60%,
+      rgba(11, 27, 49, 0.86) 100%
+    );
+  }
+
+  .backdrop__scrim--light {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(255, 255, 255, 0.9) 45%,
+      rgba(246, 244, 241, 0.94) 100%
+    );
+  }
+
+  /* The badge, ghosted into the corner, as on board 3. */
+  .backdrop__watermark {
+    position: absolute;
+    right: -3rem;
+    bottom: -5rem;
+    width: 22rem;
+    height: 22rem;
+    color: currentColor;
+    opacity: 0.07;
+  }
+
+  @media (min-width: 768px) {
+    .backdrop__watermark {
+      right: -4rem;
+      bottom: -7rem;
+      width: 30rem;
+      height: 30rem;
+    }
+  }
+
+  /* Paper grain. Very low contrast; it reads as texture, not noise. */
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.28;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.45'/%3E%3C/svg%3E");
+  }
+
+  /* A soft wash so large light sections are not flat white. */
+  .section--wash {
+    background-image:
+      radial-gradient(60rem 30rem at 85% -10%, rgba(224, 164, 58, 0.12), transparent 70%),
+      radial-gradient(50rem 28rem at 5% 110%, rgba(18, 41, 74, 0.07), transparent 70%);
+  }
+
+  [data-theme="bold"] .section--wash {
+    background-image:
+      radial-gradient(56rem 28rem at 90% -15%, rgba(224, 164, 58, 0.18), transparent 68%),
+      radial-gradient(46rem 26rem at 0% 115%, rgba(18, 41, 74, 0.1), transparent 70%);
+  }
+
+  [data-theme="minimal"] .section--wash {
+    background-image:
+      radial-gradient(64rem 32rem at 88% -12%, rgba(224, 164, 58, 0.07), transparent 72%);
+  }
+
+  /* The hero carries two crops: a portrait beside the text, and a wide one
+     for the bold theme, where the image fills the whole section. */
+  .hero__img--wide {
+    display: none;
+  }
+
+  [data-theme="bold"] .hero__img--portrait {
+    display: none;
+  }
+
+  [data-theme="bold"] .hero__img--wide {
+    display: block;
+  }
+
+  /* --- Promise band: art on one side, the line that sells it on the other -- */
+  .promise {
+    display: grid;
+    align-items: stretch;
+  }
+
+  @media (min-width: 900px) {
+    .promise {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .promise__media {
+    position: relative;
+    min-height: 18rem;
+  }
+
+  .promise__img {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .promise__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3rem 1.25rem;
+  }
+
+  @media (min-width: 640px) {
+    .promise__body {
+      padding: 4rem 3rem;
+    }
+  }
+
+  @media (min-width: 900px) {
+    .promise__body {
+      padding: 5rem 4rem;
+    }
+  }
+
+  /* --- Monogram avatars for the testimonial cards ------------------------- */
+  .avatar {
+    display: inline-flex;
+    height: 2.75rem;
+    width: 2.75rem;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: var(--color-navy);
+    color: #ffffff;
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+
+  [data-theme="bold"] .avatar {
+    border-radius: var(--radius-btn);
+    background: var(--color-gold);
+    color: var(--color-navy-deep);
+  }
+
+  [data-theme="minimal"] .avatar {
+    background: transparent;
+    border: 1px solid var(--color-line);
+    color: var(--color-navy);
+  }
+
   /* --- Service / icon tiles ---------------------------------------------- */
   .icon-badge {
     display: inline-flex;

@@ -32,8 +32,9 @@ const en = {
     cta: "Book a free consultation",
     secondaryCta: "See the program",
     note: "Ana Prato · Career coach · 15+ years on the hiring side",
-    // PLACEHOLDER: rewrite to describe the real photo
-    imageAlt: "Ana Prato, career coach, smiling in a bright home office",
+    // Describes the brand art. Rewrite when a real photo replaces it.
+    imageAlt:
+      "A sunlit desk with a laptop, a Get Hired mug, and a stack of books reading better resume, brighter opportunities, a more confident you",
   },
   stats: {
     // PLACEHOLDER: delete this note once every number below is real.
@@ -87,8 +88,9 @@ const en = {
       "Based in Ohio, coaching online",
     ],
     cta: "Work with me",
-    // PLACEHOLDER: rewrite to describe the real photo
-    imageAlt: "Ana Prato at her desk, reviewing a client's resume on a laptop",
+    // Describes the brand art. Rewrite when a real photo replaces it.
+    imageAlt:
+      "A bright workspace with a Get Hired mug and books reading skills, opportunity and confidence",
   },
   audiences: {
     eyebrow: "Who it's for",
@@ -156,6 +158,14 @@ const en = {
         text: "We compare offers, rehearse the negotiation and plan how you start the new job.",
       },
     ],
+  },
+  promise: {
+    heading: "Discipline today leads to the career you want tomorrow.",
+    sub: "Small, specific work each week, and someone who keeps you honest about it.",
+    cta: "Book a session",
+    // Describes the brand art. Rewrite when a real photo replaces it.
+    imageAlt:
+      "An open notebook listing better resume, brighter opportunities and you got this, beside a pen and a Get Hired mug",
   },
   values: {
     items: ["Confidence today.", "Interviews tomorrow.", "A career you'll love."],

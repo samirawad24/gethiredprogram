@@ -1,5 +1,15 @@
 import type { Dictionary } from "@/dictionaries";
 
+// Initials stand in for a headshot. Real photos of real clients can replace
+// this; stock faces next to a quote would be inventing the person.
+const initials = (name: string) =>
+  name
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0]?.toUpperCase() ?? "")
+    .join("");
+
 export default function Testimonials({ dict }: { dict: Dictionary }) {
   const { testimonials } = dict;
 
@@ -29,9 +39,14 @@ export default function Testimonials({ dict }: { dict: Dictionary }) {
                 <blockquote className="mt-2 flex-1 font-serif text-lg leading-snug">
                   {item.quote}
                 </blockquote>
-                <figcaption className="mt-6 text-sm">
-                  <span className="block font-semibold">{item.name}</span>
-                  <span className="text-muted">{item.role}</span>
+                <figcaption className="mt-6 flex items-center gap-3 text-sm">
+                  <span aria-hidden="true" className="avatar">
+                    {initials(item.name)}
+                  </span>
+                  <span>
+                    <span className="block font-semibold">{item.name}</span>
+                    <span className="text-muted">{item.role}</span>
+                  </span>
                 </figcaption>
               </figure>
             </li>

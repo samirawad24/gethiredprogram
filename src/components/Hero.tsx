@@ -29,15 +29,25 @@ export default function Hero({ dict }: { dict: Dictionary }) {
         </div>
 
         <div className="hero__media">
-          {/* PLACEHOLDER image: replace site.images.hero in src/lib/site.ts */}
+          {/* Two crops of the same idea: the portrait sits beside the text,
+              the wide one fills the section in the bold theme. Swap both for
+              real photos via site.images.hero / heroWide. */}
           <Image
             src={asset(site.images.hero)}
             alt={dict.hero.imageAlt}
-            width={900}
-            height={1100}
+            width={1200}
+            height={1500}
             priority
             sizes="(min-width: 900px) 50vw, 100vw"
-            className="hero__img"
+            className="hero__img hero__img--portrait"
+          />
+          <Image
+            src={asset(site.images.heroWide)}
+            alt=""
+            width={1920}
+            height={1080}
+            sizes="100vw"
+            className="hero__img hero__img--wide"
           />
           <span aria-hidden="true" className="hero__scrim" />
         </div>

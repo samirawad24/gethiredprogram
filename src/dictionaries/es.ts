@@ -32,8 +32,9 @@ const es = {
     cta: "Agenda tu consulta gratuita",
     secondaryCta: "Ver el programa",
     note: "Ana Prato · Coach de carrera · Más de 15 años del lado de la contratación",
-    // PLACEHOLDER: describir la foto real
-    imageAlt: "Ana Prato, coach de carrera, sonriendo en una oficina luminosa",
+    // Describe la ilustración de marca. Reescribir cuando haya una foto real.
+    imageAlt:
+      "Un escritorio iluminado con una laptop, una taza de Get Hired y libros que dicen mejor currículum, mejores oportunidades, más confianza en ti",
   },
   stats: {
     // PLACEHOLDER: quitar esta nota cuando todos los números sean reales.
@@ -88,8 +89,9 @@ const es = {
       "En Ohio, con coaching en línea",
     ],
     cta: "Trabajemos juntos",
-    // PLACEHOLDER: describir la foto real
-    imageAlt: "Ana Prato en su escritorio, revisando el currículum de un cliente",
+    // Describe la ilustración de marca. Reescribir cuando haya una foto real.
+    imageAlt:
+      "Un espacio de trabajo luminoso con una taza de Get Hired y libros que dicen habilidades, oportunidad y confianza",
   },
   audiences: {
     eyebrow: "Para quién es",
@@ -157,6 +159,14 @@ const es = {
         text: "Comparamos ofertas, ensayamos la negociación y planeamos cómo empiezas en el nuevo trabajo.",
       },
     ],
+  },
+  promise: {
+    heading: "La disciplina de hoy construye la carrera que quieres mañana.",
+    sub: "Trabajo concreto cada semana, y alguien que te mantiene en el camino.",
+    cta: "Agendar sesión",
+    // Describe la ilustración de marca. Reescribir cuando haya una foto real.
+    imageAlt:
+      "Un cuaderno abierto con la lista mejor currículum, mejores oportunidades y tú puedes, junto a un bolígrafo y una taza de Get Hired",
   },
   values: {
     items: ["Confianza hoy.", "Entrevistas mañana.", "Una carrera que te guste."],
