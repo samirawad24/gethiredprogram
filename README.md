@@ -139,7 +139,7 @@ Search the project for `PLACEHOLDER` to find every spot.
 | The four numbers under the hero | `stats.items` in both dictionaries. Keep each `value` to about six characters so it stays large on a phone; longer values shrink, then wrap. Note there is deliberately no client head count — see below. |
 | Service cards | `services.items` in both dictionaries. `icon` picks from `src/components/Icons.tsx`. |
 | How I work | `approach.items` in both dictionaries, same icon set. |
-| Logo | `src/components/Logo.tsx` draws the badge in SVG. Replace with a real file when one exists. |
+| Logo | Ana's real badge at `public/images/logo.png`, path in `site.logo`. `src/components/Logo.tsx` just renders it. The favicon (`src/app/favicon.ico`, `src/app/icon.png`) and the social card are generated from the same mark. |
 | Colours and fonts | `src/app/globals.css` (colours, themes) and `src/app/[lang]/layout.tsx` (fonts) |
 | Structured data details | `src/components/JsonLd.tsx` |
 
