@@ -22,7 +22,7 @@ export default function Header({ lang, dict, page }: Props) {
         <Link
           href={pagePath(lang, "home")}
           aria-label={dict.nav.homeAria}
-          className="flex shrink-0 items-center gap-2.5 text-navy"
+          className="flex h-11 min-w-11 shrink-0 items-center gap-2.5 text-navy"
         >
           <Logo className="h-10 w-10 sm:h-11 sm:w-11" />
           <span className="sr-only">{site.brand}</span>

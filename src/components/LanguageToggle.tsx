@@ -16,7 +16,7 @@ export default function LanguageToggle({ lang, dict, page }: Props) {
       hrefLang={other}
       lang={other}
       aria-label={dict.languageToggle.ariaLabel}
-      className="rounded-md border border-line px-2.5 py-1.5 text-sm font-medium text-ink transition-colors hover:border-navy hover:text-navy"
+      className="inline-flex h-11 items-center rounded-md border border-line px-3 text-sm font-medium text-ink transition-colors hover:border-navy hover:text-navy sm:h-9"
     >
       {dict.languageToggle.label}
     </Link>
