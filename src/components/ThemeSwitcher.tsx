@@ -19,7 +19,8 @@ function subscribe(onChange: () => void) {
 // on the live site. Delete this component and its <ThemeSwitcher /> in
 // [lang]/page.tsx once a direction is chosen.
 export default function ThemeSwitcher({ dict }: { dict: Dictionary }) {
-  const [open, setOpen] = useState(true);
+  // Collapsed by default: expanded, it covers real content on a phone.
+  const [open, setOpen] = useState(false);
 
   // data-theme on <html> is the source of truth: the inline script sets it
   // before paint, so read it back rather than keeping a second copy in state.
@@ -49,7 +50,7 @@ export default function ThemeSwitcher({ dict }: { dict: Dictionary }) {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="fixed bottom-4 right-4 z-50 rounded-full bg-navy px-4 py-2.5 text-sm font-semibold text-white shadow-lg"
+        className="fixed bottom-4 right-4 z-40 rounded-full bg-navy px-4 py-2.5 text-sm font-semibold text-white shadow-lg"
       >
         {dict.themePicker.label}
       </button>
@@ -59,7 +60,7 @@ export default function ThemeSwitcher({ dict }: { dict: Dictionary }) {
   return (
     <aside
       aria-label={dict.themePicker.label}
-      className="fixed bottom-4 right-4 z-50 w-[15.5rem] rounded-xl bg-navy-deep/95 p-4 text-white shadow-2xl backdrop-blur"
+      className="fixed bottom-4 right-4 z-40 w-[15.5rem] rounded-xl bg-navy-deep/95 p-4 text-white shadow-2xl backdrop-blur"
     >
       <div className="flex items-start justify-between gap-3">
         <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gold">
