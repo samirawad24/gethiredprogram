@@ -16,7 +16,7 @@ export default function Footer({ dict, lang }: { dict: Dictionary; lang: Locale 
     <footer className="on-dark bg-navy-deep">
       <div className="shell grid gap-10 py-14 sm:grid-cols-2 md:grid-cols-4">
         <div>
-          <Logo className="h-14 w-14 text-white/90" />
+          <Logo className="h-14 w-14" />
           <p className="mt-4 font-serif text-xl font-semibold">{site.brand}</p>
           <p className="lead mt-2 text-sm">{footer.tagline}</p>
         </div>

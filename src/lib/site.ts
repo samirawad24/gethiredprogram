@@ -28,6 +28,9 @@ export const site = {
   // drop a file into /public/images and change the path here, nothing else.
   // Shapes: hero 4:5 portrait, heroWide 16:9, about 1:1, notebook 7:5,
   // backdrop 16:9. See "Swap in real photos" in README.md.
+  // Ana's real badge. White disc on a transparent surround, so it works on
+  // the white header and reads as a printed seal on navy.
+  logo: "/images/logo.png",
   images: {
     hero: "/images/art/hero-portrait.svg",
     heroWide: "/images/art/hero-wide.svg",

@@ -1,3 +1,5 @@
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import { ImageResponse } from "next/og";
 import { getDictionary } from "@/dictionaries";
 import { hasLocale, locales, site } from "@/lib/site";
@@ -14,6 +16,11 @@ export async function GET(_request: Request, { params }: RouteContext<"/[lang]/o
   const { lang } = await params;
   const dict = getDictionary(hasLocale(lang) ? lang : "en");
 
+  // Inlined at build time: the card is generated once per language during the
+  // static export, so reading from disk here costs nothing at runtime.
+  const logo = await readFile(join(process.cwd(), "public/images/logo.png"));
+  const logoSrc = `data:image/png;base64,${logo.toString("base64")}`;
+
   return new ImageResponse(
     (
       <div
@@ -28,8 +35,12 @@ export async function GET(_request: Request, { params }: RouteContext<"/[lang]/o
           color: "#ffffff",
         }}
       >
-        <div style={{ fontSize: 32, color: "#e0a43a", letterSpacing: 2 }}>
-          {site.brand.toUpperCase()}
+        <div style={{ display: "flex", alignItems: "center", gap: 28 }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={logoSrc} width={132} height={132} alt="" />
+          <div style={{ fontSize: 32, color: "#e0a43a", letterSpacing: 2 }}>
+            {site.brand.toUpperCase()}
+          </div>
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ fontSize: 96, fontWeight: 700 }}>{site.coachName}</div>
