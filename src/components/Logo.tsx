@@ -1,7 +1,12 @@
+import { site } from "@/lib/site";
+
 type Props = { className?: string; title?: string };
 
-// Circular badge mark from the design boards. Draws in currentColor, so it
-// works on white and on navy. Swap for a real logo file when one exists.
+// Circular badge mark. Draws in currentColor, so it works on white and on
+// navy. The bottom arc carries Ana's name rather than a tagline: the practice
+// is an extension of her, not a brand standing on its own. It reads from
+// site.coachName so the two can never disagree.
+// Swap for a real logo file when one exists.
 export default function Logo({ className = "", title }: Props) {
   return (
     <svg
@@ -17,7 +22,7 @@ export default function Logo({ className = "", title }: Props) {
 
       <defs>
         <path id="logo-arc-top" d="M 17 50 A 33 33 0 0 1 83 50" />
-        <path id="logo-arc-bottom" d="M 22 50 A 28 28 0 0 0 78 50" />
+        <path id="logo-arc-bottom" d="M 18 50 A 32 32 0 0 0 82 50" />
       </defs>
 
       <text
@@ -34,18 +39,18 @@ export default function Logo({ className = "", title }: Props) {
 
       <text
         fill="currentColor"
-        fontSize="6.4"
+        fontSize="7"
         fontWeight="600"
-        letterSpacing="1.2"
+        letterSpacing="2"
         fontFamily="var(--font-sans)"
       >
         <textPath href="#logo-arc-bottom" startOffset="50%" textAnchor="middle">
-          STUDENT SUCCESS
+          {site.coachName.toUpperCase()}
         </textPath>
       </text>
 
       <path d="M30 42h40" stroke="currentColor" strokeWidth="0.9" opacity="0.5" />
-      <path d="M30 62h40" stroke="currentColor" strokeWidth="0.9" opacity="0.5" />
+      <path d="M33 62h34" stroke="currentColor" strokeWidth="0.9" opacity="0.5" />
       <text
         x="50"
         y="56"
