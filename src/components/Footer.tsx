@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Dictionary } from "@/dictionaries";
 import { pagePath } from "@/lib/routes";
 import { site, type Locale } from "@/lib/site";
+import { InstagramIcon, LinkedInIcon } from "./Icons";
 import Logo from "./Logo";
 
 export default function Footer({ dict, lang }: { dict: Dictionary; lang: Locale }) {
@@ -43,18 +44,31 @@ export default function Footer({ dict, lang }: { dict: Dictionary; lang: Locale 
 
         <div>
           <h2 className="eyebrow">{footer.follow}</h2>
-          <ul className="mt-3 space-y-2">
+          <ul className="mt-3 flex items-center gap-3">
             <li>
-              <a href={site.linkedin} target="_blank" rel="noopener noreferrer" className={linkClass}>
-                LinkedIn
+              <a
+                href={site.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="social-btn"
+              >
+                <LinkedInIcon className="h-5 w-5" />
               </a>
             </li>
             <li>
-              <a href={site.instagram} target="_blank" rel="noopener noreferrer" className={linkClass}>
-                Instagram {site.instagramHandle}
+              <a
+                href={site.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Instagram ${site.instagramHandle}`}
+                className="social-btn"
+              >
+                <InstagramIcon className="h-5 w-5" />
               </a>
             </li>
           </ul>
+          <p className="lead mt-3 text-sm">{site.instagramHandle}</p>
         </div>
       </div>
       <p className="border-t border-white/10 px-5 py-6 text-center text-sm text-white/50">
