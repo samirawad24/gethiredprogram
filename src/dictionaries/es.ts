@@ -3,19 +3,39 @@
 
 const es = {
   meta: {
-    title: "Ana Prato, Coach de Carrera | Get Hired Program",
-    description:
-      "Coaching de carrera bilingüe y uno a uno, con una reclutadora con más de 15 años del lado de la contratación. Una práctica pequeña a propósito, para estudiantes, recién graduados y quienes cambian de carrera, dentro y fuera de Estados Unidos. Agenda una consulta gratuita.",
     ogAlt: "Get Hired Program, coaching de carrera con Ana Prato",
+    home: {
+      title: "Ana Prato, Coach de Carrera | Get Hired Program",
+      description:
+        "Coaching de carrera bilingüe y uno a uno, con una reclutadora con más de 15 años del lado de la contratación. Una práctica pequeña a propósito, para estudiantes, recién graduados y quienes cambian de carrera, dentro y fuera de Estados Unidos. Agenda una consulta gratuita.",
+    },
+    about: {
+      title: "Sobre Ana Prato | Get Hired Program",
+      description:
+        "Quince años en adquisición de talento, del lado de la mesa donde se decide a quién contratar. Por qué Ana mantiene su lista de clientes corta, y con quién trabaja.",
+    },
+    services: {
+      title: "Servicios y el programa de ocho sesiones | Get Hired Program",
+      description:
+        "Revisión de currículum, optimización de LinkedIn, preparación de entrevistas y estrategia de carrera, además del programa de ocho sesiones. Uno a uno, en español o inglés.",
+    },
+    contact: {
+      title: "Agenda tu consulta gratuita | Get Hired Program",
+      description:
+        "Treinta minutos, sin costo. Elige la hora que te funcione, estés donde estés, y vemos si el programa es para ti.",
+    },
   },
   skipLink: "Ir al contenido",
   nav: {
+    home: "Inicio",
     about: "Sobre mí",
     services: "Servicios",
-    program: "Programa",
-    testimonials: "Historias",
+    contact: "Contacto",
     book: "Agendar sesión",
-    home: "Inicio de Get Hired Program",
+    homeAria: "Inicio de Get Hired Program",
+    primary: "Principal",
+    openMenu: "Abrir menú",
+    closeMenu: "Cerrar menú",
   },
   languageToggle: {
     label: "English",
@@ -46,9 +66,28 @@ const es = {
       { value: "Global", label: "Clientes en EE. UU. y en el extranjero" },
     ],
   },
+  // Introducciones de las páginas Sobre mí, Servicios y Contacto.
+  pageHero: {
+    about: {
+      eyebrow: "Sobre mí",
+      heading: "Quince años del otro lado de la mesa.",
+      lead: "Sé cómo se toman de verdad las decisiones de contratación, porque yo las tomaba. Esto es lo que eso cambia en lo que trabajamos.",
+    },
+    services: {
+      eyebrow: "Servicios",
+      heading: "Todo lo que necesitas para destacar y ser contratado.",
+      lead: "Cuatro formas en las que te ayudo, y el programa de ocho sesiones que las pone en orden.",
+    },
+    contact: {
+      eyebrow: "Contacto",
+      heading: "¿Listo para dar el siguiente paso?",
+      lead: "Treinta minutos, sin costo, estés donde estés. Cuéntame en qué punto de tu búsqueda estás y vemos si el programa es para ti.",
+    },
+  },
   services: {
     eyebrow: "Servicios",
     heading: "Cómo te puedo ayudar",
+    allCta: "Ver todos los servicios",
     intro: "Guía práctica, basada en cómo se toman de verdad las decisiones de contratación.",
     items: [
       {
@@ -111,6 +150,7 @@ const es = {
       "En Ohio, con clientes en todo el mundo",
     ],
     cta: "Trabajemos juntos",
+    teaserCta: "Más sobre mí",
     // Describe la ilustración de marca. Reescribir cuando haya una foto real.
     imageAlt:
       "Un espacio de trabajo luminoso con una taza de Get Hired y libros que dicen habilidades, oportunidad y confianza",
@@ -226,17 +266,13 @@ const es = {
     button: "Agendar sesión",
   },
   booking: {
-    eyebrow: "Trabajemos juntos",
-    heading: "Agenda tu consulta gratuita",
-    // PLACEHOLDER: confirmar duración de la llamada
-    intro:
-      "Treinta minutos, sin costo. Cuéntame dónde estás y vemos si el programa es para ti.",
     fallback:
       "El calendario aparece aquí cuando configures NEXT_PUBLIC_CAL_LINK. Mientras tanto, escribe a",
     calendarTitle: "Calendario de reservas",
   },
   footer: {
     tagline: "Coaching de carrera uno a uno en español e inglés, donde sea que estés.",
+    pages: "Páginas",
     contact: "Contacto",
     follow: "Sígueme",
     rights: "Todos los derechos reservados.",

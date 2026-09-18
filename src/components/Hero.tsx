@@ -1,12 +1,13 @@
 import Image from "next/image";
 import type { Dictionary } from "@/dictionaries";
-import { asset, site } from "@/lib/site";
+import { pagePath } from "@/lib/routes";
+import { asset, site, type Locale } from "@/lib/site";
 import Button from "./Button";
 
 // One markup, three looks. Classic and minimal put the portrait beside the
 // text; the bold theme stretches it behind a navy scrim (see .hero in
 // globals.css).
-export default function Hero({ dict }: { dict: Dictionary }) {
+export default function Hero({ dict, lang }: { dict: Dictionary; lang: Locale }) {
   return (
     <section className="hero">
       <div className="shell hero__inner">
@@ -19,8 +20,8 @@ export default function Hero({ dict }: { dict: Dictionary }) {
           <p className="lead mt-6 max-w-xl text-lg sm:text-xl">{dict.hero.promise}</p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Button href="#booking">{dict.hero.cta}</Button>
-            <Button href="#program" variant="outline">
+            <Button href={pagePath(lang, "contact")}>{dict.hero.cta}</Button>
+            <Button href={pagePath(lang, "services")} variant="outline">
               {dict.hero.secondaryCta}
             </Button>
           </div>

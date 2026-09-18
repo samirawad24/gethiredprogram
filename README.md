@@ -1,6 +1,6 @@
 # Get Hired Program
 
-Single-page bilingual (English / Spanish) marketing site for career coach Ana Prato.
+Bilingual (English / Spanish) marketing site for career coach Ana Prato. Four pages per language: Home, About, Services and Contact.
 
 Built with Next.js 16 (App Router), TypeScript, Tailwind CSS 4 and the official Cal.com React embed.
 
@@ -93,12 +93,36 @@ Shared classes: `.shell` (centred container), `.section` / `.section--alt` /
 Fonts are Playfair Display (headings) and Figtree (body), self-hosted by
 `next/font` in `src/app/[lang]/layout.tsx`.
 
-## Page sections
+## Pages
 
-`src/app/[lang]/page.tsx` assembles them in this order:
+Every page is `PageShell` (skip link, header, main, footer) wrapped around a
+list of section components.
 
-Header · Hero · Stats · Services · Approach · About · ValueBand · Audiences ·
-PromiseBand · Program · Testimonials · CtaBand · Booking · Footer
+| Page | Route | Sections |
+| --- | --- | --- |
+| Home | `/[lang]/` | Hero · Stats · Services · Approach · AboutTeaser · ValueBand · Testimonials · CtaBand |
+| About | `/[lang]/about/` | PageHero · About · ValueBand · Audiences · CtaBand |
+| Services | `/[lang]/services/` | PageHero · Services · Program · PromiseBand · CtaBand |
+| Contact | `/[lang]/contact/` | PageHero · Booking · ValueBand |
+
+Home is a full overview rather than a menu, because most visitors never click
+past it. Each block links to the page that goes deeper. Sections are not
+repeated across pages: `Approach` and `Testimonials` only appear on Home,
+`Audiences` only on About, `Program` only on Services, the Cal.com embed only on
+Contact.
+
+### Adding a page
+
+1. Add its key to `pages` and a URL segment to `segments` in `src/lib/routes.ts`.
+   That alone puts it in the header, the mobile menu, the footer and the sitemap.
+2. Add `nav.<key>`, `meta.<key>` (title and description) and `pageHero.<key>` to
+   **both** dictionaries. The shared type means the build fails if you forget one.
+3. Create `src/app/[lang]/<segment>/page.tsx`, exporting `generateMetadata` that
+   returns `buildMetadata(lang, "<key>")`, and render a `PageShell`.
+
+`src/lib/metadata.ts` is the only place that builds title, description, canonical
+and hreflang, so those four never drift apart. Language switching preserves the
+page: `/en/about/` goes to `/es/about/`, not back to Home.
 
 ## Swap in real content
 
@@ -190,15 +214,23 @@ gradient to a light section, and `.grain` adds paper texture.
 ```
 src/
   app/
-    [lang]/layout.tsx          html shell, fonts, metadata, Open Graph, hreflang
-    [lang]/page.tsx            assembles the sections
+    [lang]/layout.tsx          html shell, fonts, theme bootstrap
+    [lang]/page.tsx            Home
+    [lang]/about/page.tsx      About
+    [lang]/services/page.tsx   Services
+    [lang]/contact/page.tsx    Contact
     [lang]/og.png/route.tsx    generated social share image per language
     sitemap.ts, robots.ts
     globals.css                palette, the three themes, shared classes
   components/                  one small component per section
+  components/PageShell.tsx     skip link, header, main, footer
+  components/PageHero.tsx      masthead and h1 for pages below Home
+  components/MobileNav.tsx     the phone menu
   components/Backdrop.tsx      background image + scrim + badge watermark
   dictionaries/                en.ts, es.ts
   lib/site.ts                  brand, links, env vars, image paths
+  lib/routes.ts                the page list and their URL segments
+  lib/metadata.ts              title, description, canonical, hreflang
   lib/theme.ts                 theme list and the pre-paint init script
 public/images/art/             brand art, one file per photo slot
 public/index.html              root redirect to /en/ or /es/
@@ -232,6 +264,7 @@ The site is plain static files in `out/`, so Vercel, Netlify or any static host 
 - Title, description, canonical and hreflang per language
 - Open Graph and Twitter card with a generated share image
 - One `h1` per page, `h2` per section, `h3` for cards and steps
+- Unique title, description and canonical per page; hreflang pairs each page with its translation
 - Alt text on every image
 - Gold text darkened to `--color-gold-deep` so small labels clear WCAG AA on white
 - JSON-LD `Person` and `ProfessionalService`, validated at https://validator.schema.org

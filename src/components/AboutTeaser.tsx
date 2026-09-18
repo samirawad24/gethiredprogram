@@ -1,16 +1,15 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { Dictionary } from "@/dictionaries";
 import { pagePath } from "@/lib/routes";
 import { asset, site, type Locale } from "@/lib/site";
-import Button from "./Button";
 import { CheckIcon } from "./Icons";
 
-export default function About({ dict, lang }: { dict: Dictionary; lang: Locale }) {
+// Short version of the About page, for Home. The full story lives on /about/.
+export default function AboutTeaser({ dict, lang }: { dict: Dictionary; lang: Locale }) {
   return (
-    <section id="about" aria-labelledby="about-heading" className="section">
+    <section aria-labelledby="about-teaser-heading" className="section">
       <div className="shell grid items-center gap-10 md:grid-cols-2 md:gap-16">
-        {/* Offset gold frame behind the image, as on board 1. Swap the art
-            for a real portrait via site.images.about. */}
         <div className="relative">
           <span
             aria-hidden="true"
@@ -28,16 +27,12 @@ export default function About({ dict, lang }: { dict: Dictionary; lang: Locale }
         </div>
 
         <div>
-          <h2 id="about-heading" className="display mt-3 text-4xl sm:text-5xl">
+          <p className="eyebrow">{dict.about.eyebrow}</p>
+          <h2 id="about-teaser-heading" className="display mt-3 text-4xl sm:text-5xl">
             {dict.about.heading}
           </h2>
           <span aria-hidden="true" className="rule mt-5" />
-
-          {dict.about.paragraphs.map((paragraph) => (
-            <p key={paragraph.slice(0, 24)} className="lead mt-5 text-lg">
-              {paragraph}
-            </p>
-          ))}
+          <p className="lead mt-5 text-lg">{dict.about.paragraphs[0]}</p>
 
           <ul className="mt-8 space-y-3">
             {dict.about.facts.map((fact) => (
@@ -48,9 +43,9 @@ export default function About({ dict, lang }: { dict: Dictionary; lang: Locale }
             ))}
           </ul>
 
-          <Button href={pagePath(lang, "contact")} className="mt-9">
-            {dict.about.cta}
-          </Button>
+          <Link href={pagePath(lang, "about")} className="btn btn--primary mt-9">
+            {dict.about.teaserCta}
+          </Link>
         </div>
       </div>
     </section>

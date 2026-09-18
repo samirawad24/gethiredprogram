@@ -1,18 +1,37 @@
+import Link from "next/link";
 import type { Dictionary } from "@/dictionaries";
-import { site } from "@/lib/site";
+import { pagePath } from "@/lib/routes";
+import { site, type Locale } from "@/lib/site";
 import Logo from "./Logo";
 
-export default function Footer({ dict }: { dict: Dictionary }) {
+export default function Footer({ dict, lang }: { dict: Dictionary; lang: Locale }) {
   const { footer } = dict;
   const linkClass = "transition-colors hover:text-gold";
+  const pages = (["home", "about", "services", "contact"] as const).map((key) => ({
+    href: pagePath(lang, key),
+    label: dict.nav[key],
+  }));
 
   return (
     <footer className="on-dark bg-navy-deep">
-      <div className="shell grid gap-10 py-14 md:grid-cols-3">
+      <div className="shell grid gap-10 py-14 sm:grid-cols-2 md:grid-cols-4">
         <div>
           <Logo className="h-14 w-14 text-white/90" />
           <p className="mt-4 font-serif text-xl font-semibold">{site.brand}</p>
           <p className="lead mt-2 text-sm">{footer.tagline}</p>
+        </div>
+
+        <div>
+          <h2 className="eyebrow">{footer.pages}</h2>
+          <ul className="mt-3 space-y-2">
+            {pages.map((page) => (
+              <li key={page.href}>
+                <Link href={page.href} className={linkClass}>
+                  {page.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
 
         <div>

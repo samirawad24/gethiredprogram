@@ -1,11 +1,12 @@
 import Image from "next/image";
 import type { Dictionary } from "@/dictionaries";
-import { asset, site } from "@/lib/site";
+import { pagePath } from "@/lib/routes";
+import { asset, site, type Locale } from "@/lib/site";
 import Button from "./Button";
 
 // Art on one side, the line that sells the program on the other. Board 2 runs
 // this split full width; it also gives the page a picture in the middle.
-export default function PromiseBand({ dict }: { dict: Dictionary }) {
+export default function PromiseBand({ dict, lang }: { dict: Dictionary; lang: Locale }) {
   return (
     <section aria-labelledby="promise-heading" className="promise section--alt">
       <div className="promise__media">
@@ -25,7 +26,7 @@ export default function PromiseBand({ dict }: { dict: Dictionary }) {
           {dict.promise.heading}
         </h2>
         <p className="lead mt-5 text-lg">{dict.promise.sub}</p>
-        <Button href="#booking" className="mt-8 self-start">
+        <Button href={pagePath(lang, "contact")} className="mt-8 self-start">
           {dict.promise.cta}
         </Button>
       </div>

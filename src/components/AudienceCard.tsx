@@ -6,10 +6,11 @@ type Props = {
   headline: string;
   benefits: string[];
   cta: string;
+  ctaHref: string;
   tone: "light" | "dark";
 };
 
-export default function AudienceCard({ id, label, headline, benefits, cta, tone }: Props) {
+export default function AudienceCard({ id, label, headline, benefits, cta, ctaHref, tone }: Props) {
   const dark = tone === "dark";
 
   return (
@@ -30,7 +31,7 @@ export default function AudienceCard({ id, label, headline, benefits, cta, tone 
           </li>
         ))}
       </ul>
-      <Button href="#booking" className="mt-10 self-start">
+      <Button href={ctaHref} className="mt-10 self-start">
         {cta}
       </Button>
     </article>
