@@ -1,15 +1,18 @@
 import Link from "next/link";
 import type { Dictionary } from "@/dictionaries";
+import { pagePath, type PageKey } from "@/lib/routes";
 import type { Locale } from "@/lib/site";
 
-type Props = { lang: Locale; dict: Dictionary };
+type Props = { lang: Locale; dict: Dictionary; page: PageKey };
 
-export default function LanguageToggle({ lang, dict }: Props) {
+// Switches language without losing the reader's place: /en/about/ goes to
+// /es/about/, not back to the home page.
+export default function LanguageToggle({ lang, dict, page }: Props) {
   const other: Locale = lang === "en" ? "es" : "en";
 
   return (
     <Link
-      href={`/${other}`}
+      href={pagePath(other, page)}
       hrefLang={other}
       lang={other}
       aria-label={dict.languageToggle.ariaLabel}

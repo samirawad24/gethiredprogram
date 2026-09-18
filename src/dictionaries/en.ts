@@ -3,19 +3,39 @@
 
 const en = {
   meta: {
-    title: "Ana Prato, Career Coach | Get Hired Program",
-    description:
-      "One-to-one bilingual career coaching from a recruiter with 15+ years on the hiring side. A deliberately small practice, for students, recent graduates and career changers in the US and abroad. Book a free consultation.",
     ogAlt: "Get Hired Program, career coaching with Ana Prato",
+    home: {
+      title: "Ana Prato, Career Coach | Get Hired Program",
+      description:
+        "One-to-one bilingual career coaching from a recruiter with 15+ years on the hiring side. A deliberately small practice, for students, recent graduates and career changers in the US and abroad. Book a free consultation.",
+    },
+    about: {
+      title: "About Ana Prato | Get Hired Program",
+      description:
+        "Fifteen years in talent acquisition, on the side of the table where hiring decisions get made. Why Ana keeps her client list short, and who she works with.",
+    },
+    services: {
+      title: "Services and the eight-session program | Get Hired Program",
+      description:
+        "Resume review, LinkedIn optimization, interview preparation and career strategy, plus the eight-session program. One to one, in English or Spanish.",
+    },
+    contact: {
+      title: "Book a free consultation | Get Hired Program",
+      description:
+        "Thirty minutes, no cost. Pick a time that works wherever you are, and we will see whether the program fits.",
+    },
   },
   skipLink: "Skip to content",
   nav: {
+    home: "Home",
     about: "About",
     services: "Services",
-    program: "Program",
-    testimonials: "Stories",
+    contact: "Contact",
     book: "Book a session",
-    home: "Get Hired Program home",
+    homeAria: "Get Hired Program home",
+    primary: "Main",
+    openMenu: "Open menu",
+    closeMenu: "Close menu",
   },
   languageToggle: {
     label: "Español",
@@ -47,9 +67,28 @@ const en = {
       { value: "Global", label: "Clients in the US and abroad" },
     ],
   },
+  // Page introductions for About, Services and Contact.
+  pageHero: {
+    about: {
+      eyebrow: "About me",
+      heading: "Fifteen years on the other side of the table.",
+      lead: "I know how hiring decisions actually get made, because I used to make them. Here is how that changes what we work on.",
+    },
+    services: {
+      eyebrow: "Services",
+      heading: "Everything you need to stand out and get hired.",
+      lead: "Four ways I help, and the eight-session program that puts them in order.",
+    },
+    contact: {
+      eyebrow: "Contact",
+      heading: "Ready to take the next step?",
+      lead: "Thirty minutes, no cost, wherever you are. Tell me where you are in your search and we will see whether the program fits.",
+    },
+  },
   services: {
     eyebrow: "Services",
     heading: "How I can help",
+    allCta: "See all services",
     intro: "Practical guidance, built on how hiring decisions actually get made.",
     items: [
       {
@@ -112,6 +151,7 @@ const en = {
       "Based in Ohio, coaching clients worldwide",
     ],
     cta: "Work with me",
+    teaserCta: "More about me",
     // Describes the brand art. Rewrite when a real photo replaces it.
     imageAlt:
       "A bright workspace with a Get Hired mug and books reading skills, opportunity and confidence",
@@ -226,17 +266,13 @@ const en = {
     button: "Book a session",
   },
   booking: {
-    eyebrow: "Let's work together",
-    heading: "Book your free consultation",
-    // PLACEHOLDER: confirm call length
-    intro:
-      "Thirty minutes, no cost. Tell me where you are and we'll see if the program fits.",
     fallback:
       "The calendar appears here once NEXT_PUBLIC_CAL_LINK is set. Until then, email",
     calendarTitle: "Booking calendar",
   },
   footer: {
     tagline: "One-to-one career coaching in English and Spanish, wherever you are.",
+    pages: "Pages",
     contact: "Contact",
     follow: "Follow",
     rights: "All rights reserved.",

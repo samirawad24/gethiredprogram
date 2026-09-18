@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 type Props = {
   href: string;
   children: React.ReactNode;
@@ -6,8 +8,8 @@ type Props = {
   className?: string;
 };
 
-// In-page anchor styled as a button. The .btn classes live in globals.css so
-// each theme can restyle every button at once. Smooth scrolling is global too.
+// The .btn classes live in globals.css so each theme restyles every button at
+// once. Internal paths route through next/link; anchors and mailto stay plain.
 export default function Button({
   href,
   children,
@@ -15,11 +17,18 @@ export default function Button({
   size = "md",
   className = "",
 }: Props) {
+  const classes = `btn btn--${variant} ${size === "sm" ? "btn--sm" : ""} ${className}`;
+
+  if (href.startsWith("/")) {
+    return (
+      <Link href={href} className={classes}>
+        {children}
+      </Link>
+    );
+  }
+
   return (
-    <a
-      href={href}
-      className={`btn btn--${variant} ${size === "sm" ? "btn--sm" : ""} ${className}`}
-    >
+    <a href={href} className={classes}>
       {children}
     </a>
   );

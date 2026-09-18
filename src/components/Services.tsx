@@ -1,7 +1,10 @@
 import type { Dictionary } from "@/dictionaries";
+import Button from "./Button";
 import { serviceIcons } from "./Icons";
 
-export default function Services({ dict }: { dict: Dictionary }) {
+type Props = { dict: Dictionary; moreHref?: string };
+
+export default function Services({ dict, moreHref }: Props) {
   const { services } = dict;
 
   return (
@@ -30,6 +33,12 @@ export default function Services({ dict }: { dict: Dictionary }) {
             );
           })}
         </ul>
+
+        {moreHref && (
+          <Button href={moreHref} variant="outline" className="mt-10">
+            {services.allCta}
+          </Button>
+        )}
       </div>
     </section>
   );
