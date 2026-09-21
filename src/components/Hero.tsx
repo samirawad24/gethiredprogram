@@ -11,9 +11,9 @@ export default function Hero({ dict, lang }: { dict: Dictionary; lang: Locale })
   return (
     <section className="hero">
       <div className="shell hero__inner">
-        <div className="hero__content">
+        <div className="hero__content" data-reveal>
           <p className="eyebrow">{dict.hero.eyebrow}</p>
-          <h1 className="display mt-4 text-[2.65rem] sm:text-6xl lg:text-[4.25rem]">
+          <h1 className="display display--hero mt-4">
             {dict.hero.headlineLead}
             <span className="display__accent">{dict.hero.headlineAccent}</span>
           </h1>

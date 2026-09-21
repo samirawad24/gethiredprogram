@@ -2,7 +2,14 @@
 
 import { useCallback, useState, useSyncExternalStore } from "react";
 import type { Dictionary } from "@/dictionaries";
-import { defaultTheme, themeQueryKey, themeStorageKey, themes, type Theme } from "@/lib/theme";
+import {
+  defaultTheme,
+  themeGroups,
+  themeQueryKey,
+  themeStorageKey,
+  themes,
+  type Theme,
+} from "@/lib/theme";
 
 function getTheme(): Theme {
   const current = document.documentElement.getAttribute("data-theme");
@@ -43,7 +50,15 @@ export default function ThemeSwitcher({ dict }: { dict: Dictionary }) {
     classic: dict.themePicker.classic,
     bold: dict.themePicker.bold,
     minimal: dict.themePicker.minimal,
+    editorial: dict.themePicker.editorial,
+    product: dict.themePicker.product,
+    statement: dict.themePicker.statement,
   };
+
+  const groups = [
+    { heading: dict.themePicker.groupOriginal, items: themeGroups.original },
+    { heading: dict.themePicker.groupPremium, items: themeGroups.premium },
+  ];
 
   if (!open) {
     return (
@@ -76,21 +91,30 @@ export default function ThemeSwitcher({ dict }: { dict: Dictionary }) {
         </button>
       </div>
 
-      <div className="mt-3 flex flex-col gap-1.5">
-        {themes.map((theme) => (
-          <button
-            key={theme}
-            type="button"
-            onClick={() => choose(theme)}
-            aria-pressed={active === theme}
-            className={`rounded-md px-3 py-2 text-left text-sm font-medium transition-colors ${
-              active === theme
-                ? "bg-gold text-navy-deep"
-                : "bg-white/10 text-white hover:bg-white/20"
-            }`}
-          >
-            {labels[theme]}
-          </button>
+      <div className="mt-3 max-h-[60vh] overflow-y-auto pr-1">
+        {groups.map((group) => (
+          <div key={group.heading} className="mb-3 last:mb-0">
+            <p className="mb-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-white/45">
+              {group.heading}
+            </p>
+            <div className="flex flex-col gap-1.5">
+              {group.items.map((theme) => (
+                <button
+                  key={theme}
+                  type="button"
+                  onClick={() => choose(theme)}
+                  aria-pressed={active === theme}
+                  className={`rounded-md px-3 py-2 text-left text-sm font-medium transition-colors ${
+                    active === theme
+                      ? "bg-gold text-navy-deep"
+                      : "bg-white/10 text-white hover:bg-white/20"
+                  }`}
+                >
+                  {labels[theme]}
+                </button>
+              ))}
+            </div>
+          </div>
         ))}
       </div>
 

@@ -10,16 +10,16 @@ export default function Audiences({ dict, lang }: { dict: Dictionary; lang: Loca
   return (
     <section id="who" aria-labelledby="who-heading" className="section section--wash">
       <div className="shell">
-        <div className="max-w-2xl">
+        <div className="max-w-2xl" data-reveal>
           <p className="eyebrow">{audiences.eyebrow}</p>
-          <h2 id="who-heading" className="display mt-3 text-4xl sm:text-5xl">
+          <h2 id="who-heading" className="display display--section mt-3">
             {audiences.heading}
           </h2>
           <span aria-hidden="true" className="rule mt-5" />
           <p className="lead mt-5 text-lg">{audiences.intro}</p>
         </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2 md:gap-8">
+        <div className="mt-12 grid gap-6 md:grid-cols-2 md:gap-8" data-reveal-stagger>
           <AudienceCard id="students" {...audiences.students} ctaHref={ctaHref} tone="light" />
           <AudienceCard id="career-changers" {...audiences.changers} ctaHref={ctaHref} tone="dark" />
         </div>

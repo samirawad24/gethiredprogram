@@ -16,9 +16,9 @@ export default function Testimonials({ dict }: { dict: Dictionary }) {
   return (
     <section id="testimonials" aria-labelledby="testimonials-heading" className="section">
       <div className="shell">
-        <div className="max-w-2xl">
+        <div className="max-w-2xl" data-reveal>
           <p className="eyebrow">{testimonials.eyebrow}</p>
-          <h2 id="testimonials-heading" className="display mt-3 text-4xl sm:text-5xl">
+          <h2 id="testimonials-heading" className="display display--section mt-3">
             {testimonials.heading}
           </h2>
           <span aria-hidden="true" className="rule mt-5" />
@@ -29,7 +29,7 @@ export default function Testimonials({ dict }: { dict: Dictionary }) {
           </p>
         </div>
 
-        <ul className="card-row mt-12 grid gap-6 md:grid-cols-3">
+        <ul className="card-row mt-12 grid gap-6 md:grid-cols-3" data-reveal-stagger>
           {testimonials.items.map((item) => (
             <li key={item.quote} className="card flex flex-col p-7">
               <figure className="flex flex-1 flex-col">

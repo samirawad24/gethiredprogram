@@ -285,10 +285,15 @@ const en = {
   // PREVIEW TOOL: delete this block together with ThemeSwitcher.tsx once a
   // design direction is chosen.
   themePicker: {
-    label: "Design preview",
     classic: "1 · Clean & classic",
     bold: "2 · Modern & bold",
     minimal: "3 · Elevated & minimal",
+    editorial: "4 · Editorial luxury",
+    product: "5 · Modern polish",
+    statement: "6 · Bold statement",
+    groupOriginal: "From the boards",
+    groupPremium: "Premium directions",
+    label: "Design preview",
     note: "Preview only. This panel is not part of the published site.",
     hide: "Hide the design preview",
   },

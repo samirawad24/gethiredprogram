@@ -2,6 +2,7 @@ import type { Dictionary } from "@/dictionaries";
 import type { PageKey } from "@/lib/routes";
 import type { Locale } from "@/lib/site";
 import Header from "./Header";
+import MotionProvider from "./MotionProvider";
 import Footer from "./Footer";
 import ThemeSwitcher from "./ThemeSwitcher";
 
@@ -22,6 +23,7 @@ export default function PageShell({ lang, dict, page, children }: Props) {
       >
         {dict.skipLink}
       </a>
+      <MotionProvider />
       <Header lang={lang} dict={dict} page={page} />
       <main id="main">{children}</main>
       <Footer dict={dict} lang={lang} />
