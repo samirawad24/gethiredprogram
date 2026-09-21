@@ -20,7 +20,7 @@ export default function AudienceCard({ id, label, headline, benefits, cta, ctaHr
       className={`card flex flex-col p-8 sm:p-10 ${dark ? "on-dark bg-navy" : ""}`}
     >
       <p className="eyebrow">{label}</p>
-      <h3 id={`${id}-heading`} className="display mt-4 text-3xl sm:text-4xl">
+      <h3 id={`${id}-heading`} className="display display--band mt-4">
         {headline}
       </h3>
       <ul className="mt-8 flex-1 space-y-4">

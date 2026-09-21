@@ -20,9 +20,9 @@ export default function PromiseBand({ dict, lang }: { dict: Dictionary; lang: Lo
         />
       </div>
 
-      <div className="promise__body">
+      <div className="promise__body" data-reveal>
         <span aria-hidden="true" className="rule" />
-        <h2 id="promise-heading" className="display mt-6 text-3xl sm:text-4xl lg:text-[2.75rem]">
+        <h2 id="promise-heading" className="display display--band mt-6">
           {dict.promise.heading}
         </h2>
         <p className="lead mt-5 text-lg">{dict.promise.sub}</p>

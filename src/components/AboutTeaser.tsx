@@ -10,7 +10,7 @@ export default function AboutTeaser({ dict, lang }: { dict: Dictionary; lang: Lo
   return (
     <section aria-labelledby="about-teaser-heading" className="section">
       <div className="shell grid items-center gap-10 md:grid-cols-2 md:gap-16">
-        <div className="relative">
+        <div className="relative" data-reveal>
           <span
             aria-hidden="true"
             className="absolute -bottom-4 -left-4 h-full w-full rounded-[var(--radius-media)] border border-gold/45 md:-bottom-6 md:-left-6"
@@ -26,9 +26,9 @@ export default function AboutTeaser({ dict, lang }: { dict: Dictionary; lang: Lo
           />
         </div>
 
-        <div>
+        <div data-reveal>
           <p className="eyebrow">{dict.about.eyebrow}</p>
-          <h2 id="about-teaser-heading" className="display mt-3 text-4xl sm:text-5xl">
+          <h2 id="about-teaser-heading" className="display display--section mt-3">
             {dict.about.heading}
           </h2>
           <span aria-hidden="true" className="rule mt-5" />

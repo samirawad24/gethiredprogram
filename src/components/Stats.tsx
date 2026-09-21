@@ -7,7 +7,7 @@ export default function Stats({ dict }: { dict: Dictionary }) {
   return (
     <section className="border-y border-line bg-white">
       <div className="shell py-8 md:py-10">
-        <dl className="grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-4">
+        <dl className="grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-4" data-reveal-stagger>
           {stats.items.map((item) => (
             <div key={item.label} className="text-center">
               <dt className="sr-only">{item.label}</dt>

@@ -4,7 +4,7 @@ Bilingual (English / Spanish) marketing site for career coach Ana Prato. Four pa
 
 Built with Next.js 16 (App Router), TypeScript, Tailwind CSS 4 and the official Cal.com React embed.
 
-The navy-and-gold design ships in **three variants** you can flip between on the live site. See [Choosing a theme](#choosing-a-theme).
+The navy-and-gold design ships in **six variants** you can flip between on the live site. See [Choosing a theme](#choosing-a-theme).
 
 ## Run it locally
 
@@ -49,6 +49,16 @@ components and one palette. The active one is an attribute on `<html>`:
 | 1 · Clean & classic | `classic` | Light sections, serif headline with a gold second line, soft cards, navy CTA bands. The default. |
 | 2 · Modern & bold | `bold` | Photo hero behind a navy scrim, uppercase headings, tighter spacing, heavier gold. |
 | 3 · Elevated & minimal | `minimal` | Wide margins, light serif, hairline dividers instead of cards, navy header button. |
+| 4 · Editorial luxury | `editorial` | A consultancy monograph: oversized light serif, very deep whitespace, hairlines instead of boxes, wide-tracked labels, gold only as a thread. |
+| 5 · Modern polish | `product` | Tight sans, rounded cards with soft depth and a hairline highlight, a warm glow behind the hero, cool light surface. |
+| 6 · Bold statement | `statement` | Scale as the idea: enormous tight uppercase across the full width, image as a band beneath, nothing rounded, heavy rules. |
+
+Each theme only redefines CSS variables. Headings carry **no size utilities** —
+they use `.display--hero`, `--page`, `--section`, `--band`, `--value`, `--card`
+and `--step`, whose sizes come from the theme. That is why switching theme
+changes the whole typographic system and not just its colours. A few themes add
+structural rules too (the editorial hero widens its text column, the statement
+hero goes full width), all in `globals.css` under their own heading.
 
 Two ways to switch:
 
@@ -63,12 +73,27 @@ design.
 
 ### Once a direction is picked
 
-1. Set `defaultTheme` in `src/lib/theme.ts` to the winner.
+1. Set `defaultTheme` in `src/lib/theme.ts` to the winner, and trim `themes`
+   and `themeGroups` to just that one.
 2. Delete `src/components/ThemeSwitcher.tsx` and its `<ThemeSwitcher />` line in
-   `src/app/[lang]/page.tsx`.
+   `src/components/PageShell.tsx`.
 3. Delete the `themePicker` block from `src/dictionaries/en.ts` and `es.ts`.
-4. In `src/app/globals.css`, keep the winning theme's variables and delete the
-   two `[data-theme="..."]` blocks you do not need.
+4. In `src/app/globals.css`, keep the winning theme's variable block and its
+   structural rules, and delete the other five.
+
+## Motion
+
+`src/components/MotionProvider.tsx` runs one `IntersectionObserver` for the
+whole page. Mark a block with `data-reveal` to have it ease in when it scrolls
+into view, or a grid with `data-reveal-stagger` to have its children arrive one
+after another.
+
+Three things keep it safe: the `.js-motion` class that switches the hidden
+state on is added **pre-paint** by the inline script in `lib/theme.ts`, so
+nothing flashes; without that script the CSS never hides anything, so a JS
+failure leaves a static page rather than a blank one; and
+`prefers-reduced-motion` skips the whole thing. There is also a failsafe that
+reveals everything if nothing has appeared 2.5 seconds in.
 
 Everything else (components, sections, copy) stays as it is.
 

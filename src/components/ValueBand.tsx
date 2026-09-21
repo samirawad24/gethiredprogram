@@ -8,7 +8,7 @@ const icons = [CheckIcon, InterviewIcon, StrategyIcon];
 export default function ValueBand({ dict }: { dict: Dictionary }) {
   return (
     <section className="on-dark section section--navy">
-      <div className="shell card-row grid gap-8 text-center sm:grid-cols-3">
+      <div className="shell card-row grid gap-8 text-center sm:grid-cols-3" data-reveal-stagger>
         {dict.values.items.map((item, index) => {
           const Icon = icons[index] ?? CheckIcon;
           return (
@@ -16,7 +16,7 @@ export default function ValueBand({ dict }: { dict: Dictionary }) {
               <span className="icon-badge">
                 <Icon className="h-6 w-6" />
               </span>
-              <p className="display mt-4 text-xl sm:text-2xl">{item}</p>
+              <p className="display display--value mt-4">{item}</p>
             </div>
           );
         })}

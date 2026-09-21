@@ -55,6 +55,14 @@
   --card-shadow: 0 18px 40px -28px rgba(18, 41, 74, 0.35);
   --card-pad: 1.5rem;
 
+  --size-hero: clamp(2.6rem, 6.8vw, 4.25rem);
+  --size-page: clamp(2.2rem, 5.2vw, 3.5rem);
+  --size-section: clamp(2rem, 4.4vw, 3rem);
+  --size-band: clamp(1.8rem, 3.8vw, 2.75rem);
+  --size-value: clamp(1.25rem, 2.4vw, 1.6rem);
+  --size-card: 1.15rem;
+  --size-step: 1.5rem;
+
   --rule-weight: 3px;
   --header-cta-bg: var(--color-gold);
   --header-cta-fg: var(--color-navy-deep);
@@ -77,6 +85,9 @@
 
   --card-shadow: 0 22px 44px -26px rgba(11, 27, 49, 0.45);
   --rule-weight: 4px;
+
+  --size-hero: clamp(2.5rem, 7vw, 4.5rem);
+  --size-section: clamp(1.9rem, 4.4vw, 3rem);
 }
 
 /* Elevated & minimal: air, light serif, hairlines instead of cards. */
@@ -102,6 +113,138 @@
   --rule-weight: 2px;
   --header-cta-bg: var(--color-navy);
   --header-cta-fg: #ffffff;
+
+  --size-hero: clamp(2.7rem, 7vw, 4.5rem);
+  --size-section: clamp(2.1rem, 4.6vw, 3.1rem);
+}
+
+
+/* ---------------------------------------------------------------------------
+   Premium directions. Same components, same content; these only redefine
+   variables, plus a handful of structural rules further down.
+--------------------------------------------------------------------------- */
+
+/* Editorial: a consultancy monograph. Oversized light serif, deep air,
+   hairlines instead of boxes, gold used only as a thread. */
+[data-theme="editorial"] {
+  --fg: #141b26;
+  --fg-muted: #5a6472;
+  --accent: var(--color-gold-deep);
+
+  --surface: #fbfaf7;
+  --surface-alt: #f2efe8;
+
+  --display-font: var(--font-serif);
+  --display-weight: 400;
+  --display-transform: none;
+  --display-tracking: -0.028em;
+  --display-leading: 1.02;
+
+  --section-py: 6rem;
+  --section-py-lg: 10rem;
+
+  --radius-card: 0;
+  --radius-btn: 0;
+  --radius-media: 0;
+
+  --card-bg: transparent;
+  --card-border: transparent;
+  --card-shadow: none;
+  --card-pad: 1.75rem 0;
+
+  --rule-weight: 1px;
+  --header-cta-bg: transparent;
+  --header-cta-fg: var(--fg);
+
+  --size-hero: clamp(2.7rem, 6.5vw, 5rem);
+  --size-page: clamp(2.4rem, 6vw, 4.25rem);
+  --size-section: clamp(2.3rem, 5.6vw, 4rem);
+  --size-band: clamp(2rem, 4.4vw, 3rem);
+  --size-value: clamp(1.4rem, 2.6vw, 1.9rem);
+  --size-card: 1.35rem;
+  --size-step: 1.6rem;
+}
+
+/* Product: the modern software look. Tight sans, soft depth, rounded cards,
+   a cool light surface with a faint glow behind the hero. */
+[data-theme="product"] {
+  --fg: #0f172a;
+  --fg-muted: #55637a;
+  --accent: var(--color-gold-deep);
+
+  --surface: #ffffff;
+  --surface-alt: #f7f9fc;
+
+  --display-font: var(--font-sans);
+  --display-weight: 700;
+  --display-transform: none;
+  --display-tracking: -0.035em;
+  --display-leading: 1.06;
+
+  --section-py: 4rem;
+  --section-py-lg: 6.5rem;
+
+  --radius-card: 1rem;
+  --radius-btn: 0.6rem;
+  --radius-media: 1.25rem;
+
+  --card-bg: #ffffff;
+  --card-border: #e7ecf3;
+  --card-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 12px 32px -18px rgba(15, 23, 42, 0.3);
+  --card-pad: 1.6rem;
+
+  --rule-weight: 3px;
+  --header-cta-bg: var(--color-navy);
+  --header-cta-fg: #ffffff;
+
+  --size-hero: clamp(2.6rem, 6.4vw, 4.4rem);
+  --size-page: clamp(2.2rem, 5vw, 3.4rem);
+  --size-section: clamp(1.9rem, 4vw, 2.9rem);
+  --size-band: clamp(1.7rem, 3.4vw, 2.5rem);
+  --size-value: clamp(1.2rem, 2.2vw, 1.5rem);
+  --size-card: 1.1rem;
+  --size-step: 1.35rem;
+}
+
+/* Statement: scale as the whole idea. Enormous tight uppercase, hard blocks,
+   no rounding anywhere. */
+[data-theme="statement"] {
+  --fg: #0b1b31;
+  --fg-muted: #4d5b70;
+  --accent: var(--color-gold-deep);
+
+  --surface: #ffffff;
+  --surface-alt: #ece7de;
+
+  --display-font: var(--font-sans);
+  --display-weight: 900;
+  --display-transform: uppercase;
+  --display-tracking: -0.045em;
+  --display-leading: 0.9;
+
+  --section-py: 4.5rem;
+  --section-py-lg: 7rem;
+
+  --radius-card: 0;
+  --radius-btn: 0;
+  --radius-media: 0;
+
+  --card-bg: #ffffff;
+  --card-border: var(--color-navy);
+  --card-shadow: none;
+  --card-pad: 1.6rem;
+
+  --rule-weight: 6px;
+  --header-cta-bg: var(--color-navy);
+  --header-cta-fg: #ffffff;
+
+  --size-hero: clamp(2.8rem, 8.5vw, 6.5rem);
+  --size-page: clamp(2.5rem, 7vw, 5rem);
+  --size-section: clamp(2.3rem, 6.5vw, 4.5rem);
+  --size-band: clamp(2rem, 5vw, 3.4rem);
+  --size-value: clamp(1.4rem, 3vw, 2rem);
+  --size-card: 1.1rem;
+  --size-step: 1.4rem;
 }
 
 html {
@@ -672,6 +815,244 @@ section[id] {
     background: transparent;
     border: 1px solid var(--color-line);
     color: var(--color-navy);
+  }
+
+
+  /* --- Type scale, owned by the theme ------------------------------------
+     Headings carry no size utilities, so switching theme changes the whole
+     typographic system, not just its colours. */
+  .display--hero {
+    font-size: var(--size-hero);
+  }
+
+  .display--page {
+    font-size: var(--size-page);
+  }
+
+  .display--section {
+    font-size: var(--size-section);
+  }
+
+  .display--band {
+    font-size: var(--size-band);
+  }
+
+  .display--value {
+    font-size: var(--size-value);
+  }
+
+  /* Small headings opt out of the display leading and tracking, which are
+     tuned for type several times this size. */
+  .display--card {
+    font-size: var(--size-card);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+  }
+
+  .display--step {
+    font-size: var(--size-step);
+    letter-spacing: -0.015em;
+    line-height: 1.25;
+  }
+
+  /* --- Motion -------------------------------------------------------------
+     MotionProvider puts .js-motion on <html>, so with JS off or broken the
+     content is simply visible rather than stuck at opacity 0. */
+  .js-motion [data-reveal] {
+    opacity: 0;
+    transform: translate3d(0, var(--reveal-shift, 1.5rem), 0);
+    transition:
+      opacity 0.75s cubic-bezier(0.22, 0.61, 0.36, 1),
+      transform 0.75s cubic-bezier(0.22, 0.61, 0.36, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
+  }
+
+  .js-motion [data-reveal][data-revealed] {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Stagger a row of cards without hand-writing a delay on each one. */
+  .js-motion [data-reveal-stagger] > * {
+    transition-delay: calc(var(--reveal-index, 0) * 90ms);
+  }
+
+  /* The hero image settles out of a slow push-in. */
+  .hero__img {
+    animation: hero-settle 2.4s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  }
+
+  @keyframes hero-settle {
+    from {
+      transform: scale(1.06);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .js-motion [data-reveal] {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+
+    .hero__img {
+      animation: none;
+    }
+  }
+
+  /* Cards with chrome lift slightly; flat themes have nothing to lift. */
+  .card {
+    transition:
+      transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1),
+      box-shadow 0.35s cubic-bezier(0.22, 0.61, 0.36, 1),
+      border-color 0.35s ease;
+  }
+
+  [data-theme="classic"] .card-row > .card:hover,
+  [data-theme="bold"] .card-row > .card:hover,
+  [data-theme="product"] .card-row > .card:hover {
+    transform: translateY(-4px);
+    border-color: color-mix(in srgb, var(--color-gold) 55%, var(--card-border));
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .card {
+      transition: none;
+    }
+
+    [data-theme="classic"] .card-row > .card:hover,
+    [data-theme="bold"] .card-row > .card:hover,
+    [data-theme="product"] .card-row > .card:hover {
+      transform: none;
+    }
+  }
+
+  /* --- Editorial ----------------------------------------------------------
+     Rules instead of boxes, and a header button that is a line, not a slab. */
+
+  /* Type this large needs a wider measure, or the headline stacks into a
+     column of single words. */
+  @media (min-width: 900px) {
+    [data-theme="editorial"] .hero__inner {
+      grid-template-columns: 1.4fr 0.6fr;
+      gap: 4rem;
+    }
+  }
+
+  [data-theme="editorial"] .hero__img {
+    aspect-ratio: 3 / 4;
+  }
+  [data-theme="editorial"] .btn--cta {
+    border: 1px solid color-mix(in srgb, var(--fg) 40%, transparent);
+  }
+
+  [data-theme="editorial"] .btn--primary {
+    background: var(--color-navy);
+    color: #ffffff;
+  }
+
+  [data-theme="editorial"] .btn--primary:hover {
+    background: var(--color-navy-deep);
+  }
+
+  [data-theme="editorial"] .eyebrow {
+    letter-spacing: 0.34em;
+    font-size: 0.68rem;
+  }
+
+  [data-theme="editorial"] .rule {
+    width: 100%;
+    max-width: 10rem;
+    background: color-mix(in srgb, var(--color-gold) 70%, transparent);
+  }
+
+  [data-theme="editorial"] .lead {
+    font-size: 1.0625rem;
+    line-height: 1.85;
+  }
+
+  @media (min-width: 768px) {
+    [data-theme="editorial"] .card-row > .card + .card {
+      border-left: 1px solid var(--color-line);
+      padding-left: 2rem;
+    }
+
+    [data-theme="editorial"] .on-dark .card-row > .card + .card {
+      border-left-color: rgba(255, 255, 255, 0.2);
+    }
+  }
+
+  /* --- Product ------------------------------------------------------------
+     A soft glow behind the hero and a hairline highlight on cards, which is
+     what gives this look its depth. */
+  [data-theme="product"] .hero {
+    background-image:
+      radial-gradient(48rem 26rem at 72% -10%, rgba(224, 164, 58, 0.16), transparent 70%),
+      radial-gradient(40rem 24rem at 10% 0%, rgba(29, 60, 104, 0.1), transparent 70%);
+  }
+
+  [data-theme="product"] .card {
+    background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(247, 249, 252, 0.6));
+  }
+
+  [data-theme="product"] .icon-badge {
+    background: linear-gradient(180deg, #fdf3e0, #f7e7c8);
+    border: 1px solid rgba(224, 164, 58, 0.35);
+  }
+
+  [data-theme="product"] .eyebrow {
+    letter-spacing: 0.14em;
+  }
+
+  /* --- Statement ----------------------------------------------------------
+     Scale is the idea, so the rules are heavy and nothing is rounded. */
+
+  /* At this size the headline needs the full width; the image sits under it
+     as a band rather than fighting it for the same row. */
+  @media (min-width: 900px) {
+    [data-theme="statement"] .hero__inner {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+
+  [data-theme="statement"] .hero__content {
+    max-width: none;
+  }
+
+  [data-theme="statement"] .hero__img {
+    aspect-ratio: 21 / 9;
+  }
+  [data-theme="statement"] .rule {
+    width: 5rem;
+  }
+
+  [data-theme="statement"] .card {
+    border-width: 2px;
+  }
+
+  [data-theme="statement"] .btn {
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 800;
+  }
+
+  [data-theme="statement"] .eyebrow {
+    font-weight: 800;
+    letter-spacing: 0.22em;
+  }
+
+  [data-theme="statement"] .step__marker {
+    border-radius: 0;
+    background: var(--color-navy);
+    color: #ffffff;
+    font-family: var(--font-sans);
+    font-weight: 900;
   }
 
   /* --- Service / icon tiles ---------------------------------------------- */

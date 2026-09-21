@@ -23,7 +23,7 @@ export default function ProgramStep({ number, label, title, text, last }: Props)
         <p className="eyebrow">
           {label} {number}
         </p>
-        <h3 className="display mt-1.5 text-2xl">{title}</h3>
+        <h3 className="display display--step mt-1.5">{title}</h3>
         <p className="lead mt-2">{text}</p>
       </div>
     </li>

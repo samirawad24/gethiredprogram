@@ -285,10 +285,15 @@ const es = {
   // HERRAMIENTA DE VISTA PREVIA: borrar junto con ThemeSwitcher.tsx cuando se
   // elija una dirección de diseño.
   themePicker: {
-    label: "Vista previa de diseño",
     classic: "1 · Limpio y clásico",
     bold: "2 · Moderno y llamativo",
     minimal: "3 · Elegante y minimalista",
+    editorial: "4 · Editorial de lujo",
+    product: "5 · Pulido moderno",
+    statement: "6 · Audaz y rotundo",
+    groupOriginal: "De los bocetos",
+    groupPremium: "Direcciones premium",
+    label: "Vista previa de diseño",
     note: "Solo vista previa. Este panel no forma parte del sitio publicado.",
     hide: "Ocultar la vista previa de diseño",
   },
