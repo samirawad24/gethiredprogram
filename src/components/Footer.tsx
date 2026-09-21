@@ -7,7 +7,8 @@ import Logo from "./Logo";
 
 export default function Footer({ dict, lang }: { dict: Dictionary; lang: Locale }) {
   const { footer } = dict;
-  const linkClass = "transition-colors hover:text-gold";
+  const linkClass =
+    "inline-flex min-h-11 items-center transition-colors hover:text-gold md:min-h-0";
   const pages = (["home", "about", "services", "contact"] as const).map((key) => ({
     href: pagePath(lang, key),
     label: dict.nav[key],
@@ -24,7 +25,7 @@ export default function Footer({ dict, lang }: { dict: Dictionary; lang: Locale 
 
         <div>
           <h2 className="eyebrow">{footer.pages}</h2>
-          <ul className="mt-3 space-y-2">
+          <ul className="mt-1 md:mt-3 md:space-y-2">
             {pages.map((page) => (
               <li key={page.href}>
                 <Link href={page.href} className={linkClass}>
@@ -37,7 +38,7 @@ export default function Footer({ dict, lang }: { dict: Dictionary; lang: Locale 
 
         <div>
           <h2 className="eyebrow">{footer.contact}</h2>
-          <a href={`mailto:${site.email}`} className={`mt-3 inline-block ${linkClass}`}>
+          <a href={`mailto:${site.email}`} className={`mt-1 md:mt-3 ${linkClass}`}>
             {site.email}
           </a>
         </div>
