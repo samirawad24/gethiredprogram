@@ -19,7 +19,10 @@ export default function Booking({ dict }: { dict: Dictionary }) {
           ) : (
             <p className="px-6 py-16 text-center text-muted">
               {booking.fallback}{" "}
-              <a href={`mailto:${site.email}`} className="font-semibold text-navy underline">
+              <a
+                href={`mailto:${site.email}`}
+                className="inline-flex min-h-11 items-center font-semibold text-navy underline"
+              >
                 {site.email}
               </a>
               .
