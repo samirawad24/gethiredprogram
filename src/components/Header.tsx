@@ -3,6 +3,7 @@ import type { Dictionary } from "@/dictionaries";
 import { pagePath, type PageKey } from "@/lib/routes";
 import { site, type Locale } from "@/lib/site";
 import LanguageToggle from "./LanguageToggle";
+import RandomLetterSwap from "./RandomLetterSwap";
 import Logo from "./Logo";
 import MobileNav from "./MobileNav";
 
@@ -41,7 +42,11 @@ export default function Header({ lang, dict, page }: Props) {
                       : "border-transparent text-ink/75 hover:text-navy"
                   }`}
                 >
-                  {link.label}
+                  <RandomLetterSwap
+                    label={link.label}
+                    staggerDuration={0.025}
+                    duration={0.6}
+                  />
                 </Link>
               </li>
             ))}

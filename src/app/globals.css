@@ -1241,3 +1241,60 @@ section[id] {
     color: var(--color-gold);
   }
 }
+/* ---------------------------------------------------------------------------
+   Letter swap. Ported from the 21st.dev "Random Letter Swap" component, which
+   uses motion/react; this repo carries no animation library, so the movement
+   is a plain transition and the component only sets the per-letter delay.
+--------------------------------------------------------------------------- */
+.letter-swap {
+  display: inline-flex;
+  vertical-align: bottom;
+}
+
+.letter-swap__cell {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  white-space: pre;
+}
+
+.letter-swap__face {
+  display: block;
+  transition: transform var(--letter-duration, 0.6s)
+    cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--letter-delay, 0s);
+}
+
+/* The incoming copy waits one line out of view, above or below. */
+.letter-swap__face--next {
+  position: absolute;
+  inset: 0;
+  transform: translateY(-100%);
+}
+
+.letter-swap:not([data-reverse]) .letter-swap__face--next {
+  transform: translateY(100%);
+}
+
+.letter-swap[data-swapping] .letter-swap__face {
+  transform: translateY(100%);
+}
+
+.letter-swap:not([data-reverse])[data-swapping] .letter-swap__face {
+  transform: translateY(-100%);
+}
+
+.letter-swap[data-swapping] .letter-swap__face--next {
+  transform: translateY(0);
+}
+
+/* Used for the single frame where the letters are put back at the start. */
+.letter-swap[data-resetting] .letter-swap__face {
+  transition: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .letter-swap__face {
+    transition: none;
+  }
+}
