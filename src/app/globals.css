@@ -1298,3 +1298,112 @@ section[id] {
     transition: none;
   }
 }
+
+/* ---------------------------------------------------------------------------
+   Flow button. Ported from the 21st.dev flow-button. The original hardcodes
+   #111111 / #333333 / white, which would ignore the themes entirely and go
+   invisible on noir, so the colours come from tokens instead: the circle uses
+   the theme's foreground and the label flips to its surface, which inverts
+   correctly on both light and dark grounds.
+--------------------------------------------------------------------------- */
+@layer components {
+  .btn--flow {
+    position: relative;
+    gap: 0.25rem;
+    overflow: hidden;
+    padding: 0.85rem 2rem;
+    border: 1.5px solid color-mix(in srgb, var(--fg) 40%, transparent);
+    border-radius: 100px;
+    background: transparent;
+    color: var(--fg);
+    transition:
+      color 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+      border-color 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+      border-radius 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+      transform 0.15s ease;
+  }
+
+  .btn--flow:hover,
+  .btn--flow:focus-visible {
+    border-color: transparent;
+    border-radius: 12px;
+    color: var(--surface);
+  }
+
+  .btn--flow:active {
+    transform: scale(0.95);
+  }
+
+  .btn-flow__arrow {
+    position: absolute;
+    z-index: 9;
+    width: 1rem;
+    height: 1rem;
+    transition:
+      left 0.8s cubic-bezier(0.34, 1.56, 0.64, 1),
+      right 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  /* One arrow waits off the left edge and flies in; the other leaves right. */
+  .btn-flow__arrow--in {
+    left: -25%;
+  }
+
+  .btn--flow:hover .btn-flow__arrow--in,
+  .btn--flow:focus-visible .btn-flow__arrow--in {
+    left: 1rem;
+  }
+
+  .btn-flow__arrow--out {
+    right: 1rem;
+  }
+
+  .btn--flow:hover .btn-flow__arrow--out,
+  .btn--flow:focus-visible .btn-flow__arrow--out {
+    right: -25%;
+  }
+
+  .btn-flow__label {
+    position: relative;
+    z-index: 1;
+    transform: translateX(-0.75rem);
+    transition: transform 0.8s ease-out;
+  }
+
+  .btn--flow:hover .btn-flow__label,
+  .btn--flow:focus-visible .btn-flow__label {
+    transform: translateX(0.75rem);
+  }
+
+  .btn-flow__fill {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1rem;
+    height: 1rem;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: var(--fg);
+    opacity: 0;
+    transition:
+      width 0.8s cubic-bezier(0.19, 1, 0.22, 1),
+      height 0.8s cubic-bezier(0.19, 1, 0.22, 1),
+      opacity 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  .btn--flow:hover .btn-flow__fill,
+  .btn--flow:focus-visible .btn-flow__fill {
+    width: 220px;
+    height: 220px;
+    opacity: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .btn--flow,
+    .btn-flow__arrow,
+    .btn-flow__label,
+    .btn-flow__fill {
+      transition: none;
+    }
+  }
+}

@@ -20,7 +20,9 @@ export default function Hero({ dict, lang }: { dict: Dictionary; lang: Locale })
           <p className="lead mt-6 max-w-xl text-lg sm:text-xl">{dict.hero.promise}</p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Button href={pagePath(lang, "contact")}>{dict.hero.cta}</Button>
+            <Button href={pagePath(lang, "contact")} variant="flow">
+              {dict.hero.cta}
+            </Button>
             <Button href={pagePath(lang, "services")} variant="outline">
               {dict.hero.secondaryCta}
             </Button>

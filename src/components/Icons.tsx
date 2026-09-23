@@ -20,6 +20,16 @@ export function ResumeIcon({ className }: IconProps) {
   );
 }
 
+// Used by the flow button. Inline rather than pulled from an icon package,
+// to match the rest of this file and keep the dependency list empty.
+export function ArrowRightIcon({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M5 12h14M13 6l6 6-6 6" />
+    </svg>
+  );
+}
+
 export function LinkedInIcon({ className }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className={className}>
