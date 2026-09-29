@@ -1104,19 +1104,6 @@ section[id] {
   /* --- Paper --------------------------------------------------------------
      Most of this theme is variables; these are the structural differences. */
 
-  /* The badge gives way to a wordmark. */
-  .brand-wordmark {
-    display: none;
-  }
-
-  [data-theme="paper"] .brand-badge {
-    display: none;
-  }
-
-  [data-theme="paper"] .brand-wordmark {
-    display: inline;
-  }
-
   /* Section headings sit centred, as on the reference. */
   [data-theme="paper"] .section-head {
     margin-inline: auto;

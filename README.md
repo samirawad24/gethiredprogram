@@ -52,11 +52,10 @@ components and one palette. The active one is an attribute on `<html>`:
 | 4 · Editorial luxury | `editorial` | A consultancy monograph: oversized light serif, very deep whitespace, hairlines instead of boxes, wide-tracked labels, gold only as a thread. |
 | 5 · Modern polish | `product` | Tight sans, rounded cards with soft depth and a hairline highlight, a warm glow behind the hero, cool light surface. |
 | 6 · Bold statement | `statement` | Scale as the idea: enormous tight uppercase across the full width, image as a band beneath, nothing rounded, heavy rules. |
-| 7 · Warm & light | `paper` | Warm paper background, a **wordmark instead of the badge**, centred section headings, columns split by hairlines rather than boxed, sharp corners, no icons, and no dark bands anywhere — even the footer stays light. Gold only on small labels and links. |
+| 7 · Warm & light | `paper` | Warm paper background, centred section headings, columns split by hairlines rather than boxed, sharp corners, no icons, and no dark bands anywhere — even the footer stays light. Gold only on small labels and links. |
 
-Two components carry both variants so a theme can choose between them with CSS
-alone: the header holds a `.brand-badge` and a `.brand-wordmark`, and the hero
-holds a portrait and a wide crop. Anything a theme needs to recolour must be a
+The hero carries both a portrait and a wide crop so a theme can choose between
+them with CSS alone. Anything a theme needs to recolour must be a
 class, not a Tailwind colour utility — a utility wins the cascade, which is how
 the paper theme first ended up with dark text on a navy footer. Hence
 `.footer-surface`, `.card--feature` and `.footer-legal`.
