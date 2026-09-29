@@ -291,6 +291,7 @@ const es = {
     editorial: "4 · Editorial de lujo",
     product: "5 · Pulido moderno",
     statement: "6 · Audaz y rotundo",
+    paper: "7 · Cálido y claro",
     groupOriginal: "De los bocetos",
     groupPremium: "Direcciones premium",
     label: "Vista previa de diseño",

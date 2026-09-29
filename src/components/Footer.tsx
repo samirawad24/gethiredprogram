@@ -15,7 +15,7 @@ export default function Footer({ dict, lang }: { dict: Dictionary; lang: Locale 
   }));
 
   return (
-    <footer className="on-dark bg-navy-deep">
+    <footer className="footer-surface on-dark">
       <div className="shell grid gap-10 py-14 sm:grid-cols-2 md:grid-cols-4">
         <div>
           <Logo className="h-14 w-14" />
@@ -72,7 +72,7 @@ export default function Footer({ dict, lang }: { dict: Dictionary; lang: Locale 
           <p className="lead mt-3 text-sm">{site.instagramHandle}</p>
         </div>
       </div>
-      <p className="border-t border-white/10 px-5 py-6 text-center text-sm text-white/50">
+      <p className="footer-legal px-5 py-6 text-center text-sm">
         &copy; {new Date().getFullYear()} {site.brand}. {footer.rights}
       </p>
     </footer>

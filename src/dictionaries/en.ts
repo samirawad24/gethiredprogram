@@ -291,6 +291,7 @@ const en = {
     editorial: "4 · Editorial luxury",
     product: "5 · Modern polish",
     statement: "6 · Bold statement",
+    paper: "7 · Warm & light",
     groupOriginal: "From the boards",
     groupPremium: "Premium directions",
     label: "Design preview",

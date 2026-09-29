@@ -16,7 +16,7 @@ export default function Testimonials({ dict }: { dict: Dictionary }) {
   return (
     <section id="testimonials" aria-labelledby="testimonials-heading" className="section">
       <div className="shell">
-        <div className="max-w-2xl" data-reveal>
+        <div className="section-head max-w-2xl" data-reveal>
           <p className="eyebrow">{testimonials.eyebrow}</p>
           <h2 id="testimonials-heading" className="display display--section mt-3">
             {testimonials.heading}

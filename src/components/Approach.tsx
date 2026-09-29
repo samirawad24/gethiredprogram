@@ -9,7 +9,7 @@ export default function Approach({ dict }: { dict: Dictionary }) {
   return (
     <section id="approach" aria-labelledby="approach-heading" className="section section--wash">
       <div className="shell">
-        <div className="max-w-2xl" data-reveal>
+        <div className="section-head max-w-2xl" data-reveal>
           <p className="eyebrow">{approach.eyebrow}</p>
           <h2 id="approach-heading" className="display display--section mt-3">
             {approach.heading}

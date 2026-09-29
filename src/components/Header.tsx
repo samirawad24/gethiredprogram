@@ -24,7 +24,12 @@ export default function Header({ lang, dict, page }: Props) {
           aria-label={dict.nav.homeAria}
           className="flex h-11 min-w-11 shrink-0 items-center gap-2.5 text-navy"
         >
-          <Logo className="h-10 w-10 sm:h-11 sm:w-11" />
+          {/* Badge for most themes, wordmark for the paper theme. Both are in
+              the markup so CSS alone can switch them. */}
+          <Logo className="brand-badge h-10 w-10 sm:h-11 sm:w-11" />
+          <span className="brand-wordmark whitespace-nowrap font-serif text-[1.02rem] tracking-tight xs:text-lg sm:text-[1.4rem]">
+            {site.brand}
+          </span>
           <span className="sr-only">{site.brand}</span>
         </Link>
 

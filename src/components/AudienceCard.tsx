@@ -17,7 +17,7 @@ export default function AudienceCard({ id, label, headline, benefits, cta, ctaHr
     <article
       id={id}
       aria-labelledby={`${id}-heading`}
-      className={`card flex flex-col p-8 sm:p-10 ${dark ? "on-dark bg-navy" : ""}`}
+      className={`card flex flex-col p-8 sm:p-10 ${dark ? "on-dark card--feature" : ""}`}
     >
       <p className="eyebrow">{label}</p>
       <h3 id={`${id}-heading`} className="display display--band mt-4">

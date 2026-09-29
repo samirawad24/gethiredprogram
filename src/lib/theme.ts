@@ -9,6 +9,7 @@ export const themes = [
   "editorial",
   "product",
   "statement",
+  "paper",
 ] as const;
 
 export type Theme = (typeof themes)[number];
@@ -16,7 +17,7 @@ export type Theme = (typeof themes)[number];
 // premium directions that came after.
 export const themeGroups = {
   original: ["classic", "bold", "minimal"],
-  premium: ["editorial", "product", "statement"],
+  premium: ["editorial", "product", "statement", "paper"],
 } as const satisfies Record<string, readonly Theme[]>;
 
 export const defaultTheme: Theme = "classic";
