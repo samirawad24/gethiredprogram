@@ -19,6 +19,8 @@
   --color-muted: #5d6a7d;
   --color-line: #e3e6ec;
 
+  --breakpoint-xs: 23.5rem;
+
   --font-serif: var(--font-playfair), Georgia, "Times New Roman", serif;
   --font-sans: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
 }
@@ -244,6 +246,50 @@
   --size-band: clamp(2rem, 5vw, 3.4rem);
   --size-value: clamp(1.4rem, 3vw, 2rem);
   --size-card: 1.1rem;
+  --size-step: 1.4rem;
+}
+
+
+/* Paper: warm, light and quiet. A wordmark instead of the badge, sharp corners
+   everywhere, columns separated by hairlines rather than boxed into cards, and
+   no dark bands at all: even the footer stays light. Gold appears only on small
+   labels and links. */
+[data-theme="paper"] {
+  --fg: #1c2b45;
+  --fg-muted: #5a6474;
+  --accent: var(--color-gold-deep);
+
+  --surface: #faf9f6;
+  --surface-alt: #f2f0ea;
+
+  --display-font: var(--font-serif);
+  --display-weight: 400;
+  --display-transform: none;
+  --display-tracking: -0.02em;
+  --display-leading: 1.14;
+
+  --section-py: 3.5rem;
+  --section-py-lg: 6.5rem;
+
+  --radius-card: 0;
+  --radius-btn: 0;
+  --radius-media: 0;
+
+  --card-bg: transparent;
+  --card-border: transparent;
+  --card-shadow: none;
+  --card-pad: 0;
+
+  --rule-weight: 1px;
+  --header-cta-bg: var(--color-navy);
+  --header-cta-fg: #ffffff;
+
+  --size-hero: clamp(2.5rem, 5.6vw, 3.9rem);
+  --size-page: clamp(2.2rem, 4.8vw, 3.2rem);
+  --size-section: clamp(1.9rem, 3.8vw, 2.7rem);
+  --size-band: clamp(1.75rem, 3.4vw, 2.4rem);
+  --size-value: clamp(1.2rem, 2.2vw, 1.5rem);
+  --size-card: 1.3rem;
   --size-step: 1.4rem;
 }
 
@@ -1052,6 +1098,131 @@ section[id] {
     color: #ffffff;
     font-family: var(--font-sans);
     font-weight: 900;
+  }
+
+
+  /* --- Paper --------------------------------------------------------------
+     Most of this theme is variables; these are the structural differences. */
+
+  /* The badge gives way to a wordmark. */
+  .brand-wordmark {
+    display: none;
+  }
+
+  [data-theme="paper"] .brand-badge {
+    display: none;
+  }
+
+  [data-theme="paper"] .brand-wordmark {
+    display: inline;
+  }
+
+  /* Section headings sit centred, as on the reference. */
+  [data-theme="paper"] .section-head {
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  [data-theme="paper"] .section-head .rule {
+    margin-inline: auto;
+  }
+
+  [data-theme="paper"] .eyebrow {
+    letter-spacing: 0.24em;
+    font-size: 0.7rem;
+  }
+
+  [data-theme="paper"] .display__accent {
+    color: var(--fg);
+  }
+
+  [data-theme="paper"] .btn--primary {
+    background: var(--color-navy);
+    color: #ffffff;
+  }
+
+  [data-theme="paper"] .btn--primary:hover {
+    background: var(--color-navy-deep);
+  }
+
+  /* Icons would compete with type this quiet. */
+  [data-theme="paper"] .icon-badge {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    [data-theme="paper"] .card-row > .card + .card {
+      border-left: 1px solid var(--color-line);
+      padding-left: 2rem;
+    }
+  }
+
+  /* No dark bands anywhere: navy sections, feature cards and the footer all
+     go light, and the text colours flip back with them. */
+  [data-theme="paper"] .section--navy,
+  [data-theme="paper"] .section--navy-deep,
+  [data-theme="paper"] .card--feature,
+  [data-theme="paper"] .footer-surface {
+    background: var(--surface-alt);
+  }
+
+  [data-theme="paper"] .on-dark {
+    --fg: #1c2b45;
+    --fg-muted: #5a6474;
+    --accent: var(--color-gold-deep);
+    --card-bg: transparent;
+    --card-border: transparent;
+    color: var(--fg);
+  }
+
+  [data-theme="paper"] .card--feature {
+    border: 1px solid var(--color-line);
+    padding: 2rem;
+  }
+
+  [data-theme="paper"] .footer-surface {
+    border-top: 1px solid var(--color-line);
+  }
+
+  [data-theme="paper"] .backdrop__scrim--navy-deep,
+  [data-theme="paper"] .backdrop__scrim--navy {
+    background: linear-gradient(
+      160deg,
+      rgba(242, 240, 234, 0.97) 0%,
+      rgba(242, 240, 234, 0.93) 60%,
+      rgba(250, 249, 246, 0.9) 100%
+    );
+  }
+
+  [data-theme="paper"] .step__marker {
+    background: transparent;
+    border: 1px solid var(--color-line);
+    color: var(--color-navy);
+  }
+
+  [data-theme="paper"] .avatar {
+    background: transparent;
+    border: 1px solid var(--color-line);
+    color: var(--color-navy);
+  }
+
+  [data-theme="paper"] .hero__img {
+    aspect-ratio: 5 / 4;
+  }
+
+  /* Footer legal line, in whatever the surrounding text colour is, so a light
+     footer does not end up with white-on-white. */
+  .footer-legal {
+    border-top: 1px solid color-mix(in srgb, var(--fg) 14%, transparent);
+    color: color-mix(in srgb, var(--fg) 55%, transparent);
+  }
+
+  .card--feature {
+    background: var(--color-navy);
+  }
+
+  .footer-surface {
+    background: var(--color-navy-deep);
   }
 
   /* --- Service / icon tiles ---------------------------------------------- */

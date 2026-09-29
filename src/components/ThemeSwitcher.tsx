@@ -53,6 +53,7 @@ export default function ThemeSwitcher({ dict }: { dict: Dictionary }) {
     editorial: dict.themePicker.editorial,
     product: dict.themePicker.product,
     statement: dict.themePicker.statement,
+    paper: dict.themePicker.paper,
   };
 
   const groups = [

@@ -10,7 +10,7 @@ export default function Audiences({ dict, lang }: { dict: Dictionary; lang: Loca
   return (
     <section id="who" aria-labelledby="who-heading" className="section section--wash">
       <div className="shell">
-        <div className="max-w-2xl" data-reveal>
+        <div className="section-head max-w-2xl" data-reveal>
           <p className="eyebrow">{audiences.eyebrow}</p>
           <h2 id="who-heading" className="display display--section mt-3">
             {audiences.heading}

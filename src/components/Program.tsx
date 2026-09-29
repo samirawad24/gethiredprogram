@@ -7,7 +7,7 @@ export default function Program({ dict }: { dict: Dictionary }) {
   return (
     <section id="program" aria-labelledby="program-heading" className="section section--alt">
       <div className="shell">
-        <div className="max-w-2xl" data-reveal>
+        <div className="section-head max-w-2xl" data-reveal>
           <p className="eyebrow">{program.eyebrow}</p>
           <h2 id="program-heading" className="display display--section mt-3">
             {program.heading}

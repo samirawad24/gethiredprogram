@@ -10,7 +10,7 @@ export default function Services({ dict, moreHref }: Props) {
   return (
     <section id="services" aria-labelledby="services-heading" className="section section--alt section--wash">
       <div className="shell">
-        <div className="max-w-2xl" data-reveal>
+        <div className="section-head max-w-2xl" data-reveal>
           <p className="eyebrow">{services.eyebrow}</p>
           <h2 id="services-heading" className="display display--section mt-3">
             {services.heading}
