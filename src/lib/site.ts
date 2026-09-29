@@ -22,8 +22,8 @@ export const site = {
   calLink: process.env.NEXT_PUBLIC_CAL_LINK ?? "",
   email: "hello@gethiredprogram.com", // PLACEHOLDER: confirm the real inbox
   linkedin: "https://www.linkedin.com/in/anaprato/",
-  instagram: "https://www.instagram.com/gethired.program/",
-  instagramHandle: "@gethired.program",
+  instagram: "https://www.instagram.com/gethiredprogram/",
+  instagramHandle: "@gethiredprogram",
   // Brand art in /public/images/art. Each one is a slot for a real photo:
   // drop a file into /public/images and change the path here, nothing else.
   // Shapes: hero 4:5 portrait, heroWide 16:9, about 1:1, notebook 7:5,
