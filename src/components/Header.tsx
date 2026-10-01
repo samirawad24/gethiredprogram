@@ -5,6 +5,7 @@ import { site, type Locale } from "@/lib/site";
 import Button from "./Button";
 import LanguageToggle from "./LanguageToggle";
 import RandomLetterSwap from "./RandomLetterSwap";
+import Logo from "./Logo";
 import MobileNav from "./MobileNav";
 
 type Props = { lang: Locale; dict: Dictionary; page: PageKey };
@@ -23,8 +24,9 @@ export default function Header({ lang, dict, page }: Props) {
   return (
     <header className="site-header">
       <div className="shell site-header__bar">
-        <Link href={pagePath(lang, "home")} aria-label={dict.nav.homeAria} className="wordmark wordmark--header">
-          {site.brand}
+        <Link href={pagePath(lang, "home")} aria-label={dict.nav.homeAria} className="brand-link">
+          <Logo className="brand-logo brand-logo--header" />
+          <span className="wordmark wordmark--header">{site.brand}</span>
         </Link>
 
         <nav aria-label={dict.nav.primary} className="site-nav">

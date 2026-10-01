@@ -254,6 +254,27 @@
     gap: 1rem;
   }
 
+  /* Ana's badge beside the wordmark, in the header and the footer. */
+  .brand-link {
+    display: inline-flex;
+    align-items: center;
+    gap: calc(12 * var(--u));
+  }
+
+  .brand-logo {
+    flex-shrink: 0;
+  }
+
+  .brand-logo--header {
+    width: calc(58 * var(--u));
+    height: calc(58 * var(--u));
+  }
+
+  .brand-logo--footer {
+    width: calc(44 * var(--u));
+    height: calc(44 * var(--u));
+  }
+
   .wordmark {
     font-family: var(--font-serif);
     font-weight: 400;
@@ -264,7 +285,7 @@
   }
 
   .wordmark--header {
-    margin-top: calc(-6 * var(--u));
+    margin-top: calc(-4 * var(--u));
     font-size: calc(32.4 * var(--u));
   }
 
@@ -476,6 +497,31 @@
     color: var(--color-gold);
   }
 
+  .social-list {
+    display: flex;
+    gap: calc(10 * var(--u));
+  }
+
+  .site-footer__links .social-btn {
+    display: inline-flex;
+    width: calc(38 * var(--u));
+    height: calc(38 * var(--u));
+    min-height: 0;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--color-line);
+    border-radius: 999px;
+    color: var(--color-navy);
+    transition:
+      color 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  .site-footer__links .social-btn:hover {
+    border-color: var(--color-gold);
+    color: var(--color-gold);
+  }
+
   .site-footer__links span[aria-hidden] {
     width: 1px;
     height: calc(24 * var(--u));
@@ -556,7 +602,27 @@
     }
 
     .wordmark--header {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
+    }
+
+    .brand-logo--header {
+      width: 2.6rem;
+      height: 2.6rem;
+    }
+
+    .brand-logo--footer {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+
+    .site-footer__links {
+      flex-wrap: wrap;
+      row-gap: 0.75rem;
+    }
+
+    .site-footer__links .social-btn {
+      width: 2.75rem;
+      height: 2.75rem;
     }
 
     .wordmark--footer {
