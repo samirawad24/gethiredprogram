@@ -30,6 +30,15 @@ export function ArrowRightIcon({ className }: IconProps) {
   );
 }
 
+// The up-right arrow after "Explore service" and "Meet Ana", as in the mockup.
+export function ArrowUpRightIcon({ className }: IconProps) {
+  return (
+    <svg {...base} strokeWidth={1.2} className={className}>
+      <path d="M6.5 17.5 17 7M8.5 7H17v8.5" />
+    </svg>
+  );
+}
+
 export function LinkedInIcon({ className }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className={className}>

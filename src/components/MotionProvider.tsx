@@ -6,7 +6,7 @@ import { useEffect } from "react";
 // Reveals [data-reveal] elements as they come into view, and numbers the
 // children of [data-reveal-stagger] rows so they arrive one after another.
 //
-// The .js-motion class is added pre-paint by the inline script in lib/theme.ts,
+// The .js-motion class is added pre-paint by the inline script in [lang]/layout.tsx,
 // so nothing flashes. If that script never runs, the CSS never hides anything
 // and the page is simply static.
 export default function MotionProvider() {

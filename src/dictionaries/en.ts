@@ -31,30 +31,45 @@ const en = {
     about: "About",
     services: "Services",
     contact: "Contact",
-    book: "Book a session",
+    book: "Book a free consultation",
     homeAria: "Get Hired Program home",
     primary: "Main",
     openMenu: "Open menu",
     closeMenu: "Close menu",
   },
   languageToggle: {
-    label: "Español",
-    ariaLabel: "Ver el sitio en español",
+    label: "Language",
+    en: "English",
+    es: "Español",
   },
+  // Hero, "How can I help?", the goals band and the closing band follow the
+  // approved home page mockup word for word.
   hero: {
-    eyebrow: "One-to-one career coaching, in English and Spanish",
-    // Two-line headline, gold second line, as on the design boards.
-    headlineLead: "You've done the work.",
-    headlineAccent: "Now let's get you hired.",
-    // PLACEHOLDER: confirm years of experience
-    promise:
-      "I've spent 15 years on the hiring side, and I'll show you how recruiters decide so you walk into your next interview ready.",
+    eyebrow: "Career coaching with Ana Prato",
+    headline: ["Find your direction.", "Take your next step."],
+    promise: "Personal guidance for a more confident career move.",
     cta: "Book a free consultation",
-    secondaryCta: "See the program",
-    note: "Ana Prato · Career coach · 15+ years on the hiring side · Clients in the US and abroad",
-    // Describes the brand art. Rewrite when a real photo replaces it.
-    imageAlt:
-      "A sunlit desk with a laptop, a Get Hired mug, and a stack of books reading better resume, brighter opportunities, a more confident you",
+    note: ["Online", "English & Spanish"],
+    // PLACEHOLDER: rewrite the alt text and delete the caption once Ana's
+    // real portrait is in.
+    imageAlt: "A smiling woman at a desk with a laptop, a notebook and a coffee mug",
+    imageCaption: "Placeholder portrait · Ana’s photo goes here",
+  },
+  help: {
+    heading: "How can I help?",
+    link: "Explore service",
+    items: [
+      { title: "Resume & LinkedIn", text: "Present your experience clearly." },
+      { title: "Interview preparation", text: "Practice with personal feedback." },
+      { title: "Career direction", text: "Build a plan for what’s next." },
+    ],
+  },
+  goals: {
+    heading: "Your goals. Personal support.",
+    text: "Work one-to-one with Ana Prato, whether you’re starting your career or making a change.",
+    link: "Meet Ana",
+    // PLACEHOLDER: describes the stand-in photo.
+    imageAlt: "A notebook and pen on a wooden desk",
   },
   // A head count would work against the pitch: the practice is small on
   // purpose. These four say what the coaching is instead of how much of it
@@ -232,7 +247,7 @@ const en = {
       "An open notebook listing better resume, brighter opportunities and you got this, beside a pen and a Get Hired mug",
   },
   values: {
-    items: ["Confidence today.", "Interviews tomorrow.", "A career you'll love."],
+    items: ["Confidence today.", "Interviews tomorrow.", "A career you’ll love."],
   },
   testimonials: {
     eyebrow: "Real students. Real results.",
@@ -261,42 +276,18 @@ const en = {
     ],
   },
   cta: {
-    heading: "Your future is waiting.",
-    sub: "Let's make sure you're ready for it.",
-    button: "Book a session",
+    heading: "Let’s talk about your next move.",
+    button: "Book a free consultation",
   },
   booking: {
     fallback:
       "The calendar appears here once NEXT_PUBLIC_CAL_LINK is set. Until then, email",
     calendarTitle: "Booking calendar",
   },
-  footer: {
-    tagline: "One-to-one career coaching in English and Spanish, wherever you are.",
-    pages: "Pages",
-    contact: "Contact",
-    follow: "Follow",
-    rights: "All rights reserved.",
-  },
   schema: {
     jobTitle: "Career Coach",
     serviceDescription:
       "A one-to-one, eight-session career coaching program for students, recent graduates and professionals changing careers, taught in English and Spanish, with a deliberately short client list and clients in the United States and abroad.",
-  },
-  // PREVIEW TOOL: delete this block together with ThemeSwitcher.tsx once a
-  // design direction is chosen.
-  themePicker: {
-    classic: "1 · Clean & classic",
-    bold: "2 · Modern & bold",
-    minimal: "3 · Elevated & minimal",
-    editorial: "4 · Editorial luxury",
-    product: "5 · Modern polish",
-    statement: "6 · Bold statement",
-    paper: "7 · Warm & light",
-    groupOriginal: "From the boards",
-    groupPremium: "Premium directions",
-    label: "Design preview",
-    note: "Preview only. This panel is not part of the published site.",
-    hide: "Hide the design preview",
   },
 };
 

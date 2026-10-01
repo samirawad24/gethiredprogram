@@ -1,44 +1,29 @@
 import type { Dictionary } from "@/dictionaries";
-import Button from "./Button";
-import { serviceIcons } from "./Icons";
+import SectionHead from "./SectionHead";
 
-type Props = { dict: Dictionary; moreHref?: string };
-
-export default function Services({ dict, moreHref }: Props) {
+// The four services in full, split by hairlines like "How can I help?".
+export default function Services({ dict }: { dict: Dictionary }) {
   const { services } = dict;
 
   return (
-    <section id="services" aria-labelledby="services-heading" className="section section--alt section--wash">
-      <div className="shell">
-        <div className="section-head max-w-2xl" data-reveal>
-          <p className="eyebrow">{services.eyebrow}</p>
-          <h2 id="services-heading" className="display display--section mt-3">
-            {services.heading}
-          </h2>
-          <span aria-hidden="true" className="rule mt-5" />
-          <p className="lead mt-5 text-lg">{services.intro}</p>
-        </div>
-
-        <ul className="card-row mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4" data-reveal-stagger>
-          {services.items.map((item) => {
-            const Icon = serviceIcons[item.icon];
-            return (
-              <li key={item.title} className="card">
-                <span className="icon-badge">
-                  <Icon className="h-6 w-6" />
-                </span>
-                <h3 className="display display--card mt-5">{item.title}</h3>
-                <p className="lead mt-2 text-[0.95rem]">{item.text}</p>
-              </li>
-            );
-          })}
+    <section id="services" aria-labelledby="services-heading" className="shell">
+      <hr className="hairline" />
+      <div className="section">
+        <SectionHead id="services-heading" heading={services.heading} intro={services.intro} />
+        <ul
+          className="columns columns--2x2"
+          style={{ marginTop: "calc(44 * var(--u))" }}
+          data-reveal-stagger
+        >
+          {services.items.map((item) => (
+            <li key={item.title}>
+              <h3 className="serif h-card">{item.title}</h3>
+              <p className="text-body" style={{ marginTop: "calc(12 * var(--u))" }}>
+                {item.text}
+              </p>
+            </li>
+          ))}
         </ul>
-
-        {moreHref && (
-          <Button href={moreHref} variant="outline" className="mt-10">
-            {services.allCta}
-          </Button>
-        )}
       </div>
     </section>
   );

@@ -12,6 +12,7 @@ type Props = {
   bookLabel: string;
   openLabel: string;
   closeLabel: string;
+  languages: React.ReactNode;
 };
 
 // Lock the page behind the menu. Setting overflow:hidden on <body> is not
@@ -37,7 +38,7 @@ function lockScroll(y: number) {
 
 // Four pages cannot hide behind a hamburger that does not exist, so phones get
 // a real menu. Desktop uses the inline nav in Header and never renders this.
-export default function MobileNav({ links, bookHref, bookLabel, openLabel, closeLabel }: Props) {
+export default function MobileNav({ links, bookHref, bookLabel, openLabel, closeLabel, languages }: Props) {
   const [open, setOpen] = useState(false);
   const scrollY = useRef(0);
 
@@ -64,13 +65,14 @@ export default function MobileNav({ links, bookHref, bookLabel, openLabel, close
   // would be pinned to the 64px header instead of the viewport, so it goes
   // through a portal to <body> where nothing can trap it.
   const panel = (
-    <div className="fixed inset-0 z-[70] flex flex-col bg-navy-deep text-white">
-      <div className="flex h-16 items-center justify-end px-5 sm:h-[4.5rem]">
+    <div className="fixed inset-0 z-[70] flex flex-col bg-paper text-navy">
+      <div className="flex h-16 items-center justify-between px-5">
+        {languages}
         <button
           type="button"
           onClick={() => setOpen(false)}
           aria-label={closeLabel}
-          className="flex h-11 w-11 items-center justify-center rounded-md border border-white/25"
+          className="flex h-11 w-11 items-center justify-center rounded-md border border-line"
         >
           <svg viewBox="0 0 24 24" aria-hidden className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
             <path d="m6 6 12 12M18 6 6 18" />
@@ -85,8 +87,8 @@ export default function MobileNav({ links, bookHref, bookLabel, openLabel, close
             href={link.href}
             onClick={() => setOpen(false)}
             aria-current={link.current ? "page" : undefined}
-            className={`border-b border-white/10 py-4 font-serif text-2xl ${
-              link.current ? "text-gold" : "text-white"
+            className={`border-b border-line py-4 font-serif text-[1.75rem] tracking-tight ${
+              link.current ? "text-gold" : "text-heading"
             }`}
           >
             {link.label}
@@ -96,7 +98,7 @@ export default function MobileNav({ links, bookHref, bookLabel, openLabel, close
         <Link
           href={bookHref}
           onClick={() => setOpen(false)}
-          className="btn btn--primary mt-8 self-start"
+          className="btn btn--md mt-8 self-start"
         >
           {bookLabel}
         </Link>

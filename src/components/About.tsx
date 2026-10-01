@@ -3,53 +3,45 @@ import type { Dictionary } from "@/dictionaries";
 import { pagePath } from "@/lib/routes";
 import { asset, site, type Locale } from "@/lib/site";
 import Button from "./Button";
-import { CheckIcon } from "./Icons";
 
 export default function About({ dict, lang }: { dict: Dictionary; lang: Locale }) {
+  const { about } = dict;
+
   return (
-    <section id="about" aria-labelledby="about-heading" className="section">
-      <div className="shell grid items-center gap-10 md:grid-cols-2 md:gap-16">
-        {/* Offset gold frame behind the image, as on board 1. Swap the art
-            for a real portrait via site.images.about. */}
-        <div className="relative" data-reveal>
-          <span
-            aria-hidden="true"
-            className="absolute -bottom-4 -left-4 h-full w-full rounded-[var(--radius-media)] border border-gold/45 md:-bottom-6 md:-left-6"
-          />
+    <section id="about" aria-labelledby="about-heading" className="shell">
+      <hr className="hairline" />
+      <div className="section grid items-center gap-10 md:grid-cols-[529fr_462fr] md:gap-[calc(56*var(--u))]">
+        {/* PLACEHOLDER: same stand-in portrait as Home until the real photo is in. */}
+        <figure>
           <Image
-            src={asset(site.images.about)}
-            alt={dict.about.imageAlt}
-            width={1100}
-            height={1100}
-            sizes="(min-width: 768px) 45vw, 100vw"
-            className="relative w-full rounded-[var(--radius-media)] object-cover"
-            style={{ aspectRatio: "1 / 1" }}
+            src={asset(site.images.hero)}
+            alt={dict.hero.imageAlt}
+            width={528}
+            height={519}
+            sizes="(min-width: 768px) 50vw, 100vw"
+            className="hero__img"
           />
-        </div>
+          <figcaption className="text-caption" style={{ marginTop: "calc(8 * var(--u))" }}>
+            {dict.hero.imageCaption}
+          </figcaption>
+        </figure>
 
         <div data-reveal>
-          <h2 id="about-heading" className="display display--section mt-3">
-            {dict.about.heading}
+          <h2 id="about-heading" className="serif h-section">
+            {about.heading}
           </h2>
-          <span aria-hidden="true" className="rule mt-5" />
-
-          {dict.about.paragraphs.map((paragraph) => (
-            <p key={paragraph.slice(0, 24)} className="lead mt-5 text-lg">
+          {about.paragraphs.map((paragraph) => (
+            <p key={paragraph.slice(0, 24)} className="text-body" style={{ marginTop: "calc(18 * var(--u))" }}>
               {paragraph}
             </p>
           ))}
-
-          <ul className="mt-8 space-y-3">
-            {dict.about.facts.map((fact) => (
-              <li key={fact} className="flex items-start gap-3">
-                <CheckIcon className="mt-0.5 h-5 w-5 shrink-0 text-gold-deep" />
-                <span>{fact}</span>
-              </li>
+          <ul className="tick-list text-body space-y-2" style={{ marginTop: "calc(26 * var(--u))" }}>
+            {about.facts.map((fact) => (
+              <li key={fact}>{fact}</li>
             ))}
           </ul>
-
-          <Button href={pagePath(lang, "contact")} className="mt-9">
-            {dict.about.cta}
+          <Button href={pagePath(lang, "contact")} size="md" className="mt-[calc(34*var(--u))]">
+            {about.cta}
           </Button>
         </div>
       </div>

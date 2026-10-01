@@ -4,7 +4,6 @@ import type { Locale } from "@/lib/site";
 import Header from "./Header";
 import MotionProvider from "./MotionProvider";
 import Footer from "./Footer";
-import ThemeSwitcher from "./ThemeSwitcher";
 
 type Props = {
   lang: Locale;
@@ -27,9 +26,6 @@ export default function PageShell({ lang, dict, page, children }: Props) {
       <Header lang={lang} dict={dict} page={page} />
       <main id="main">{children}</main>
       <Footer dict={dict} lang={lang} />
-      {/* PREVIEW TOOL: remove this line and ThemeSwitcher.tsx once a design
-          direction is picked. */}
-      <ThemeSwitcher dict={dict} />
     </>
   );
 }

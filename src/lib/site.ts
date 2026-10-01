@@ -31,8 +31,11 @@ export const site = {
   // Ana's real badge. White disc on a transparent surround, so it works on
   // the white header and reads as a printed seal on navy.
   logo: "/images/logo.png",
+  // hero and goals are stand-ins cut from the approved mockup (hero 529:520,
+  // goals about 2.3:1). PLACEHOLDER: swap for Ana's real photos.
   images: {
-    hero: "/images/art/hero-portrait.svg",
+    hero: "/images/hero-placeholder.jpg",
+    goals: "/images/desk-placeholder.jpg",
     heroWide: "/images/art/hero-wide.svg",
     about: "/images/art/about-desk.svg",
     notebook: "/images/art/notebook.svg",

@@ -1,30 +1,20 @@
-type Props = {
-  number: number;
-  label: string;
-  title: string;
-  text: string;
-  last: boolean;
-};
+type Props = { number: number; label: string; title: string; text: string };
 
-// One stop on the journey: numbered marker with a line running to the next one.
-export default function ProgramStep({ number, label, title, text, last }: Props) {
+// One session: number, title and what you leave with, over a hairline.
+export default function ProgramStep({ number, label, title, text }: Props) {
   return (
-    <li className="relative flex gap-5 pb-10">
-      {!last && (
-        <span
-          aria-hidden="true"
-          className="absolute left-6 top-12 h-[calc(100%-3rem)] w-px bg-line"
-        />
-      )}
-      <span aria-hidden="true" className="step__marker">
-        {number}
+    <li className="flex gap-5 border-t border-line py-[calc(24*var(--u))]">
+      <span className="step__number pt-[0.3em]" aria-hidden="true">
+        {String(number).padStart(2, "0")}
       </span>
-      <div className="pt-1">
-        <p className="eyebrow">
+      <div>
+        <p className="sr-only">
           {label} {number}
         </p>
-        <h3 className="display display--step mt-1.5">{title}</h3>
-        <p className="lead mt-2">{text}</p>
+        <h3 className="serif step__title">{title}</h3>
+        <p className="text-body" style={{ marginTop: "calc(8 * var(--u))" }}>
+          {text}
+        </p>
       </div>
     </li>
   );

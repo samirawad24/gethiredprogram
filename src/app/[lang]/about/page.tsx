@@ -26,7 +26,7 @@ export default async function AboutPage({ params }: PageProps<"/[lang]/about">) 
       <About dict={dict} lang={lang} />
       <ValueBand dict={dict} />
       <Audiences dict={dict} lang={lang} />
-      <CtaBand dict={dict} lang={lang} />
+      <CtaBand dict={dict} lang={lang} divider />
     </PageShell>
   );
 }

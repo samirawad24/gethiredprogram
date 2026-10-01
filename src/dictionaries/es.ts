@@ -31,30 +31,45 @@ const es = {
     about: "Sobre mí",
     services: "Servicios",
     contact: "Contacto",
-    book: "Agendar sesión",
+    book: "Agenda una consulta gratis",
     homeAria: "Inicio de Get Hired Program",
     primary: "Principal",
     openMenu: "Abrir menú",
     closeMenu: "Cerrar menú",
   },
   languageToggle: {
-    label: "English",
-    ariaLabel: "View the site in English",
+    label: "Idioma",
+    en: "English",
+    es: "Español",
   },
+  // El hero, "¿Cómo puedo ayudarte?", la franja de metas y el cierre siguen
+  // el diseño aprobado de la página de inicio.
   hero: {
-    eyebrow: "Coaching de carrera uno a uno, en español e inglés",
-    // Titular de dos líneas, segunda línea en dorado, como en los diseños.
-    headlineLead: "Ya hiciste el trabajo.",
-    headlineAccent: "Ahora consigamos el empleo.",
-    // PLACEHOLDER: confirmar años de experiencia
-    promise:
-      "Llevo 15 años del lado de la contratación y te muestro cómo deciden los reclutadores, para que llegues listo a tu próxima entrevista.",
-    cta: "Agenda tu consulta gratuita",
-    secondaryCta: "Ver el programa",
-    note: "Ana Prato · Coach de carrera · Más de 15 años del lado de la contratación · Clientes dentro y fuera de EE. UU.",
-    // Describe la ilustración de marca. Reescribir cuando haya una foto real.
-    imageAlt:
-      "Un escritorio iluminado con una laptop, una taza de Get Hired y libros que dicen mejor currículum, mejores oportunidades, más confianza en ti",
+    eyebrow: "Coaching de carrera con Ana Prato",
+    headline: ["Define tu rumbo.", "Da tu próximo paso."],
+    promise: "Orientación personal para un cambio profesional con más confianza.",
+    cta: "Agenda una consulta gratis",
+    note: ["En línea", "Español e inglés"],
+    // PLACEHOLDER: reescribir el texto alternativo y borrar la leyenda cuando
+    // esté el retrato real de Ana.
+    imageAlt: "Una mujer sonriente en un escritorio con una laptop, una libreta y una taza de café",
+    imageCaption: "Retrato provisional · Aquí va la foto de Ana",
+  },
+  help: {
+    heading: "¿Cómo puedo ayudarte?",
+    link: "Ver servicio",
+    items: [
+      { title: "Currículum y LinkedIn", text: "Presenta tu experiencia con claridad." },
+      { title: "Preparación de entrevistas", text: "Practica con retroalimentación personal." },
+      { title: "Rumbo profesional", text: "Arma un plan para lo que sigue." },
+    ],
+  },
+  goals: {
+    heading: "Tus metas. Apoyo personal.",
+    text: "Trabaja uno a uno con Ana Prato, ya sea que estés empezando tu carrera o haciendo un cambio.",
+    link: "Conoce a Ana",
+    // PLACEHOLDER: describe la foto provisional.
+    imageAlt: "Una libreta y un bolígrafo sobre un escritorio de madera",
   },
   // Un número de clientes iría en contra del mensaje: la práctica es pequeña
   // a propósito. Estos cuatro dicen cómo es el coaching, no cuánto ha habido.
@@ -261,42 +276,18 @@ const es = {
     ],
   },
   cta: {
-    heading: "Tu futuro te está esperando.",
-    sub: "Vamos a que llegues listo.",
-    button: "Agendar sesión",
+    heading: "Hablemos de tu próximo paso.",
+    button: "Agenda una consulta gratis",
   },
   booking: {
     fallback:
       "El calendario aparece aquí cuando configures NEXT_PUBLIC_CAL_LINK. Mientras tanto, escribe a",
     calendarTitle: "Calendario de reservas",
   },
-  footer: {
-    tagline: "Coaching de carrera uno a uno en español e inglés, donde sea que estés.",
-    pages: "Páginas",
-    contact: "Contacto",
-    follow: "Sígueme",
-    rights: "Todos los derechos reservados.",
-  },
   schema: {
     jobTitle: "Coach de Carrera",
     serviceDescription:
       "Un programa de coaching de carrera uno a uno, de ocho sesiones, para estudiantes, recién graduados y profesionales que cambian de carrera, en español e inglés, con una lista de clientes corta a propósito y clientes dentro y fuera de Estados Unidos.",
-  },
-  // HERRAMIENTA DE VISTA PREVIA: borrar junto con ThemeSwitcher.tsx cuando se
-  // elija una dirección de diseño.
-  themePicker: {
-    classic: "1 · Limpio y clásico",
-    bold: "2 · Moderno y llamativo",
-    minimal: "3 · Elegante y minimalista",
-    editorial: "4 · Editorial de lujo",
-    product: "5 · Pulido moderno",
-    statement: "6 · Audaz y rotundo",
-    paper: "7 · Cálido y claro",
-    groupOriginal: "De los bocetos",
-    groupPremium: "Direcciones premium",
-    label: "Vista previa de diseño",
-    note: "Solo vista previa. Este panel no forma parte del sitio publicado.",
-    hide: "Ocultar la vista previa de diseño",
   },
 };
 

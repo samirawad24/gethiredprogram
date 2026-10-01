@@ -4,56 +4,49 @@ import { pagePath } from "@/lib/routes";
 import { asset, site, type Locale } from "@/lib/site";
 import Button from "./Button";
 
-// One markup, three looks. Classic and minimal put the portrait beside the
-// text; the bold theme stretches it behind a navy scrim (see .hero in
-// globals.css).
 export default function Hero({ dict, lang }: { dict: Dictionary; lang: Locale }) {
+  const { hero } = dict;
+
   return (
     <section className="hero">
-      <div className="shell hero__inner">
-        <div className="hero__content" data-reveal>
-          <p className="eyebrow">{dict.hero.eyebrow}</p>
-          <h1 className="display display--hero mt-4">
-            {dict.hero.headlineLead}
-            <span className="display__accent">{dict.hero.headlineAccent}</span>
+      <div className="shell hero__grid">
+        <div className="hero__text" data-reveal>
+          <p className="eyebrow">{hero.eyebrow}</p>
+          <h1 className="serif h-hero" style={{ marginTop: "calc(13 * var(--u))" }}>
+            {hero.headline.map((line) => (
+              <span key={line} className="block">
+                {line}
+              </span>
+            ))}
           </h1>
-          <p className="lead mt-6 max-w-xl text-lg sm:text-xl">{dict.hero.promise}</p>
-
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Button href={pagePath(lang, "contact")} variant="flow">
-              {dict.hero.cta}
-            </Button>
-            <Button href={pagePath(lang, "services")} variant="outline">
-              {dict.hero.secondaryCta}
-            </Button>
-          </div>
-
-          <p className="lead mt-7 text-sm">{dict.hero.note}</p>
+          <p className="text-lead hero__promise" style={{ marginTop: "calc(26 * var(--u))" }}>
+            {hero.promise}
+          </p>
+          <Button href={pagePath(lang, "contact")} size="lg" flow className="mt-[calc(31*var(--u))]">
+            {hero.cta}
+          </Button>
+          <ul className="note-list text-small" style={{ marginTop: "calc(20 * var(--u))" }}>
+            {hero.note.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
         </div>
 
-        <div className="hero__media">
-          {/* Two crops of the same idea: the portrait sits beside the text,
-              the wide one fills the section in the bold theme. Swap both for
-              real photos via site.images.hero / heroWide. */}
+        <figure>
           <Image
             src={asset(site.images.hero)}
-            alt={dict.hero.imageAlt}
-            width={1200}
-            height={1500}
+            alt={hero.imageAlt}
+            width={528}
+            height={519}
             priority
-            sizes="(min-width: 900px) 50vw, 100vw"
-            className="hero__img hero__img--portrait"
+            sizes="(min-width: 768px) 50vw, 100vw"
+            className="hero__img"
           />
-          <Image
-            src={asset(site.images.heroWide)}
-            alt=""
-            width={1920}
-            height={1080}
-            sizes="100vw"
-            className="hero__img hero__img--wide"
-          />
-          <span aria-hidden="true" className="hero__scrim" />
-        </div>
+          {/* PLACEHOLDER: delete this caption with the real portrait. */}
+          <figcaption className="text-caption" style={{ marginTop: "calc(8 * var(--u))" }}>
+            {hero.imageCaption}
+          </figcaption>
+        </figure>
       </div>
     </section>
   );

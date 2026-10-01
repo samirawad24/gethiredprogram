@@ -4,7 +4,7 @@ Bilingual (English / Spanish) marketing site for career coach Ana Prato. Four pa
 
 Built with Next.js 16 (App Router), TypeScript, Tailwind CSS 4 and the official Cal.com React embed.
 
-The navy-and-gold design ships in **seven variants** you can flip between on the live site. See [Choosing a theme](#choosing-a-theme).
+The design follows the approved home page mockup (navy, gold, warm off-white, Source Serif 4 + Figtree). See [Design](#design).
 
 ## Run it locally
 
@@ -39,54 +39,25 @@ npx serve out   # preview the exported files
 
 If `NEXT_PUBLIC_CAL_LINK` is empty, the booking section shows the contact email instead of the calendar.
 
-## Choosing a theme
+## Design
 
-The three design directions from the boards are all built, sharing one set of
-components and one palette. The active one is an attribute on `<html>`:
+There is one design, taken from the approved home page mockup. The preview
+themes and the picker that used to live here are gone.
 
-| Theme | `data-theme` | Look |
-| --- | --- | --- |
-| 1 · Clean & classic | `classic` | Light sections, serif headline with a gold second line, soft cards, navy CTA bands. The default. |
-| 2 · Modern & bold | `bold` | Photo hero behind a navy scrim, uppercase headings, tighter spacing, heavier gold. |
-| 3 · Elevated & minimal | `minimal` | Wide margins, light serif, hairline dividers instead of cards, navy header button. |
-| 4 · Editorial luxury | `editorial` | A consultancy monograph: oversized light serif, very deep whitespace, hairlines instead of boxes, wide-tracked labels, gold only as a thread. |
-| 5 · Modern polish | `product` | Tight sans, rounded cards with soft depth and a hairline highlight, a warm glow behind the hero, cool light surface. |
-| 6 · Bold statement | `statement` | Scale as the idea: enormous tight uppercase across the full width, image as a band beneath, nothing rounded, heavy rules. |
-| 7 · Warm & light | `paper` | Warm paper background, centred section headings, columns split by hairlines rather than boxed, sharp corners, no icons, and no dark bands anywhere — even the footer stays light. Gold only on small labels and links. |
+The mockup was drawn 1086px wide, so on desktop every size in
+`src/app/globals.css` is a multiple of `--u`, one mockup pixel. At 1086px the
+home page lands on the mockup within a few pixels; wider screens scale it up
+evenly (capped at 1.2x), and below 768px the layout stacks with its own phone
+sizes.
 
-The hero carries both a portrait and a wide crop so a theme can choose between
-them with CSS alone. Anything a theme needs to recolour must be a
-class, not a Tailwind colour utility — a utility wins the cascade, which is how
-the paper theme first ended up with dark text on a navy footer. Hence
-`.footer-surface`, `.card--feature` and `.footer-legal`.
+The home page is the mockup's five blocks in order (hero, "How can I help?",
+the goals band, the closing band, the footer), with stats, approach, values and
+testimonials between the goals band and the closing band in the same style.
+The inner pages reuse the same pieces: hairline columns, the warm gray band,
+serif headings, gold arrow links.
 
-Each theme only redefines CSS variables. Headings carry **no size utilities** —
-they use `.display--hero`, `--page`, `--section`, `--band`, `--value`, `--card`
-and `--step`, whose sizes come from the theme. That is why switching theme
-changes the whole typographic system and not just its colours. A few themes add
-structural rules too (the editorial hero widens its text column, the statement
-hero goes full width), all in `globals.css` under their own heading.
-
-Two ways to switch:
-
-- The **Design preview** panel in the bottom-right corner of the page.
-- A query string: `/en/?theme=bold`, `/es/?theme=minimal`. Good for sharing one
-  direction with someone without explaining where to click.
-
-The choice is stored in `localStorage` and survives reloads and the language
-toggle. `src/lib/theme.ts` holds the list, the storage key and the inline script
-that sets `data-theme` before the page paints, so there is no flash of the wrong
-design.
-
-### Once a direction is picked
-
-1. Set `defaultTheme` in `src/lib/theme.ts` to the winner, and trim `themes`
-   and `themeGroups` to just that one.
-2. Delete `src/components/ThemeSwitcher.tsx` and its `<ThemeSwitcher />` line in
-   `src/components/PageShell.tsx`.
-3. Delete the `themePicker` block from `src/dictionaries/en.ts` and `es.ts`.
-4. In `src/app/globals.css`, keep the winning theme's variable block and its
-   structural rules, and delete the other five.
+The hero button keeps the 21st.dev flow effect on hover, and the header links
+keep the letter swap. At rest both look exactly like the mockup.
 
 ## Motion
 
@@ -96,7 +67,7 @@ into view, or a grid with `data-reveal-stagger` to have its children arrive one
 after another.
 
 Three things keep it safe: the `.js-motion` class that switches the hidden
-state on is added **pre-paint** by the inline script in `lib/theme.ts`, so
+state on is added **pre-paint** by the inline script in `[lang]/layout.tsx`, so
 nothing flashes; without that script the CSS never hides anything, so a JS
 failure leaves a static page rather than a blank one; and
 `prefers-reduced-motion` skips the whole thing. There is also a failsafe that
@@ -106,24 +77,26 @@ Everything else (components, sections, copy) stays as it is.
 
 ## Design system
 
-Colours, type and spacing are CSS variables in `src/app/globals.css`, not
-utility classes scattered through components, so a theme can restyle the whole
-site at once.
+Colours, type and spacing live in `src/app/globals.css`.
 
 | Token | Used for |
 | --- | --- |
-| `--color-navy`, `--color-navy-deep` | Section bands, footer, dark cards |
-| `--color-gold`, `--color-gold-dark`, `--color-gold-deep` | Buttons, rules, icons, small gold text |
-| `--fg`, `--fg-muted`, `--accent` | Text colours. A `.on-dark` wrapper flips all three, so the same component works on white and on navy. |
-| `--display-font`, `--display-weight`, `--display-transform` | The `.display` heading style each theme redefines |
-| `--section-py`, `--radius-card`, `--card-shadow` | Rhythm and card chrome |
+| `--color-navy`, `--color-navy-soft` | Buttons and their hover |
+| `--color-heading` | Serif headings and the wordmark |
+| `--color-gold`, `--color-gold-deep` | Eyebrows and arrow links |
+| `--color-paper`, `--color-shell` | Page background and the warm gray band |
+| `--color-ink`, `--color-muted`, `--color-faint`, `--color-line` | Body text, small text, captions, hairlines |
+| `--u`, `--gutter`, `--shell` | The mockup-pixel unit, side margin and content width |
 
-Shared classes: `.shell` (centred container), `.section` / `.section--alt` /
-`.section--navy`, `.display`, `.eyebrow`, `.lead`, `.rule`, `.btn` with
-`--primary` / `--navy` / `--outline` / `--cta`, and `.card`.
+Shared classes: `.shell`, `.hairline`, `.serif` with `.h-hero` / `.h-page` /
+`.h-section` / `.h-band` / `.h-close` / `.h-card`, `.eyebrow`, `.text-lead` /
+`.text-body` / `.text-small` / `.text-caption`, `.btn` with `--lg` / `--md` /
+`--sm`, `.link-arrow`, `.columns`, `.band` and `.goals`.
 
-Fonts are Playfair Display (headings) and Figtree (body), self-hosted by
-`next/font` in `src/app/[lang]/layout.tsx`.
+Fonts are Source Serif 4 (headings, wordmark, buttons) and Figtree (body),
+self-hosted by `next/font` in `src/app/[lang]/layout.tsx`. Source Serif 4 was
+picked by measuring Google serifs against the mockup headline: it matches its
+width at the same letter height.
 
 ## Pages
 
@@ -132,7 +105,7 @@ list of section components.
 
 | Page | Route | Sections |
 | --- | --- | --- |
-| Home | `/[lang]/` | Hero · Stats · Services · Approach · AboutTeaser · ValueBand · Testimonials · CtaBand |
+| Home | `/[lang]/` | Hero · HelpColumns · GoalsBand · Stats · Approach · ValueBand · Testimonials · CtaBand |
 | About | `/[lang]/about/` | PageHero · About · ValueBand · Audiences · CtaBand |
 | Services | `/[lang]/services/` | PageHero · Services · Program · PromiseBand · CtaBand |
 | Contact | `/[lang]/contact/` | PageHero · Booking · ValueBand |
@@ -165,14 +138,14 @@ Search the project for `PLACEHOLDER` to find every spot.
 | All page text (English) | `src/dictionaries/en.ts` |
 | All page text (Spanish) | `src/dictionaries/es.ts` |
 | Photos | See [Swap in real photos](#swap-in-real-photos) |
-| Image alt text | `hero.imageAlt`, `about.imageAlt` and `promise.imageAlt` in both dictionaries |
+| Image alt text | `hero.imageAlt`, `goals.imageAlt` in both dictionaries |
 | Email, LinkedIn, Instagram | `src/lib/site.ts` |
 | Testimonials | `testimonials.items` in both dictionaries. Delete `placeholderNote` and its line in `src/components/Testimonials.tsx` when real quotes are in. |
 | The four numbers under the hero | `stats.items` in both dictionaries. Keep each `value` to about six characters so it stays large on a phone; longer values shrink, then wrap. Note there is deliberately no client head count — see below. |
-| Service cards | `services.items` in both dictionaries. `icon` picks from `src/components/Icons.tsx`. |
-| How I work | `approach.items` in both dictionaries, same icon set. |
+| Home service columns | `help.items` in both dictionaries. The full list on Services is `services.items`. |
+| How I work | `approach.items` in both dictionaries. |
 | Logo | Ana's real badge at `public/images/logo.png`, path in `site.logo`. `src/components/Logo.tsx` just renders it. The favicon (`src/app/favicon.ico`, `src/app/icon.png`) and the social card are generated from the same mark. |
-| Colours and fonts | `src/app/globals.css` (colours, themes) and `src/app/[lang]/layout.tsx` (fonts) |
+| Colours and fonts | `src/app/globals.css` (colours, sizes) and `src/app/[lang]/layout.tsx` (fonts) |
 | Structured data details | `src/components/JsonLd.tsx` |
 
 Both dictionaries share one TypeScript type, so the build fails if you add a string to one language and forget the other.
@@ -198,73 +171,43 @@ updating together.
 
 ## Swap in real photos
 
-Every picture on the site is brand art drawn in SVG, living in
-`public/images/art/`. Each one is a slot: drop a real photo into
-`public/images/`, change one path in `src/lib/site.ts`, and update its alt text
-in both dictionaries. Nothing else moves.
+The two photos on the site are stand-ins cut from the approved mockup, in
+`public/images/`. Drop a real photo in, change one path in `src/lib/site.ts`,
+and update its alt text in both dictionaries.
 
-| Slot | `site.images` key | Shape | Where it shows | What to shoot or buy |
-| --- | --- | --- | --- | --- |
-| Hero portrait | `hero` | 4:5, ~1200 x 1500 | Beside the headline in the classic and minimal themes | Ana at her desk, or a bright workspace. Leave the left third calm — the headline sits next to it. |
-| Hero wide | `heroWide` | 16:9, ~1920 x 1080 | Fills the hero in the bold theme, behind a navy scrim | Something with depth and a horizon: a city at dusk, an open office. Detail is lost under the scrim, so mood matters more than sharpness. |
-| About | `about` | 1:1, ~1100 x 1100 | Next to "Hi, I'm Ana" | **Ana's real portrait.** This is the one photo a stock image cannot do. |
-| Promise band | `notebook` | 7:5, ~1400 x 1000 | The full-width band mid-page | A desk detail: notebook and pen, coffee, hands writing. Shot close. |
-| Section backdrop | `backdrop` | 16:9, ~1920 x 1080 | Behind the closing call to action and the booking section, under a heavy scrim | Anything soft and out of focus. It is 90% covered; it only adds depth. |
+| Slot | `site.images` key | Shape | Where it shows |
+| --- | --- | --- | --- |
+| Portrait | `hero` | about 1:1 (529 x 520) | Home hero and the About page. Delete `hero.imageCaption` and the `figcaption` lines in `Hero.tsx` and `About.tsx` once it is Ana. |
+| Desk | `goals` | about 2.3:1 (451 x 197) | The goals band on Home and the promise band on Services |
 
-JPG or WebP. Keep each file under about 400 KB — the site is a static export, so
-nothing compresses them for you at runtime.
+The cut-outs are only about 530px wide, so they look soft on high-res screens.
+Real photos should be at least twice that. JPG or WebP, under about 400 KB each.
 
-Two judgement calls worth keeping:
-
-- **The testimonial cards use initials, not faces.** The quotes are still
-  placeholders. Putting stock headshots next to invented quotes makes fabricated
-  social proof look real, which is both dishonest and, for a business making
-  claims about results, a legal problem. Once real clients give real quotes,
-  their own photos can replace the initials.
-- **No stock photo should stand in for Ana.** The art in the `about` slot shows a
-  workspace rather than a person for exactly this reason.
-
-### Backgrounds
-
-`src/components/Backdrop.tsx` puts an image behind a section. The section needs
-`.has-backdrop` and its content needs to be in a `.shell`:
-
-```tsx
-<section className="has-backdrop section">
-  <Backdrop scrim="navy-deep" watermark />
-  <div className="shell">...</div>
-</section>
-```
-
-`scrim` is `navy`, `navy-deep` or `light` — how hard the image is knocked back.
-`watermark` adds the ghosted badge in the corner. Use it once per stretch of
-page; two in a row reads as a mistake. `.section--wash` adds a soft colour
-gradient to a light section, and `.grain` adds paper texture.
+The testimonial quotes are still placeholders, so they carry no photos. Stock
+headshots next to invented quotes would make fabricated social proof look real.
 
 ## Project structure
 
 ```
 src/
   app/
-    [lang]/layout.tsx          html shell, fonts, theme bootstrap
+    [lang]/layout.tsx          html shell, fonts, motion bootstrap
     [lang]/page.tsx            Home
     [lang]/about/page.tsx      About
     [lang]/services/page.tsx   Services
     [lang]/contact/page.tsx    Contact
     [lang]/og.png/route.tsx    generated social share image per language
     sitemap.ts, robots.ts
-    globals.css                palette, the three themes, shared classes
+    globals.css                palette, mockup-pixel scale, shared classes
   components/                  one small component per section
   components/PageShell.tsx     skip link, header, main, footer
   components/PageHero.tsx      masthead and h1 for pages below Home
   components/MobileNav.tsx     the phone menu
-  components/Backdrop.tsx      background image + scrim + badge watermark
   dictionaries/                en.ts, es.ts
   lib/site.ts                  brand, links, env vars, image paths
   lib/routes.ts                the page list and their URL segments
   lib/metadata.ts              title, description, canonical, hreflang
-  lib/theme.ts                 theme list and the pre-paint init script
-public/images/art/             brand art, one file per photo slot
+public/images/                 placeholder photos, logo
 public/index.html              root redirect to /en/ or /es/
 .github/workflows/deploy.yml   builds and publishes to GitHub Pages
 ```

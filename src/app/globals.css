@@ -1,917 +1,759 @@
 @import "tailwindcss";
 
 /* ---------------------------------------------------------------------------
-   Brand palette. Change a value here and every component follows.
-   Navy + gold, taken from the approved design boards.
+   Brand palette, sampled from the approved home page mockup.
+   Change a value here and every component follows.
 --------------------------------------------------------------------------- */
 @theme {
   --color-navy: #12294a;
   --color-navy-deep: #0b1b31;
   --color-navy-soft: #1d3c68;
-  --color-gold: #e0a43a;
-  --color-gold-dark: #bd8526;
-  /* Darker still, for small gold text: 4.9:1 on white, so it passes WCAG AA. */
-  --color-gold-deep: #96680f;
-  --color-gold-soft: #f9edd5;
-  --color-paper: #ffffff;
-  --color-shell: #f6f4f1;
-  --color-ink: #16233a;
-  --color-muted: #5d6a7d;
-  --color-line: #e3e6ec;
+  --color-heading: #0f2142;
+  --color-gold: #b07318;
+  --color-gold-deep: #96620f;
+  --color-gold-soft: #f6ecd9;
+  --color-paper: #fefdfb;
+  --color-shell: #f2f1ed;
+  --color-ink: #343c4c;
+  --color-muted: #5b6270;
+  --color-faint: #767a84;
+  --color-line: #e2e4e7;
 
   --breakpoint-xs: 23.5rem;
 
-  --font-serif: var(--font-playfair), Georgia, "Times New Roman", serif;
+  --font-serif: var(--font-source-serif), Georgia, "Times New Roman", serif;
   --font-sans: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
 }
 
 /* ---------------------------------------------------------------------------
-   Themes. One design system, three looks. The active one is set as
-   data-theme on <html> by the inline script in [lang]/layout.tsx.
-   Defaults below == "classic", so the page still looks right with no JS.
+   Scale. The mockup was drawn 1086px wide, so on desktop every size is a
+   multiple of --u, one mockup pixel. At 1086px the page lands on the mockup
+   exactly; wider screens grow it evenly up to 1.2x, narrower ones shrink it
+   down to the tablet breakpoint, where the layout stacks.
 --------------------------------------------------------------------------- */
-:root,
-[data-theme="classic"] {
-  --fg: var(--color-ink);
-  --fg-muted: var(--color-muted);
-  --accent: var(--color-gold-deep);
-
-  --surface: var(--color-paper);
-  --surface-alt: var(--color-shell);
-
-  --display-font: var(--font-serif);
-  --display-weight: 600;
-  --display-transform: none;
-  --display-tracking: -0.02em;
-  --display-leading: 1.06;
-
-  --section-py: 4rem;
-  --section-py-lg: 6rem;
-
-  --radius-card: 0.625rem;
-  --radius-btn: 0.4rem;
-  --radius-media: 0.75rem;
-
-  --card-bg: var(--color-paper);
-  --card-border: var(--color-line);
-  --card-shadow: 0 18px 40px -28px rgba(18, 41, 74, 0.35);
-  --card-pad: 1.5rem;
-
-  --size-hero: clamp(2.6rem, 6.8vw, 4.25rem);
-  --size-page: clamp(2.2rem, 5.2vw, 3.5rem);
-  --size-section: clamp(2rem, 4.4vw, 3rem);
-  --size-band: clamp(1.8rem, 3.8vw, 2.75rem);
-  --size-value: clamp(1.25rem, 2.4vw, 1.6rem);
-  --size-card: 1.15rem;
-  --size-step: 1.5rem;
-
-  --rule-weight: 3px;
-  --header-cta-bg: var(--color-gold);
-  --header-cta-fg: var(--color-navy-deep);
+:root {
+  --u: clamp(0.72px, calc(100vw / 1086), 1.2px);
+  --gutter: calc(48 * var(--u));
+  --shell: calc(990 * var(--u));
+  --divider: 1px solid var(--color-line);
 }
 
-/* Modern & bold: photo hero, uppercase headings, solid navy blocks. */
-[data-theme="bold"] {
-  --display-font: var(--font-sans);
-  --display-weight: 800;
-  --display-transform: uppercase;
-  --display-tracking: -0.005em;
-  --display-leading: 1.02;
-
-  --section-py: 3.5rem;
-  --section-py-lg: 5rem;
-
-  --radius-card: 0.375rem;
-  --radius-btn: 0.375rem;
-  --radius-media: 0.375rem;
-
-  --card-shadow: 0 22px 44px -26px rgba(11, 27, 49, 0.45);
-  --rule-weight: 4px;
-
-  --size-hero: clamp(2.5rem, 7vw, 4.5rem);
-  --size-section: clamp(1.9rem, 4.4vw, 3rem);
-}
-
-/* Elevated & minimal: air, light serif, hairlines instead of cards. */
-[data-theme="minimal"] {
-  --display-weight: 400;
-  --display-tracking: -0.015em;
-  --display-leading: 1.12;
-
-  --surface-alt: #faf9f7;
-
-  --section-py: 3.5rem;
-  --section-py-lg: 8rem;
-
-  --radius-card: 0;
-  --radius-btn: 0.125rem;
-  --radius-media: 0.125rem;
-
-  --card-bg: transparent;
-  --card-border: transparent;
-  --card-shadow: none;
-  --card-pad: 1.25rem 0.5rem;
-
-  --rule-weight: 2px;
-  --header-cta-bg: var(--color-navy);
-  --header-cta-fg: #ffffff;
-
-  --size-hero: clamp(2.7rem, 7vw, 4.5rem);
-  --size-section: clamp(2.1rem, 4.6vw, 3.1rem);
-}
-
-
-/* ---------------------------------------------------------------------------
-   Premium directions. Same components, same content; these only redefine
-   variables, plus a handful of structural rules further down.
---------------------------------------------------------------------------- */
-
-/* Editorial: a consultancy monograph. Oversized light serif, deep air,
-   hairlines instead of boxes, gold used only as a thread. */
-[data-theme="editorial"] {
-  --fg: #141b26;
-  --fg-muted: #5a6472;
-  --accent: var(--color-gold-deep);
-
-  --surface: #fbfaf7;
-  --surface-alt: #f2efe8;
-
-  --display-font: var(--font-serif);
-  --display-weight: 400;
-  --display-transform: none;
-  --display-tracking: -0.028em;
-  --display-leading: 1.02;
-
-  --section-py: 3.75rem;
-  --section-py-lg: 10rem;
-
-  --radius-card: 0;
-  --radius-btn: 0;
-  --radius-media: 0;
-
-  --card-bg: transparent;
-  --card-border: transparent;
-  --card-shadow: none;
-  --card-pad: 1.75rem 0;
-
-  --rule-weight: 1px;
-  --header-cta-bg: transparent;
-  --header-cta-fg: var(--fg);
-
-  --size-hero: clamp(2.7rem, 6.5vw, 5rem);
-  --size-page: clamp(2.4rem, 6vw, 4.25rem);
-  --size-section: clamp(2.3rem, 5.6vw, 4rem);
-  --size-band: clamp(2rem, 4.4vw, 3rem);
-  --size-value: clamp(1.4rem, 2.6vw, 1.9rem);
-  --size-card: 1.35rem;
-  --size-step: 1.6rem;
-}
-
-/* Product: the modern software look. Tight sans, soft depth, rounded cards,
-   a cool light surface with a faint glow behind the hero. */
-[data-theme="product"] {
-  --fg: #0f172a;
-  --fg-muted: #55637a;
-  --accent: var(--color-gold-deep);
-
-  --surface: #ffffff;
-  --surface-alt: #f7f9fc;
-
-  --display-font: var(--font-sans);
-  --display-weight: 700;
-  --display-transform: none;
-  --display-tracking: -0.035em;
-  --display-leading: 1.06;
-
-  --section-py: 4rem;
-  --section-py-lg: 6.5rem;
-
-  --radius-card: 1rem;
-  --radius-btn: 0.6rem;
-  --radius-media: 1.25rem;
-
-  --card-bg: #ffffff;
-  --card-border: #e7ecf3;
-  --card-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 12px 32px -18px rgba(15, 23, 42, 0.3);
-  --card-pad: 1.6rem;
-
-  --rule-weight: 3px;
-  --header-cta-bg: var(--color-navy);
-  --header-cta-fg: #ffffff;
-
-  --size-hero: clamp(2.6rem, 6.4vw, 4.4rem);
-  --size-page: clamp(2.2rem, 5vw, 3.4rem);
-  --size-section: clamp(1.9rem, 4vw, 2.9rem);
-  --size-band: clamp(1.7rem, 3.4vw, 2.5rem);
-  --size-value: clamp(1.2rem, 2.2vw, 1.5rem);
-  --size-card: 1.1rem;
-  --size-step: 1.35rem;
-}
-
-/* Statement: scale as the whole idea. Enormous tight uppercase, hard blocks,
-   no rounding anywhere. */
-[data-theme="statement"] {
-  --fg: #0b1b31;
-  --fg-muted: #4d5b70;
-  --accent: var(--color-gold-deep);
-
-  --surface: #ffffff;
-  --surface-alt: #ece7de;
-
-  --display-font: var(--font-sans);
-  --display-weight: 900;
-  --display-transform: uppercase;
-  --display-tracking: -0.045em;
-  --display-leading: 0.9;
-
-  --section-py: 3.5rem;
-  --section-py-lg: 7rem;
-
-  --radius-card: 0;
-  --radius-btn: 0;
-  --radius-media: 0;
-
-  --card-bg: #ffffff;
-  --card-border: var(--color-navy);
-  --card-shadow: none;
-  --card-pad: 1.6rem;
-
-  --rule-weight: 6px;
-  --header-cta-bg: var(--color-navy);
-  --header-cta-fg: #ffffff;
-
-  --size-hero: clamp(2.8rem, 8.5vw, 6.5rem);
-  --size-page: clamp(2.5rem, 7vw, 5rem);
-  --size-section: clamp(2.3rem, 6.5vw, 4.5rem);
-  --size-band: clamp(2rem, 5vw, 3.4rem);
-  --size-value: clamp(1.4rem, 3vw, 2rem);
-  --size-card: 1.1rem;
-  --size-step: 1.4rem;
-}
-
-
-/* Paper: warm, light and quiet. A wordmark instead of the badge, sharp corners
-   everywhere, columns separated by hairlines rather than boxed into cards, and
-   no dark bands at all: even the footer stays light. Gold appears only on small
-   labels and links. */
-[data-theme="paper"] {
-  --fg: #1c2b45;
-  --fg-muted: #5a6474;
-  --accent: var(--color-gold-deep);
-
-  --surface: #faf9f6;
-  --surface-alt: #f2f0ea;
-
-  --display-font: var(--font-serif);
-  --display-weight: 400;
-  --display-transform: none;
-  --display-tracking: -0.02em;
-  --display-leading: 1.14;
-
-  --section-py: 3.5rem;
-  --section-py-lg: 6.5rem;
-
-  --radius-card: 0;
-  --radius-btn: 0;
-  --radius-media: 0;
-
-  --card-bg: transparent;
-  --card-border: transparent;
-  --card-shadow: none;
-  --card-pad: 0;
-
-  --rule-weight: 1px;
-  --header-cta-bg: var(--color-navy);
-  --header-cta-fg: #ffffff;
-
-  --size-hero: clamp(2.5rem, 5.6vw, 3.9rem);
-  --size-page: clamp(2.2rem, 4.8vw, 3.2rem);
-  --size-section: clamp(1.9rem, 3.8vw, 2.7rem);
-  --size-band: clamp(1.75rem, 3.4vw, 2.4rem);
-  --size-value: clamp(1.2rem, 2.2vw, 1.5rem);
-  --size-card: 1.3rem;
-  --size-step: 1.4rem;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
+@media (max-width: 767px) {
+  :root {
+    --u: 1px;
+    --gutter: 1.25rem;
   }
 }
 
-body {
-  background: var(--surface);
-  color: var(--fg);
-}
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
 
-/* Offset anchor targets so the sticky header does not cover section headings. */
-section[id] {
-  scroll-margin-top: 5rem;
-}
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+  }
 
-::selection {
-  background: var(--color-gold-soft);
+  ::selection {
+    background: var(--color-gold-soft);
+    color: var(--color-navy-deep);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 3px;
+  }
 }
 
 @layer components {
-  /* Anything inside .on-dark flips its own text colours, so the same
-     components work on white and on navy without extra props. */
-  .on-dark,
-  [data-theme="bold"] .hero {
-    --fg: #ffffff;
-    --fg-muted: rgba(255, 255, 255, 0.78);
-    --accent: var(--color-gold);
-    --card-bg: rgba(255, 255, 255, 0.06);
-    --card-border: rgba(255, 255, 255, 0.16);
-    --card-shadow: none;
-    color: var(--fg);
-  }
-
+  /* --- Frame ------------------------------------------------------------ */
   .shell {
+    width: min(100% - 2 * var(--gutter), var(--shell));
     margin-inline: auto;
-    width: 100%;
-    max-width: 72rem;
-    padding-inline: 1.25rem;
   }
 
-  @media (min-width: 640px) {
-    .shell {
-      padding-inline: 2rem;
-    }
+  .hairline {
+    border: 0;
+    border-top: var(--divider);
   }
 
-  .section {
-    background: var(--surface);
-    padding-block: var(--section-py);
-  }
-
-  .section--alt {
-    background: var(--surface-alt);
-  }
-
-  .section--navy {
-    background: var(--color-navy);
-  }
-
-  .section--navy-deep {
-    background: var(--color-navy-deep);
-  }
-
-  @media (min-width: 768px) {
-    .section {
-      padding-block: var(--section-py-lg);
-    }
-  }
-
-  .display {
-    font-family: var(--display-font);
-    font-weight: var(--display-weight);
-    text-transform: var(--display-transform);
-    letter-spacing: var(--display-tracking);
-    line-height: var(--display-leading);
-    color: var(--fg);
-  }
-
-  /* Second line of a headline, in gold, as on the design boards. */
-  .display__accent {
-    color: var(--color-gold);
-    display: block;
-  }
-
-  [data-theme="minimal"] .display__accent {
-    color: var(--fg);
+  /* --- Type --------------------------------------------------------------
+     Headings, the wordmark and buttons are set in Source Serif 4; everything
+     else in Figtree. */
+  .serif {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    color: var(--color-heading);
+    letter-spacing: -0.022em;
   }
 
   .eyebrow {
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.18em;
+    font-size: calc(14 * var(--u));
+    font-weight: 500;
+    letter-spacing: 0.13em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--color-gold);
   }
 
-  .lead {
-    color: var(--fg-muted);
-    line-height: 1.7;
+  .h-hero {
+    font-size: calc(58 * var(--u));
+    font-weight: 500;
+    line-height: 1.07;
+    letter-spacing: -0.035em;
   }
 
-  .rule {
-    display: block;
-    width: 3.5rem;
-    height: var(--rule-weight);
-    background: var(--color-gold);
-    border-radius: 2px;
+  .h-page {
+    font-size: calc(54 * var(--u));
+    line-height: 1.06;
+    letter-spacing: -0.03em;
   }
 
+  .h-section {
+    font-size: calc(43.5 * var(--u));
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+  }
+
+  .h-band {
+    font-size: calc(40 * var(--u));
+    line-height: 1.12;
+    letter-spacing: -0.03em;
+  }
+
+  .h-close {
+    font-size: calc(40 * var(--u));
+    line-height: 1.15;
+    letter-spacing: -0.028em;
+  }
+
+  .h-card {
+    font-size: calc(28.2 * var(--u));
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+  }
+
+  .text-lead {
+    font-size: calc(25 * var(--u));
+    line-height: 1.42;
+    color: var(--color-ink);
+  }
+
+  .text-body {
+    font-size: calc(20 * var(--u));
+    line-height: 1.4;
+    color: var(--color-ink);
+  }
+
+  .text-small {
+    font-size: calc(15 * var(--u));
+    line-height: 1.45;
+    color: var(--color-muted);
+  }
+
+  .text-caption {
+    font-size: calc(12 * var(--u));
+    line-height: 1.4;
+    color: var(--color-faint);
+  }
+
+  /* --- Buttons and links ------------------------------------------------ */
   .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
-    border-radius: var(--radius-btn);
-    padding: 0.85rem 1.65rem;
-    font-size: 0.95rem;
-    font-weight: 600;
-    line-height: 1.2;
-    transition:
-      background-color 0.2s ease,
-      border-color 0.2s ease,
-      color 0.2s ease;
-  }
-
-  .btn:focus-visible {
-    outline: 2px solid var(--color-gold);
-    outline-offset: 2px;
-  }
-
-  .btn--primary {
-    background: var(--color-gold);
-    color: var(--color-navy-deep);
-  }
-
-  .btn--primary:hover {
-    background: var(--color-gold-dark);
-  }
-
-  .btn--navy {
+    gap: 0.5em;
+    border-radius: calc(4 * var(--u));
     background: var(--color-navy);
-    color: #ffffff;
+    color: #fff;
+    font-family: var(--font-serif);
+    font-weight: 400;
+    /* A display optical size reads lighter and finer, as in the mockup. */
+    font-variation-settings: "opsz" 40;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    transition:
+      background-color 0.25s ease,
+      transform 0.15s ease;
   }
 
-  .btn--navy:hover {
-    background: var(--color-navy-deep);
+  .btn:hover {
+    background: var(--color-navy-soft);
   }
 
-  .btn--outline {
-    border: 1px solid color-mix(in srgb, var(--fg) 28%, transparent);
-    color: var(--fg);
+  .btn:active {
+    transform: translateY(1px);
   }
 
-  .btn--outline:hover {
-    border-color: var(--color-gold);
-    color: var(--accent);
+  .btn--lg {
+    height: calc(57 * var(--u));
+    padding-inline: calc(35 * var(--u));
+    font-size: calc(20.8 * var(--u));
   }
 
-  /* Header call to action: gold in most themes, navy in the minimal one. */
-  .btn--cta {
-    background: var(--header-cta-bg);
-    color: var(--header-cta-fg);
-  }
-
-  .btn--cta:hover {
-    filter: brightness(0.93);
+  .btn--md {
+    height: calc(50 * var(--u));
+    padding-inline: calc(35 * var(--u));
+    font-size: calc(18.6 * var(--u));
   }
 
   .btn--sm {
-    padding: 0.6rem 1.1rem;
-    font-size: 0.875rem;
+    height: calc(45 * var(--u));
+    padding-inline: calc(22 * var(--u));
+    font-size: calc(16.8 * var(--u));
   }
 
-  .card {
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: var(--radius-card);
-    box-shadow: var(--card-shadow);
-    padding: var(--card-pad);
-  }
-
-  /* Minimal theme drops the card chrome and separates items with hairlines. */
-  @media (min-width: 768px) {
-    [data-theme="minimal"] .card-row > .card + .card {
-      border-left: 1px solid var(--color-line);
-    }
-
-    [data-theme="minimal"] .on-dark .card-row > .card + .card {
-      border-left-color: rgba(255, 255, 255, 0.2);
-    }
-  }
-
-  /* --- Hero ---------------------------------------------------------------
-     Classic and minimal: text left, portrait right.
-     Bold: the photo fills the section behind a navy scrim.
-  ------------------------------------------------------------------------ */
-  .hero {
-    position: relative;
-    overflow: hidden;
-    background: var(--surface);
-  }
-
-  .hero__inner {
-    position: relative;
-    display: grid;
-    gap: 2.5rem;
+  /* Gold text link with the up-right arrow, as under each service. */
+  .link-arrow {
+    display: inline-flex;
     align-items: center;
-    padding-block: 2.5rem 3.5rem;
+    gap: 0.5em;
+    font-size: calc(18 * var(--u));
+    color: var(--color-gold);
+    transition: color 0.2s ease;
   }
 
-  @media (min-width: 900px) {
-    .hero__inner {
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 3.5rem;
-      padding-block: 3.5rem 5rem;
-    }
+  .link-arrow svg {
+    width: 1.3em;
+    height: 1.3em;
+    transition: transform 0.25s ease;
   }
 
-  .hero__content {
-    position: relative;
-    z-index: 1;
+  .link-arrow:hover {
+    color: var(--color-gold-deep);
   }
 
-  .hero__media {
-    position: relative;
+  .link-arrow:hover svg {
+    transform: translate(2px, -2px);
+  }
+
+  .link-arrow--lg {
+    font-size: calc(20 * var(--u));
+  }
+
+  .link-arrow--underline span {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.3em;
+  }
+
+  /* --- Header ----------------------------------------------------------- */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: color-mix(in srgb, var(--color-paper) 94%, transparent);
+    backdrop-filter: blur(8px);
+  }
+
+  .site-header__bar {
+    display: flex;
+    height: calc(90 * var(--u));
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .wordmark {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    color: var(--color-heading);
+    letter-spacing: -0.025em;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .wordmark--header {
+    margin-top: calc(-6 * var(--u));
+    font-size: calc(32.4 * var(--u));
+  }
+
+  .wordmark--footer {
+    font-size: calc(23.4 * var(--u));
+  }
+
+  .site-nav {
+    display: flex;
+    align-items: center;
+  }
+
+  .site-nav__links {
+    display: flex;
+    align-items: center;
+    gap: calc(32 * var(--u));
+    font-size: calc(14.5 * var(--u));
+    color: var(--color-navy);
+  }
+
+  .site-nav__links a {
+    display: inline-flex;
+    padding-block: 0.4em;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+  }
+
+  .site-nav__links a:hover,
+  .site-nav__links a[aria-current="page"] {
+    border-bottom-color: var(--color-gold);
+  }
+
+  .site-nav__divider {
+    width: 1px;
+    height: calc(28 * var(--u));
+    margin-inline: calc(22 * var(--u));
+    background: var(--color-line);
+  }
+
+  .lang-switch {
+    display: flex;
+    align-items: center;
+    gap: calc(18 * var(--u));
+    font-size: calc(13 * var(--u));
+    letter-spacing: 0.04em;
+  }
+
+  .lang-switch a {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    color: var(--color-faint);
+    transition: color 0.2s ease;
+  }
+
+  .lang-switch a:hover,
+  .lang-switch a[aria-current="true"] {
+    color: var(--color-navy);
+  }
+
+  .site-nav__cta {
+    margin-left: calc(34 * var(--u));
+  }
+
+  /* --- Home: hero ------------------------------------------------------- */
+  .hero {
+    padding-top: calc(8 * var(--u));
+    padding-bottom: calc(40 * var(--u));
+  }
+
+  .hero__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 462fr) minmax(0, 529fr);
+    align-items: center;
+  }
+
+  .hero__text {
+    padding-top: calc(13 * var(--u));
+    padding-right: calc(8 * var(--u));
+  }
+
+  .hero__promise {
+    max-width: 14em;
+  }
+
+  .h-hero {
+    text-wrap: balance;
   }
 
   .hero__img {
+    display: block;
     width: 100%;
     height: auto;
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 529 / 520;
     object-fit: cover;
-    border-radius: var(--radius-media);
   }
 
-  .hero__scrim {
-    display: none;
+  .note-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0 0.55em;
   }
 
-  [data-theme="minimal"] .hero__img {
-    aspect-ratio: 5 / 4;
+  .note-list li + li::before {
+    content: "·";
+    margin-right: 0.55em;
   }
 
-  [data-theme="bold"] .hero {
-    background: var(--color-navy-deep);
+  /* --- Home: How can I help? -------------------------------------------- */
+  .help {
+    padding-top: calc(36 * var(--u));
+    padding-bottom: calc(38 * var(--u));
   }
 
-  /* The photo fills the whole section, so it has to escape the centred
-     container: .hero__inner drops out of the way as a positioning ancestor. */
-  [data-theme="bold"] .hero__inner {
-    position: static;
+  .columns {
+    display: grid;
+    grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr));
   }
 
-  [data-theme="bold"] .hero__media {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
+  .columns > * {
+    padding: calc(10 * var(--u)) calc(30 * var(--u)) calc(10 * var(--u)) calc(54 * var(--u));
   }
 
-  [data-theme="bold"] .hero__img {
-    height: 100%;
-    aspect-ratio: auto;
-    border-radius: 0;
+  .columns > :first-child {
+    padding-left: calc(21 * var(--u));
   }
 
-  [data-theme="bold"] .hero__scrim {
+  /* The mockup's three service columns are not quite equal. */
+  .columns--help {
+    grid-template-columns: 314fr 357fr 319fr;
+  }
+
+  .columns--help > * {
+    display: flex;
+    flex-direction: column;
+    padding-right: calc(10 * var(--u));
+  }
+
+  .columns--help p {
+    max-width: 12.5em;
+  }
+
+  .columns--help .link-arrow {
+    margin-top: auto;
+  }
+
+  .columns > * + * {
+    border-left: var(--divider);
+  }
+
+  /* --- Home: goals band ------------------------------------------------- */
+  .band {
+    background: var(--color-shell);
+  }
+
+  /* Text starts just inside the shell; the photo runs to the window edge. */
+  .goals {
+    --edge: max(var(--gutter), (100% - var(--shell)) / 2);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) calc(var(--edge) + 406 * var(--u));
+    align-items: center;
+    column-gap: calc(40 * var(--u));
+    padding-block: calc(26 * var(--u));
+    padding-left: calc(var(--edge) + 28 * var(--u));
+  }
+
+  .goals__img {
     display: block;
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      100deg,
-      rgba(11, 27, 49, 0.96) 0%,
-      rgba(11, 27, 49, 0.86) 45%,
-      rgba(11, 27, 49, 0.42) 100%
-    );
+    width: 100%;
+    height: calc(198 * var(--u));
+    object-fit: cover;
   }
 
-  [data-theme="bold"] .hero__inner {
-    grid-template-columns: 1fr;
-    align-content: center;
-    min-height: 32rem;
+  /* --- Closing band and footer ----------------------------------------- */
+  .closing {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding-top: calc(46 * var(--u));
+    padding-bottom: calc(34 * var(--u));
   }
 
-  @media (min-width: 900px) {
-    [data-theme="bold"] .hero__inner {
-      grid-template-columns: 1fr;
-      min-height: 38rem;
-    }
+  .site-footer__bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding-top: calc(7 * var(--u));
+    padding-bottom: calc(24 * var(--u));
   }
 
-  [data-theme="bold"] .hero__content {
+  .site-footer__links {
+    display: flex;
+    align-items: center;
+    font-size: calc(15 * var(--u));
+    color: var(--color-navy);
+  }
+
+  .site-footer__links a {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    transition: color 0.2s ease;
+  }
+
+  .site-footer__links a:hover {
+    color: var(--color-gold);
+  }
+
+  .site-footer__links span[aria-hidden] {
+    width: 1px;
+    height: calc(24 * var(--u));
+    margin-inline: calc(29 * var(--u));
+    background: var(--color-line);
+  }
+
+  /* --- Sections below the mockup's five ---------------------------------
+     Same language: hairlines instead of cards, serif headings, gold links. */
+  .section {
+    padding-block: calc(72 * var(--u));
+  }
+
+  .section-head {
     max-width: 40rem;
   }
 
-  /* --- Numbered program steps -------------------------------------------- */
-  .step__marker {
-    display: flex;
-    height: 3rem;
-    width: 3rem;
-    flex-shrink: 0;
-    align-items: center;
-    justify-content: center;
-    border-radius: 999px;
-    background: var(--color-navy);
-    color: #ffffff;
-    font-family: var(--font-serif);
-    font-size: 1.25rem;
-    font-weight: 600;
-  }
-
-  [data-theme="bold"] .step__marker {
-    border-radius: var(--radius-btn);
-    background: var(--color-gold);
-    color: var(--color-navy-deep);
-    font-family: var(--font-sans);
-    font-weight: 800;
-  }
-
-  [data-theme="minimal"] .step__marker {
-    background: transparent;
-    border: 1px solid var(--color-line);
-    color: var(--color-navy);
-  }
-
-
-  /* --- Background image layers -------------------------------------------
-     A section gets .has-backdrop, a <Backdrop /> and a .shell for its
-     content. The image fills the section, a scrim knocks it back, and the
-     content sits above both.
-  ------------------------------------------------------------------------ */
-  .has-backdrop {
-    position: relative;
-    isolation: isolate;
-  }
-
-  .has-backdrop > .shell,
-  .has-backdrop > .hero__inner {
-    position: relative;
-    z-index: 1;
-  }
-
-  .backdrop {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    overflow: hidden;
-  }
-
-  .backdrop__img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-  }
-
-  .backdrop__scrim {
-    position: absolute;
-    inset: 0;
-  }
-
-  .backdrop__scrim--navy {
-    background: linear-gradient(
-      100deg,
-      rgba(18, 41, 74, 0.97) 0%,
-      rgba(18, 41, 74, 0.92) 55%,
-      rgba(18, 41, 74, 0.82) 100%
-    );
-  }
-
-  .backdrop__scrim--navy-deep {
-    background: linear-gradient(
-      160deg,
-      rgba(11, 27, 49, 0.97) 0%,
-      rgba(11, 27, 49, 0.93) 60%,
-      rgba(11, 27, 49, 0.86) 100%
-    );
-  }
-
-  .backdrop__scrim--light {
-    background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.95) 0%,
-      rgba(255, 255, 255, 0.9) 45%,
-      rgba(246, 244, 241, 0.94) 100%
-    );
-  }
-
-  /* The badge, ghosted into the corner, as on board 3. */
-  .backdrop__watermark {
-    position: absolute;
-    right: -3rem;
-    bottom: -5rem;
-    width: 22rem;
-    height: 22rem;
-    color: currentColor;
-    opacity: 0.07;
-  }
-
-  @media (min-width: 768px) {
-    .backdrop__watermark {
-      right: -4rem;
-      bottom: -7rem;
-      width: 30rem;
-      height: 30rem;
-    }
-  }
-
-  /* Paper grain. Very low contrast; it reads as texture, not noise. */
-  .grain::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-    opacity: 0.28;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.45'/%3E%3C/svg%3E");
-  }
-
-  /* A soft wash so large light sections are not flat white. */
-  .section--wash {
-    background-image:
-      radial-gradient(60rem 30rem at 85% -10%, rgba(224, 164, 58, 0.12), transparent 70%),
-      radial-gradient(50rem 28rem at 5% 110%, rgba(18, 41, 74, 0.07), transparent 70%);
-  }
-
-  [data-theme="bold"] .section--wash {
-    background-image:
-      radial-gradient(56rem 28rem at 90% -15%, rgba(224, 164, 58, 0.18), transparent 68%),
-      radial-gradient(46rem 26rem at 0% 115%, rgba(18, 41, 74, 0.1), transparent 70%);
-  }
-
-  [data-theme="minimal"] .section--wash {
-    background-image:
-      radial-gradient(64rem 32rem at 88% -12%, rgba(224, 164, 58, 0.07), transparent 72%);
-  }
-
-  /* The hero carries two crops: a portrait beside the text, and a wide one
-     for the bold theme, where the image fills the whole section. */
-  .hero__img--wide {
-    display: none;
-  }
-
-  [data-theme="bold"] .hero__img--portrait {
-    display: none;
-  }
-
-  [data-theme="bold"] .hero__img--wide {
-    display: block;
-  }
-
-  /* --- Promise band: art on one side, the line that sells it on the other -- */
-  .promise {
-    display: grid;
-    align-items: stretch;
-  }
-
-  @media (min-width: 900px) {
-    .promise {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-
-  .promise__media {
-    position: relative;
-    min-height: 18rem;
-  }
-
-  .promise__img {
-    position: absolute;
-    inset: 0;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-  }
-
-  .promise__body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 3rem 1.25rem;
-  }
-
-  @media (min-width: 640px) {
-    .promise__body {
-      padding: 4rem 3rem;
-    }
-  }
-
-  @media (min-width: 900px) {
-    .promise__body {
-      padding: 5rem 4rem;
-    }
-  }
-
-  /* Stat values are client-editable, and the bold theme sets them in heavy
-     uppercase. Fluid sizing keeps a long word like "Worldwide" inside its
-     column on a phone. Keep values to about six characters and they stay big;
-     the wrap rule is a last resort for anything longer. */
   .stat__value {
     display: block;
-    font-size: clamp(1.9rem, 8vw, 3rem);
-    line-height: 1.05;
-    overflow-wrap: anywhere;
+    font-size: calc(44 * var(--u));
+    line-height: 1;
   }
 
-  /* Social buttons: a footer row of text links gets skipped, a row of marks
-     does not. Sized to the 44px tap-target floor. */
-  .social-btn {
-    display: inline-flex;
-    height: 2.75rem;
-    width: 2.75rem;
-    align-items: center;
-    justify-content: center;
-    border-radius: 999px;
-    border: 1px solid color-mix(in srgb, var(--fg) 30%, transparent);
-    color: var(--fg);
-    transition:
-      background-color 0.2s ease,
-      border-color 0.2s ease,
-      color 0.2s ease;
-  }
-
-  .social-btn:hover {
-    background: var(--color-gold);
-    border-color: var(--color-gold);
-    color: var(--color-navy-deep);
-  }
-
-  .social-btn:focus-visible {
-    outline: 2px solid var(--color-gold);
-    outline-offset: 2px;
-  }
-
-  [data-theme="bold"] .social-btn {
-    border-radius: var(--radius-btn);
-  }
-
-  /* --- Monogram avatars for the testimonial cards ------------------------- */
-  .avatar {
-    display: inline-flex;
-    height: 2.75rem;
-    width: 2.75rem;
-    flex-shrink: 0;
-    align-items: center;
-    justify-content: center;
-    border-radius: 999px;
-    background: var(--color-navy);
-    color: #ffffff;
+  .quote {
     font-family: var(--font-serif);
-    font-size: 0.95rem;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-  }
-
-  [data-theme="bold"] .avatar {
-    border-radius: var(--radius-btn);
-    background: var(--color-gold);
-    color: var(--color-navy-deep);
-  }
-
-  [data-theme="minimal"] .avatar {
-    background: transparent;
-    border: 1px solid var(--color-line);
-    color: var(--color-navy);
-  }
-
-
-  /* --- Type scale, owned by the theme ------------------------------------
-     Headings carry no size utilities, so switching theme changes the whole
-     typographic system, not just its colours. */
-  .display--hero {
-    font-size: var(--size-hero);
-  }
-
-  .display--page {
-    font-size: var(--size-page);
-  }
-
-  .display--section {
-    font-size: var(--size-section);
-  }
-
-  .display--band {
-    font-size: var(--size-band);
-  }
-
-  .display--value {
-    font-size: var(--size-value);
-  }
-
-  /* Small headings opt out of the display leading and tracking, which are
-     tuned for type several times this size. */
-  .display--card {
-    font-size: var(--size-card);
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    line-height: 1.3;
-  }
-
-  .display--step {
-    font-size: var(--size-step);
+    font-size: calc(22 * var(--u));
+    line-height: 1.35;
+    color: var(--color-heading);
     letter-spacing: -0.015em;
-    line-height: 1.25;
+  }
+
+  .tick-list li {
+    position: relative;
+    padding-left: 1.4em;
+  }
+
+  .tick-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.62em;
+    width: 0.55em;
+    height: 1px;
+    background: var(--color-gold);
+  }
+
+  .step__number {
+    font-family: var(--font-serif);
+    font-size: calc(18 * var(--u));
+    color: var(--color-gold);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .step__title {
+    font-size: calc(24 * var(--u));
+    line-height: 1.2;
+  }
+
+  .media-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .placeholder-chip {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border: 1px dashed color-mix(in srgb, var(--color-gold) 55%, transparent);
+    font-size: calc(13 * var(--u));
+    color: var(--color-gold-deep);
+  }
+
+  /* --- Phones and small tablets: one column ---------------------------- */
+  @media (max-width: 767px) {
+    .site-header__bar {
+      height: 4rem;
+    }
+
+    .wordmark--header {
+      font-size: 1.5rem;
+    }
+
+    .wordmark--footer {
+      font-size: 1.35rem;
+    }
+
+    .hero {
+      padding-top: 1.5rem;
+      padding-bottom: 2.5rem;
+    }
+
+    .hero__grid {
+      grid-template-columns: 1fr;
+      gap: 2.25rem;
+    }
+
+    .hero__text {
+      padding-right: 0;
+    }
+
+    .h-hero {
+      font-size: clamp(2.35rem, 10.5vw, 3.25rem);
+    }
+
+    .h-page {
+      font-size: clamp(2.1rem, 9vw, 2.8rem);
+    }
+
+    .h-section {
+      font-size: 2.1rem;
+    }
+
+    .h-band {
+      font-size: 1.9rem;
+    }
+
+    .h-close {
+      font-size: 1.85rem;
+    }
+
+    .h-card {
+      font-size: 1.6rem;
+    }
+
+    .text-lead {
+      font-size: 1.2rem;
+    }
+
+    .text-body {
+      font-size: 1.075rem;
+    }
+
+    .btn--lg,
+    .btn--md {
+      height: 3.4rem;
+      padding-inline: 1.75rem;
+      font-size: 1.2rem;
+    }
+
+    .help {
+      padding-top: 2.5rem;
+      padding-bottom: 2.5rem;
+    }
+
+    .columns,
+    .columns--help {
+      grid-template-columns: 1fr;
+    }
+
+    .columns--help p {
+      max-width: none;
+    }
+
+    /* Stats stay two to a row on phones. */
+    .columns--4 {
+      grid-template-columns: 1fr 1fr;
+      column-gap: 1.25rem;
+    }
+
+    .columns--4 > :nth-child(2) {
+      border-top: 0;
+    }
+
+    .columns > *,
+    .columns > :first-child {
+      padding: 1.5rem 0;
+    }
+
+    .columns > * + * {
+      border-left: 0;
+      border-top: var(--divider);
+    }
+
+    .goals {
+      grid-template-columns: 1fr;
+      row-gap: 2rem;
+      padding: 2.5rem 0 0;
+    }
+
+    .goals > :first-child {
+      padding-inline: var(--gutter);
+    }
+
+    .goals__img {
+      height: auto;
+      aspect-ratio: 451 / 197;
+    }
+
+    .closing {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.5rem;
+      padding-block: 2.5rem;
+    }
+
+    .site-footer__bar {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+      padding-block: 1.5rem;
+    }
+
+    .section {
+      padding-block: 3.5rem;
+    }
+
+    .stat__value {
+      font-size: 2.2rem;
+    }
+
+    .quote {
+      font-size: 1.2rem;
+    }
+
+    .step__title {
+      font-size: 1.35rem;
+    }
+
+    .link-arrow,
+    .link-arrow--lg {
+      font-size: 1.05rem;
+      min-height: 2.75rem;
+    }
+  }
+
+  /* Four services read best as a 2x2 grid, ruled like the columns. */
+  @media (min-width: 768px) {
+    .columns--2x2 {
+      --cols: 2;
+      row-gap: 0;
+    }
+
+    .columns--2x2 > :nth-child(odd) {
+      border-left: 0;
+      padding-left: calc(21 * var(--u));
+    }
+
+    .columns--2x2 > :nth-child(n + 3) {
+      border-top: var(--divider);
+      padding-top: calc(28 * var(--u));
+    }
+
+    .columns--2x2 > :nth-child(-n + 2) {
+      padding-bottom: calc(28 * var(--u));
+    }
+  }
+
+  /* A gray band already closes the page, so the footer skips its rule. */
+  main:has(> .band:last-child) + footer .hairline {
+    border-color: transparent;
+  }
+
+  /* Tablet: the four-column stats row goes to two. */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .columns--4 {
+      --cols: 2;
+    }
+
+    .columns--4 > :nth-child(3) {
+      border-left: 0;
+      padding-left: calc(21 * var(--u));
+    }
+
+    .columns--4 > :nth-child(n + 3) {
+      border-top: var(--divider);
+    }
   }
 
   /* --- Motion -------------------------------------------------------------
-     MotionProvider puts .js-motion on <html>, so with JS off or broken the
-     content is simply visible rather than stuck at opacity 0. */
+     The inline script in [lang]/layout.tsx puts .js-motion on <html>, so with
+     JS off or broken the content is simply visible. */
   .js-motion [data-reveal] {
     opacity: 0;
-    transform: translate3d(0, var(--reveal-shift, 1.5rem), 0);
+    transform: translate3d(0, 1.25rem, 0);
     transition:
       opacity 0.75s cubic-bezier(0.22, 0.61, 0.36, 1),
       transform 0.75s cubic-bezier(0.22, 0.61, 0.36, 1);
-    transition-delay: var(--reveal-delay, 0ms);
   }
 
   .js-motion [data-reveal][data-revealed] {
@@ -919,23 +761,8 @@ section[id] {
     transform: none;
   }
 
-  /* Stagger a row of cards without hand-writing a delay on each one. */
   .js-motion [data-reveal-stagger] > * {
     transition-delay: calc(var(--reveal-index, 0) * 90ms);
-  }
-
-  /* The hero image settles out of a slow push-in. */
-  .hero__img {
-    animation: hero-settle 2.4s cubic-bezier(0.22, 0.61, 0.36, 1) both;
-  }
-
-  @keyframes hero-settle {
-    from {
-      transform: scale(1.06);
-    }
-    to {
-      transform: scale(1);
-    }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -944,303 +771,9 @@ section[id] {
       transform: none;
       transition: none;
     }
-
-    .hero__img {
-      animation: none;
-    }
-  }
-
-  /* Cards with chrome lift slightly; flat themes have nothing to lift. */
-  .card {
-    transition:
-      transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1),
-      box-shadow 0.35s cubic-bezier(0.22, 0.61, 0.36, 1),
-      border-color 0.35s ease;
-  }
-
-  [data-theme="classic"] .card-row > .card:hover,
-  [data-theme="bold"] .card-row > .card:hover,
-  [data-theme="product"] .card-row > .card:hover {
-    transform: translateY(-4px);
-    border-color: color-mix(in srgb, var(--color-gold) 55%, var(--card-border));
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .card {
-      transition: none;
-    }
-
-    [data-theme="classic"] .card-row > .card:hover,
-    [data-theme="bold"] .card-row > .card:hover,
-    [data-theme="product"] .card-row > .card:hover {
-      transform: none;
-    }
-  }
-
-  /* --- Editorial ----------------------------------------------------------
-     Rules instead of boxes, and a header button that is a line, not a slab. */
-
-  /* Type this large needs a wider measure, or the headline stacks into a
-     column of single words. */
-  @media (min-width: 900px) {
-    [data-theme="editorial"] .hero__inner {
-      grid-template-columns: 1.4fr 0.6fr;
-      gap: 4rem;
-    }
-  }
-
-  [data-theme="editorial"] .hero__img {
-    aspect-ratio: 3 / 4;
-  }
-  [data-theme="editorial"] .btn--cta {
-    border: 1px solid color-mix(in srgb, var(--fg) 40%, transparent);
-  }
-
-  [data-theme="editorial"] .btn--primary {
-    background: var(--color-navy);
-    color: #ffffff;
-  }
-
-  [data-theme="editorial"] .btn--primary:hover {
-    background: var(--color-navy-deep);
-  }
-
-  [data-theme="editorial"] .eyebrow {
-    letter-spacing: 0.34em;
-    font-size: 0.68rem;
-  }
-
-  [data-theme="editorial"] .rule {
-    width: 100%;
-    max-width: 10rem;
-    background: color-mix(in srgb, var(--color-gold) 70%, transparent);
-  }
-
-  [data-theme="editorial"] .lead {
-    font-size: 1.0625rem;
-    line-height: 1.85;
-  }
-
-  @media (min-width: 768px) {
-    [data-theme="editorial"] .card-row > .card + .card {
-      border-left: 1px solid var(--color-line);
-      padding-left: 2rem;
-    }
-
-    [data-theme="editorial"] .on-dark .card-row > .card + .card {
-      border-left-color: rgba(255, 255, 255, 0.2);
-    }
-  }
-
-  /* --- Product ------------------------------------------------------------
-     A soft glow behind the hero and a hairline highlight on cards, which is
-     what gives this look its depth. */
-  [data-theme="product"] .hero {
-    background-image:
-      radial-gradient(48rem 26rem at 72% -10%, rgba(224, 164, 58, 0.16), transparent 70%),
-      radial-gradient(40rem 24rem at 10% 0%, rgba(29, 60, 104, 0.1), transparent 70%);
-  }
-
-  [data-theme="product"] .card {
-    background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(247, 249, 252, 0.6));
-  }
-
-  [data-theme="product"] .icon-badge {
-    background: linear-gradient(180deg, #fdf3e0, #f7e7c8);
-    border: 1px solid rgba(224, 164, 58, 0.35);
-  }
-
-  [data-theme="product"] .eyebrow {
-    letter-spacing: 0.14em;
-  }
-
-  /* --- Statement ----------------------------------------------------------
-     Scale is the idea, so the rules are heavy and nothing is rounded. */
-
-  /* At this size the headline needs the full width; the image sits under it
-     as a band rather than fighting it for the same row. */
-  @media (min-width: 900px) {
-    [data-theme="statement"] .hero__inner {
-      grid-template-columns: 1fr;
-      gap: 3rem;
-    }
-  }
-
-  [data-theme="statement"] .hero__content {
-    max-width: none;
-  }
-
-  [data-theme="statement"] .hero__img {
-    aspect-ratio: 21 / 9;
-  }
-  [data-theme="statement"] .rule {
-    width: 5rem;
-  }
-
-  [data-theme="statement"] .card {
-    border-width: 2px;
-  }
-
-  [data-theme="statement"] .btn {
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    font-weight: 800;
-  }
-
-  [data-theme="statement"] .eyebrow {
-    font-weight: 800;
-    letter-spacing: 0.22em;
-  }
-
-  [data-theme="statement"] .step__marker {
-    border-radius: 0;
-    background: var(--color-navy);
-    color: #ffffff;
-    font-family: var(--font-sans);
-    font-weight: 900;
-  }
-
-
-  /* --- Paper --------------------------------------------------------------
-     Most of this theme is variables; these are the structural differences. */
-
-  /* Section headings sit centred, as on the reference. */
-  [data-theme="paper"] .section-head {
-    margin-inline: auto;
-    text-align: center;
-  }
-
-  [data-theme="paper"] .section-head .rule {
-    margin-inline: auto;
-  }
-
-  [data-theme="paper"] .eyebrow {
-    letter-spacing: 0.24em;
-    font-size: 0.7rem;
-  }
-
-  [data-theme="paper"] .display__accent {
-    color: var(--fg);
-  }
-
-  [data-theme="paper"] .btn--primary {
-    background: var(--color-navy);
-    color: #ffffff;
-  }
-
-  [data-theme="paper"] .btn--primary:hover {
-    background: var(--color-navy-deep);
-  }
-
-  /* Icons would compete with type this quiet. */
-  [data-theme="paper"] .icon-badge {
-    display: none;
-  }
-
-  @media (min-width: 768px) {
-    [data-theme="paper"] .card-row > .card + .card {
-      border-left: 1px solid var(--color-line);
-      padding-left: 2rem;
-    }
-  }
-
-  /* No dark bands anywhere: navy sections, feature cards and the footer all
-     go light, and the text colours flip back with them. */
-  [data-theme="paper"] .section--navy,
-  [data-theme="paper"] .section--navy-deep,
-  [data-theme="paper"] .card--feature,
-  [data-theme="paper"] .footer-surface {
-    background: var(--surface-alt);
-  }
-
-  [data-theme="paper"] .on-dark {
-    --fg: #1c2b45;
-    --fg-muted: #5a6474;
-    --accent: var(--color-gold-deep);
-    --card-bg: transparent;
-    --card-border: transparent;
-    color: var(--fg);
-  }
-
-  [data-theme="paper"] .card--feature {
-    border: 1px solid var(--color-line);
-    padding: 2rem;
-  }
-
-  [data-theme="paper"] .footer-surface {
-    border-top: 1px solid var(--color-line);
-  }
-
-  [data-theme="paper"] .backdrop__scrim--navy-deep,
-  [data-theme="paper"] .backdrop__scrim--navy {
-    background: linear-gradient(
-      160deg,
-      rgba(242, 240, 234, 0.97) 0%,
-      rgba(242, 240, 234, 0.93) 60%,
-      rgba(250, 249, 246, 0.9) 100%
-    );
-  }
-
-  [data-theme="paper"] .step__marker {
-    background: transparent;
-    border: 1px solid var(--color-line);
-    color: var(--color-navy);
-  }
-
-  [data-theme="paper"] .avatar {
-    background: transparent;
-    border: 1px solid var(--color-line);
-    color: var(--color-navy);
-  }
-
-  [data-theme="paper"] .hero__img {
-    aspect-ratio: 5 / 4;
-  }
-
-  /* Footer legal line, in whatever the surrounding text colour is, so a light
-     footer does not end up with white-on-white. */
-  .footer-legal {
-    border-top: 1px solid color-mix(in srgb, var(--fg) 14%, transparent);
-    color: color-mix(in srgb, var(--fg) 55%, transparent);
-  }
-
-  .card--feature {
-    background: var(--color-navy);
-  }
-
-  .footer-surface {
-    background: var(--color-navy-deep);
-  }
-
-  /* --- Service / icon tiles ---------------------------------------------- */
-  .icon-badge {
-    display: inline-flex;
-    height: 3rem;
-    width: 3rem;
-    align-items: center;
-    justify-content: center;
-    border-radius: var(--radius-btn);
-    background: var(--color-gold-soft);
-    color: var(--color-gold-dark);
-  }
-
-  .on-dark .icon-badge {
-    background: transparent;
-    border: 1px solid var(--color-gold);
-    border-radius: 999px;
-    color: var(--color-gold);
-  }
-
-  [data-theme="minimal"] .icon-badge {
-    background: transparent;
-    color: var(--color-navy);
-  }
-
-  [data-theme="minimal"] .on-dark .icon-badge {
-    border-color: transparent;
-    color: var(--color-gold);
   }
 }
+
 /* ---------------------------------------------------------------------------
    Letter swap. Ported from the 21st.dev "Random Letter Swap" component, which
    uses motion/react; this repo carries no animation library, so the movement
@@ -1300,90 +833,61 @@ section[id] {
 }
 
 /* ---------------------------------------------------------------------------
-   Flow button. Ported from the 21st.dev flow-button. The original hardcodes
-   #111111 / #333333 / white, which would ignore the themes entirely and go
-   invisible on noir, so the colours come from tokens instead: the circle uses
-   the theme's foreground and the label flips to its surface, which inverts
-   correctly on both light and dark grounds.
+   Flow button. Ported from the 21st.dev flow-button, reshaped so that at rest
+   it is exactly the mockup's solid navy button. On hover a lighter navy
+   circle grows from the middle, an arrow flies in from the left and the label
+   steps aside for it.
 --------------------------------------------------------------------------- */
 @layer components {
   .btn--flow {
     position: relative;
-    gap: 0.25rem;
     overflow: hidden;
-    padding: 0.85rem 2rem;
-    border: 1.5px solid color-mix(in srgb, var(--fg) 40%, transparent);
-    border-radius: 100px;
-    background: transparent;
-    color: var(--fg);
-    transition:
-      color 0.6s cubic-bezier(0.23, 1, 0.32, 1),
-      border-color 0.6s cubic-bezier(0.23, 1, 0.32, 1),
-      border-radius 0.6s cubic-bezier(0.23, 1, 0.32, 1),
-      transform 0.15s ease;
+    isolation: isolate;
   }
 
-  .btn--flow:hover,
-  .btn--flow:focus-visible {
-    border-color: transparent;
-    border-radius: 12px;
-    color: var(--surface);
+  .btn--flow:hover {
+    background: var(--color-navy);
   }
 
   .btn--flow:active {
-    transform: scale(0.95);
+    transform: scale(0.97);
   }
 
   .btn-flow__arrow {
     position: absolute;
-    z-index: 9;
+    left: -2rem;
+    z-index: 2;
     width: 1rem;
     height: 1rem;
-    transition:
-      left 0.8s cubic-bezier(0.34, 1.56, 0.64, 1),
-      right 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: left 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 
-  /* One arrow waits off the left edge and flies in; the other leaves right. */
-  .btn-flow__arrow--in {
-    left: -25%;
-  }
-
-  .btn--flow:hover .btn-flow__arrow--in,
-  .btn--flow:focus-visible .btn-flow__arrow--in {
-    left: 1rem;
-  }
-
-  .btn-flow__arrow--out {
-    right: 1rem;
-  }
-
-  .btn--flow:hover .btn-flow__arrow--out,
-  .btn--flow:focus-visible .btn-flow__arrow--out {
-    right: -25%;
+  .btn--flow:hover .btn-flow__arrow,
+  .btn--flow:focus-visible .btn-flow__arrow {
+    left: 1.1rem;
   }
 
   .btn-flow__label {
     position: relative;
-    z-index: 1;
-    transform: translateX(-0.75rem);
-    transition: transform 0.8s ease-out;
+    z-index: 2;
+    transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
   }
 
   .btn--flow:hover .btn-flow__label,
   .btn--flow:focus-visible .btn-flow__label {
-    transform: translateX(0.75rem);
+    transform: translateX(0.6rem);
   }
 
   .btn-flow__fill {
     position: absolute;
     top: 50%;
     left: 50%;
+    z-index: 1;
     width: 1rem;
     height: 1rem;
     transform: translate(-50%, -50%);
     border-radius: 50%;
-    background: var(--fg);
+    background: var(--color-navy-soft);
     opacity: 0;
     transition:
       width 0.8s cubic-bezier(0.19, 1, 0.22, 1),
@@ -1393,13 +897,12 @@ section[id] {
 
   .btn--flow:hover .btn-flow__fill,
   .btn--flow:focus-visible .btn-flow__fill {
-    width: 220px;
-    height: 220px;
+    width: 340px;
+    height: 340px;
     opacity: 1;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .btn--flow,
     .btn-flow__arrow,
     .btn-flow__label,
     .btn-flow__fill {

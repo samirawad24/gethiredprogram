@@ -1,14 +1,13 @@
 import { notFound } from "next/navigation";
 import { getDictionary } from "@/dictionaries";
 import { buildMetadata } from "@/lib/metadata";
-import { pagePath } from "@/lib/routes";
 import { hasLocale } from "@/lib/site";
 import PageShell from "@/components/PageShell";
 import Hero from "@/components/Hero";
+import HelpColumns from "@/components/HelpColumns";
+import GoalsBand from "@/components/GoalsBand";
 import Stats from "@/components/Stats";
-import Services from "@/components/Services";
 import Approach from "@/components/Approach";
-import AboutTeaser from "@/components/AboutTeaser";
 import ValueBand from "@/components/ValueBand";
 import Testimonials from "@/components/Testimonials";
 import CtaBand from "@/components/CtaBand";
@@ -20,8 +19,9 @@ export async function generateMetadata({ params }: PageProps<"/[lang]">) {
   return buildMetadata(lang, "home");
 }
 
-// Home is a full overview that sells on its own, because most visitors never
-// click through. Each block links to the page that goes deeper.
+// The first three sections and the closing band are the approved mockup.
+// Stats, approach, values and testimonials sit between the goals band and the
+// closing band, in the same style.
 export default async function Home({ params }: PageProps<"/[lang]">) {
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
@@ -32,13 +32,13 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
       <JsonLd lang={lang} dict={dict} />
       <PageShell lang={lang} dict={dict} page="home">
         <Hero dict={dict} lang={lang} />
+        <HelpColumns dict={dict} lang={lang} />
+        <GoalsBand dict={dict} lang={lang} />
         <Stats dict={dict} />
-        <Services dict={dict} moreHref={pagePath(lang, "services")} />
         <Approach dict={dict} />
-        <AboutTeaser dict={dict} lang={lang} />
         <ValueBand dict={dict} />
         <Testimonials dict={dict} />
-        <CtaBand dict={dict} lang={lang} />
+        <CtaBand dict={dict} lang={lang} divider />
       </PageShell>
     </>
   );

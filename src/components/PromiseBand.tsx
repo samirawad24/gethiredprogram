@@ -2,33 +2,34 @@ import Image from "next/image";
 import type { Dictionary } from "@/dictionaries";
 import { pagePath } from "@/lib/routes";
 import { asset, site, type Locale } from "@/lib/site";
-import Button from "./Button";
+import ArrowLink from "./ArrowLink";
 
-// Art on one side, the line that sells the program on the other. Board 2 runs
-// this split full width; it also gives the page a picture in the middle.
+// The goals band layout from Home, carrying the program's promise.
 export default function PromiseBand({ dict, lang }: { dict: Dictionary; lang: Locale }) {
-  return (
-    <section aria-labelledby="promise-heading" className="promise section--alt">
-      <div className="promise__media">
-        <Image
-          src={asset(site.images.notebook)}
-          alt={dict.promise.imageAlt}
-          width={1400}
-          height={1000}
-          sizes="(min-width: 900px) 50vw, 100vw"
-          className="promise__img"
-        />
-      </div>
+  const { promise } = dict;
 
-      <div className="promise__body" data-reveal>
-        <span aria-hidden="true" className="rule" />
-        <h2 id="promise-heading" className="display display--band mt-6">
-          {dict.promise.heading}
-        </h2>
-        <p className="lead mt-5 text-lg">{dict.promise.sub}</p>
-        <Button href={pagePath(lang, "contact")} className="mt-8 self-start">
-          {dict.promise.cta}
-        </Button>
+  return (
+    <section aria-labelledby="promise-heading" className="band">
+      <div className="goals">
+        <div data-reveal>
+          <h2 id="promise-heading" className="serif h-band">
+            {promise.heading}
+          </h2>
+          <p className="text-body max-w-[26em]" style={{ marginTop: "calc(12 * var(--u))" }}>
+            {promise.sub}
+          </p>
+          <ArrowLink href={pagePath(lang, "contact")} underline className="link-arrow--lg mt-[calc(20*var(--u))]">
+            {promise.cta}
+          </ArrowLink>
+        </div>
+        <Image
+          src={asset(site.images.goals)}
+          alt={dict.goals.imageAlt}
+          width={451}
+          height={197}
+          sizes="(min-width: 768px) 45vw, 100vw"
+          className="goals__img"
+        />
       </div>
     </section>
   );
