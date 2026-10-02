@@ -21,7 +21,7 @@ export default async function ContactPage({ params }: PageProps<"/[lang]/contact
   return (
     <PageShell lang={lang} dict={dict} page="contact">
       <PageHero {...dict.pageHero.contact} />
-      <Booking dict={dict} />
+      <Booking dict={dict} lang={lang} />
       <ValueBand dict={dict} />
     </PageShell>
   );

@@ -9,14 +9,14 @@
   --color-navy-deep: #0b1b31;
   --color-navy-soft: #1d3c68;
   --color-heading: #0f2142;
-  --color-gold: #b07318;
-  --color-gold-deep: #96620f;
+  --color-gold: #96620f;
+  --color-gold-deep: #7a500c;
   --color-gold-soft: #f6ecd9;
   --color-paper: #fefdfb;
   --color-shell: #f2f1ed;
   --color-ink: #343c4c;
   --color-muted: #5b6270;
-  --color-faint: #767a84;
+  --color-faint: #686c76;
   --color-line: #e2e4e7;
 
   --breakpoint-xs: 23.5rem;
@@ -497,6 +497,30 @@
     color: var(--color-gold);
   }
 
+  .site-footer__legal {
+    display: grid;
+    gap: 0.35rem;
+    padding-bottom: calc(28 * var(--u));
+  }
+
+  .site-footer__legal-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 1.25rem;
+  }
+
+  .site-footer__legal a {
+    display: inline-flex;
+    min-height: 1.5rem;
+    align-items: center;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .site-footer__legal a:hover {
+    color: var(--color-navy);
+  }
+
   .social-list {
     display: flex;
     gap: calc(10 * var(--u));
@@ -566,6 +590,23 @@
     width: 0.55em;
     height: 1px;
     background: var(--color-gold);
+  }
+
+  /* Policy pages: one reading column. */
+  .legal {
+    max-width: 46rem;
+  }
+
+  .legal__section {
+    margin-top: calc(40 * var(--u));
+  }
+
+  .legal__section > * + * {
+    margin-top: calc(14 * var(--u));
+  }
+
+  .legal .tick-list li + li {
+    margin-top: calc(10 * var(--u));
   }
 
   .step__number {

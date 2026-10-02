@@ -1,6 +1,8 @@
 // Spanish copy. Mirrors en.ts key by key; the shared Dictionary type makes the
 // build fail if one language is missing a string.
 
+import legal from "./legal-es";
+
 const es = {
   meta: {
     ogAlt: "Get Hired Program, coaching de carrera con Ana Prato",
@@ -23,6 +25,18 @@ const es = {
       title: "Agenda tu consulta gratuita | Get Hired Program",
       description:
         "Treinta minutos, sin costo. Elige la hora que te funcione, estés donde estés, y vemos si el programa es para ti.",
+    },
+    privacy: {
+      title: "Política de Privacidad | Get Hired Program",
+      description: "Qué datos recopila Get Hired Program cuando visitas o agendas, para qué y qué derechos tienes sobre ellos.",
+    },
+    terms: {
+      title: "Términos y Condiciones | Get Hired Program",
+      description: "Los términos para usar gethiredprogram.com y trabajar con Ana Prato, incluido nuestro aviso de que no garantizamos empleo.",
+    },
+    cookies: {
+      title: "Política de Cookies | Get Hired Program",
+      description: "Este sitio no instala cookies propias ni usa rastreadores. Esto es lo que usa el calendario de reservas.",
     },
   },
   skipLink: "Ir al contenido",
@@ -280,10 +294,18 @@ const es = {
     button: "Agenda una consulta gratis",
   },
   booking: {
+    // Shown until NEXT_PUBLIC_CAL_LINK is set and the calendar replaces it.
     fallback:
-      "El calendario aparece aquí cuando configures NEXT_PUBLIC_CAL_LINK. Mientras tanto, escribe a",
+      "Para agendar tu consulta gratuita, escríbele a Ana con algunos horarios que te funcionen:",
     calendarTitle: "Calendario de reservas",
+    consent: "Al agendar o escribirnos, aceptas nuestros {terms} y confirmas que leíste nuestra {privacy}. El calendario de reservas funciona con Cal.com.",
   },
+  footer: {
+    legalNav: "Legal",
+    rights: "Todos los derechos reservados.",
+    disclaimer: "Coaching de carrera, no un servicio de colocación. Los resultados varían y no garantizamos ninguna oferta de empleo.",
+  },
+  legal,
   schema: {
     jobTitle: "Coach de Carrera",
     serviceDescription:

@@ -1,12 +1,13 @@
 import Link from "next/link";
 import type { Dictionary } from "@/dictionaries";
-import { pagePath } from "@/lib/routes";
+import { legalPages, pagePath } from "@/lib/routes";
 import { site, type Locale } from "@/lib/site";
 import { InstagramIcon, LinkedInIcon } from "./Icons";
 import Logo from "./Logo";
 
 // Hairline, badge and wordmark, then Contact | domain and the two social
-// buttons.
+// buttons. Below: the policy links, copyright, business details and the
+// no-guarantee line.
 export default function Footer({ dict, lang }: { dict: Dictionary; lang: Locale }) {
   const domain = new URL(site.url).hostname.replace(/^www\./, "");
 
@@ -42,6 +43,22 @@ export default function Footer({ dict, lang }: { dict: Dictionary; lang: Locale 
             </li>
           </ul>
         </div>
+      </div>
+      <div className="site-footer__legal text-caption">
+        <nav aria-label={dict.footer.legalNav}>
+          <ul className="site-footer__legal-links">
+            {legalPages.map((key) => (
+              <li key={key}>
+                <Link href={pagePath(lang, key)}>{dict.legal[key].heading}</Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <p>
+          &copy; {new Date().getFullYear()} {site.legalName}. {dict.footer.rights} {site.location} ·{" "}
+          <a href={`mailto:${site.email}`}>{site.email}</a>
+        </p>
+        <p>{dict.footer.disclaimer}</p>
       </div>
     </footer>
   );

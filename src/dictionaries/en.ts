@@ -1,6 +1,8 @@
 // English copy. Every string on the page lives here (Spanish mirror: es.ts).
 // Lines marked PLACEHOLDER need Ana's confirmation or real content before launch.
 
+import legal from "./legal-en";
+
 const en = {
   meta: {
     ogAlt: "Get Hired Program, career coaching with Ana Prato",
@@ -23,6 +25,18 @@ const en = {
       title: "Book a free consultation | Get Hired Program",
       description:
         "Thirty minutes, no cost. Pick a time that works wherever you are, and we will see whether the program fits.",
+    },
+    privacy: {
+      title: "Privacy Policy | Get Hired Program",
+      description: "What Get Hired Program collects when you visit or book, why, and the rights you have over it.",
+    },
+    terms: {
+      title: "Terms and Conditions | Get Hired Program",
+      description: "The terms for using gethiredprogram.com and working with Ana Prato, including our no-job-guarantee disclaimer.",
+    },
+    cookies: {
+      title: "Cookie Policy | Get Hired Program",
+      description: "This site sets no cookies of its own and runs no trackers. Here is what the booking calendar uses.",
     },
   },
   skipLink: "Skip to content",
@@ -280,10 +294,18 @@ const en = {
     button: "Book a free consultation",
   },
   booking: {
+    // Shown until NEXT_PUBLIC_CAL_LINK is set and the calendar replaces it.
     fallback:
-      "The calendar appears here once NEXT_PUBLIC_CAL_LINK is set. Until then, email",
+      "To book your free consultation, email Ana with a few times that work for you:",
     calendarTitle: "Booking calendar",
+    consent: "By booking or emailing, you agree to our {terms} and confirm you have read our {privacy}. The booking calendar is run by Cal.com.",
   },
+  footer: {
+    legalNav: "Legal",
+    rights: "All rights reserved.",
+    disclaimer: "Career coaching, not a job placement service. Results vary and no job offer is guaranteed.",
+  },
+  legal,
   schema: {
     jobTitle: "Career Coach",
     serviceDescription:

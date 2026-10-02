@@ -23,8 +23,11 @@ export default function HelpColumns({ dict, lang }: { dict: Dictionary; lang: Lo
               <p className="text-body" style={{ marginTop: "calc(12 * var(--u))", marginBottom: "calc(18 * var(--u))" }}>
                 {item.text}
               </p>
+              {/* Three identical "Explore service" links; the hidden title
+                  tells screen reader users which one this is. */}
               <ArrowLink href={href}>
                 {help.link}
+                <span className="sr-only">: {item.title}</span>
               </ArrowLink>
             </li>
           ))}

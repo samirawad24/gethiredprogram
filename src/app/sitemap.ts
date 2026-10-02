@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { pagePath, pages } from "@/lib/routes";
+import { legalPages, pagePath, pages } from "@/lib/routes";
 import { locales, site } from "@/lib/site";
 
 export const dynamic = "force-static";
@@ -8,7 +8,7 @@ export const dynamic = "force-static";
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
 
-  return pages.flatMap((page) => {
+  return [...pages, ...legalPages].flatMap((page) => {
     const languages = Object.fromEntries(
       locales.map((lang) => [lang, `${site.url}${pagePath(lang, page)}`]),
     );
@@ -17,7 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${site.url}${pagePath(lang, page)}`,
       lastModified,
       changeFrequency: "monthly" as const,
-      priority: page === "home" ? (lang === "en" ? 1 : 0.9) : 0.8,
+      priority: page === "home" ? (lang === "en" ? 1 : 0.9) : (legalPages as readonly string[]).includes(page) ? 0.3 : 0.8,
       alternates: { languages },
     }));
   });

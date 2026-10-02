@@ -9,7 +9,6 @@ import GoalsBand from "@/components/GoalsBand";
 import Stats from "@/components/Stats";
 import Approach from "@/components/Approach";
 import ValueBand from "@/components/ValueBand";
-import Testimonials from "@/components/Testimonials";
 import CtaBand from "@/components/CtaBand";
 import JsonLd from "@/components/JsonLd";
 
@@ -20,8 +19,9 @@ export async function generateMetadata({ params }: PageProps<"/[lang]">) {
 }
 
 // The first three sections and the closing band are the approved mockup.
-// Stats, approach, values and testimonials sit between the goals band and the
-// closing band, in the same style.
+// Stats, approach and values sit between the goals band and the closing band,
+// in the same style. Testimonials stay off until the real client quotes are
+// in: sample quotes on a live page read as fake reviews (FTC 16 CFR 465).
 export default async function Home({ params }: PageProps<"/[lang]">) {
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
@@ -37,7 +37,6 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         <Stats dict={dict} />
         <Approach dict={dict} />
         <ValueBand dict={dict} />
-        <Testimonials dict={dict} />
         <CtaBand dict={dict} lang={lang} divider />
       </PageShell>
     </>

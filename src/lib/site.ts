@@ -20,7 +20,11 @@ export const site = {
   url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://gethiredprogram.com").replace(/\/$/, ""),
   // Cal.com link in the form "username/event-slug". Set NEXT_PUBLIC_CAL_LINK.
   calLink: process.env.NEXT_PUBLIC_CAL_LINK ?? "",
-  email: "hello@gethiredprogram.com", // PLACEHOLDER: confirm the real inbox
+  email: "anaprato@gethiredprogram.com",
+  // Shown in the footer and the policies. PLACEHOLDER: swap in the legal
+  // business name (and LLC, if there is one) once Ana confirms it.
+  legalName: "Ana Prato, doing business as Get Hired Program",
+  location: "Ohio, United States",
   linkedin: "https://www.linkedin.com/in/anaprato/",
   instagram: "https://www.instagram.com/gethiredprogram/",
   instagramHandle: "@gethiredprogram",

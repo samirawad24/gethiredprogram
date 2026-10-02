@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Dictionary } from "@/dictionaries";
-import { pagePath, pages, type PageKey } from "@/lib/routes";
+import { pagePath, pages, type NavPageKey, type PageKey } from "@/lib/routes";
 import { site, type Locale } from "@/lib/site";
 import Button from "./Button";
 import LanguageToggle from "./LanguageToggle";
@@ -13,7 +13,7 @@ type Props = { lang: Locale; dict: Dictionary; page: PageKey };
 // Wordmark left; Services, About, EN/ES and the booking button right, as in
 // the mockup. Phones get every page in the menu instead.
 export default function Header({ lang, dict, page }: Props) {
-  const link = (key: PageKey) => ({
+  const link = (key: NavPageKey) => ({
     href: pagePath(lang, key),
     label: dict.nav[key],
     current: key === page,
