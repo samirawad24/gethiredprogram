@@ -19,7 +19,7 @@ const en = {
     services: {
       title: "Services and the eight-session program | Get Hired Program",
       description:
-        "Resume review, LinkedIn optimization, interview preparation and career strategy, plus the eight-session program. One to one, in English or Spanish.",
+        "Resume and LinkedIn optimization, job search strategy, networking and mock interviews, plus the eight-session program. One to one, in English or Spanish.",
     },
     contact: {
       title: "Book a free consultation | Get Hired Program",

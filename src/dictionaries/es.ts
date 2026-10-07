@@ -19,7 +19,7 @@ const es = {
     services: {
       title: "Servicios y el programa de ocho sesiones | Get Hired Program",
       description:
-        "Revisión de currículum, optimización de LinkedIn, preparación de entrevistas y estrategia de carrera, además del programa de ocho sesiones. Uno a uno, en español o inglés.",
+        "Optimización de CV y LinkedIn, estrategia de búsqueda de empleo, networking y entrevistas simuladas, además del programa de ocho sesiones. Uno a uno, en español o inglés.",
     },
     contact: {
       title: "Agenda tu consulta gratuita | Get Hired Program",
