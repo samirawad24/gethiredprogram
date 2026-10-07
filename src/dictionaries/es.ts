@@ -101,8 +101,8 @@ const es = {
   pageHero: {
     about: {
       eyebrow: "Sobre mí",
-      heading: "Quince años del otro lado de la mesa.",
-      lead: "Sé cómo se toman de verdad las decisiones de contratación, porque yo las tomaba. Esto es lo que eso cambia en lo que trabajamos.",
+      heading: "Más de 15 años del lado de quienes contratan.",
+      lead: "Sé cómo los reclutadores y los gerentes de contratación deciden quién recibe la oferta. Con esa mirada desde adentro, preparo a estudiantes y jóvenes profesionales.",
     },
     services: {
       eyebrow: "Servicios",

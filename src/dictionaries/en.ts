@@ -102,8 +102,8 @@ const en = {
   pageHero: {
     about: {
       eyebrow: "About me",
-      heading: "Fifteen years on the other side of the table.",
-      lead: "I know how hiring decisions actually get made, because I used to make them. Here is how that changes what we work on.",
+      heading: "More than 15 years on the hiring side of the table.",
+      lead: "I know how recruiters and hiring managers decide who gets the offer. I coach students and young professionals with that inside view.",
     },
     services: {
       eyebrow: "Services",
