@@ -120,26 +120,27 @@ const es = {
     heading: "Cómo te puedo ayudar",
     allCta: "Ver todos los servicios",
     intro: "Guía práctica, basada en cómo se toman de verdad las decisiones de contratación.",
+    // Same four services, same titles, as "How can I help?" on the home page.
     items: [
       {
         icon: "resume" as const,
-        title: "Revisión de currículum",
-        text: "Compatible con los filtros automáticos y escrito para los puestos que quieres.",
-      },
-      {
-        icon: "linkedin" as const,
-        title: "Optimización de LinkedIn",
-        text: "Un titular, un resumen y palabras clave que los reclutadores buscan.",
-      },
-      {
-        icon: "interview" as const,
-        title: "Preparación de entrevistas",
-        text: "Entrevistas simuladas con comentarios claros después de cada respuesta.",
+        title: "Optimización de CV y LinkedIn",
+        text: "Reescribimos tu currículum para que supere los ATS y ajustamos el titular, el resumen y las palabras clave de LinkedIn que los reclutadores buscan.",
       },
       {
         icon: "strategy" as const,
-        title: "Estrategia de carrera",
-        text: "Puestos objetivo, un plan de contacto y una historia que se sostiene.",
+        title: "Estrategia de búsqueda de empleo",
+        text: "Elegimos tus empresas objetivo, definimos tu marca personal e investigamos cada puesto antes de que te postules.",
+      },
+      {
+        icon: "networking" as const,
+        title: "Networking",
+        text: "Creas conexiones reales que abren puertas, con plantillas de mensajes y un plan semanal para llegar a quienes contratan.",
+      },
+      {
+        icon: "interview" as const,
+        title: "Entrevistas simuladas",
+        text: "Practicas con alguien que dirigió entrevistas reales y recibes retroalimentación en tiempo real.",
       },
     ],
   },

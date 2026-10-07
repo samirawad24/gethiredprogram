@@ -121,26 +121,27 @@ const en = {
     heading: "How I can help",
     allCta: "See all services",
     intro: "Practical guidance, built on how hiring decisions actually get made.",
+    // Same four services, same titles, as "How can I help?" on the home page.
     items: [
       {
         icon: "resume" as const,
-        title: "Resume review",
-        text: "ATS-friendly and written for the roles you actually want.",
-      },
-      {
-        icon: "linkedin" as const,
-        title: "LinkedIn optimization",
-        text: "A headline, summary and keywords recruiters search for.",
-      },
-      {
-        icon: "interview" as const,
-        title: "Interview preparation",
-        text: "Mock interviews with straight feedback after every answer.",
+        title: "Resume and LinkedIn Optimization",
+        text: "We rewrite your resume to get past ATS, then fix the LinkedIn headline, summary and keywords recruiters search for.",
       },
       {
         icon: "strategy" as const,
-        title: "Career strategy",
-        text: "Target roles, an outreach plan and a story that holds together.",
+        title: "Job Search Strategy",
+        text: "We pick your target companies, shape your personal brand and research each role before you apply.",
+      },
+      {
+        icon: "networking" as const,
+        title: "Networking",
+        text: "You build real connections that open doors, with message templates and a weekly plan for reaching the people who hire.",
+      },
+      {
+        icon: "interview" as const,
+        title: "Mock Interviews",
+        text: "You practice with someone who ran real interviews and get feedback in real time.",
       },
     ],
   },
