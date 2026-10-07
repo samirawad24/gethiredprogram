@@ -97,10 +97,10 @@
   }
 
   .h-hero {
-    font-size: calc(58 * var(--u));
+    font-size: calc(44 * var(--u));
     font-weight: 500;
-    line-height: 1.07;
-    letter-spacing: -0.035em;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
   }
 
   .h-page {
@@ -368,7 +368,7 @@
   }
 
   .hero__promise {
-    max-width: 14em;
+    max-width: 19em;
   }
 
   .h-hero {
@@ -414,23 +414,29 @@
     padding-left: calc(21 * var(--u));
   }
 
-  /* The mockup's three service columns are not quite equal. */
+  /* Ana's four services, in tighter columns than the mockup's three. */
   .columns--help {
-    grid-template-columns: 314fr 357fr 319fr;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
+  /* Each column borrows the list's rows, so titles, text and links line up
+     across columns however the titles wrap. */
   .columns--help > * {
-    display: flex;
-    flex-direction: column;
-    padding-right: calc(10 * var(--u));
+    display: grid;
+    grid-row: span 3;
+    grid-template-rows: subgrid;
+    padding-left: calc(24 * var(--u));
+    padding-right: calc(12 * var(--u));
   }
 
-  .columns--help p {
-    max-width: 12.5em;
+  .columns--help .h-card {
+    font-size: calc(23 * var(--u));
+    text-wrap: balance;
   }
 
   .columns--help .link-arrow {
-    margin-top: auto;
+    align-self: end;
+    justify-self: start;
   }
 
   .columns > * + * {
@@ -577,6 +583,20 @@
     letter-spacing: -0.015em;
   }
 
+  .quote--lead {
+    max-width: 25em;
+    font-size: calc(31 * var(--u));
+    line-height: 1.24;
+    letter-spacing: -0.025em;
+  }
+
+  /* The full client stories run long, so they sit a size down. */
+  .quote--long {
+    font-size: calc(19 * var(--u));
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+  }
+
   .tick-list li {
     position: relative;
     padding-left: 1.4em;
@@ -685,7 +705,7 @@
     }
 
     .h-hero {
-      font-size: clamp(2.35rem, 10.5vw, 3.25rem);
+      font-size: clamp(1.95rem, 8.4vw, 2.6rem);
     }
 
     .h-page {
@@ -733,8 +753,8 @@
       grid-template-columns: 1fr;
     }
 
-    .columns--help p {
-      max-width: none;
+    .columns--help .h-card {
+      font-size: 1.6rem;
     }
 
     /* Stats stay two to a row on phones. */
@@ -798,6 +818,14 @@
       font-size: 1.2rem;
     }
 
+    .quote--lead {
+      font-size: 1.5rem;
+    }
+
+    .quote--long {
+      font-size: 1.1rem;
+    }
+
     .step__title {
       font-size: 1.35rem;
     }
@@ -829,6 +857,11 @@
     .columns--2x2 > :nth-child(-n + 2) {
       padding-bottom: calc(28 * var(--u));
     }
+
+    /* Under a rule of its own, the first row of quotes needs the same air. */
+    .columns--quotes > :nth-child(-n + 2) {
+      padding-top: calc(28 * var(--u));
+    }
   }
 
   /* A gray band already closes the page, so the footer skips its rule. */
@@ -836,10 +869,41 @@
     border-color: transparent;
   }
 
+  /* Tablet: four services across is too tight, so they go 2x2. */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .columns--help {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .columns--help > * {
+      padding-left: calc(54 * var(--u));
+      padding-right: calc(30 * var(--u));
+    }
+
+    .columns--help > :nth-child(odd) {
+      border-left: 0;
+      padding-left: calc(21 * var(--u));
+    }
+
+    .columns--help > :nth-child(n + 3) {
+      border-top: var(--divider);
+      padding-top: calc(28 * var(--u));
+    }
+
+    .columns--help > :nth-child(-n + 2) {
+      padding-bottom: calc(28 * var(--u));
+    }
+
+    .columns--help .h-card {
+      font-size: calc(28.2 * var(--u));
+    }
+  }
+
   /* Tablet: the four-column stats row goes to two. */
   @media (min-width: 768px) and (max-width: 1023px) {
+    /* Stats.tsx sets --cols inline, so the track list is spelled out here. */
     .columns--4 {
-      --cols: 2;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .columns--4 > :nth-child(3) {

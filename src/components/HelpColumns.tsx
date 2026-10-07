@@ -3,7 +3,7 @@ import { pagePath } from "@/lib/routes";
 import type { Locale } from "@/lib/site";
 import ArrowLink from "./ArrowLink";
 
-// "How can I help?": three short columns split by hairlines, each linking to
+// "How can I help?": four short columns split by hairlines, each linking to
 // the full service list.
 export default function HelpColumns({ dict, lang }: { dict: Dictionary; lang: Locale }) {
   const { help } = dict;
@@ -23,7 +23,7 @@ export default function HelpColumns({ dict, lang }: { dict: Dictionary; lang: Lo
               <p className="text-body" style={{ marginTop: "calc(12 * var(--u))", marginBottom: "calc(18 * var(--u))" }}>
                 {item.text}
               </p>
-              {/* Three identical "Explore service" links; the hidden title
+              {/* Four identical "Explore service" links; the hidden title
                   tells screen reader users which one this is. */}
               <ArrowLink href={href}>
                 {help.link}

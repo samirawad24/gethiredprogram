@@ -60,8 +60,9 @@ const es = {
   // el diseño aprobado de la página de inicio.
   hero: {
     eyebrow: "Coaching de carrera con Ana Prato",
-    headline: ["Define tu rumbo.", "Da tu próximo paso."],
-    promise: "Orientación personal para un cambio profesional con más confianza.",
+    headline: ["Tu carrera empieza con el plan correcto", "y Get Hired te ayuda a construirlo."],
+    promise:
+      "Coaching de carrera uno a uno para estudiantes y jóvenes profesionales listos para lanzar su carrera.",
     cta: "Agenda una consulta gratis",
     note: ["En línea", "Español e inglés"],
     // PLACEHOLDER: reescribir el texto alternativo y borrar la leyenda cuando
@@ -73,9 +74,10 @@ const es = {
     heading: "¿Cómo puedo ayudarte?",
     link: "Ver servicio",
     items: [
-      { title: "Currículum y LinkedIn", text: "Presenta tu experiencia con claridad." },
-      { title: "Preparación de entrevistas", text: "Practica con retroalimentación personal." },
-      { title: "Rumbo profesional", text: "Arma un plan para lo que sigue." },
+      { title: "Optimización de CV y LinkedIn", text: "Hechos para superar los ATS y destacar." },
+      { title: "Estrategia de búsqueda de empleo", text: "Selección de empresas, marca personal, investigación y más." },
+      { title: "Networking", text: "Crea conexiones reales que abren puertas." },
+      { title: "Entrevistas simuladas", text: "Retroalimentación en tiempo real para prepararte." },
     ],
   },
   goals: {
@@ -166,19 +168,31 @@ const es = {
   },
   about: {
     eyebrow: "Sobre mí",
-    heading: "Hola, soy Ana.",
-    // PLACEHOLDER: confirmar empresas y trayectoria con Ana
+    heading: "¡Hola, soy Ana!",
+    // Traducción del texto de Ana.
     paragraphs: [
-      "Llevo más de 15 años en adquisición de talento y operaciones de recursos humanos, incluyendo puestos en Amazon y Hillenbrand. He leído miles de currículums, he estado en las reuniones donde se decide a quién contratar y he visto a buenos candidatos perder ofertas por cosas que podían haber corregido en una tarde.",
-      "Creé Get Hired Program para darte esa mirada desde adentro. Trabajamos tu currículum, tu LinkedIn, tus entrevistas y tu historia, en español o en inglés, hasta que estés listo para ir por el trabajo que quieres.",
+      "Soy experta en adquisición de talento, con más de 15 años de experiencia en reclutamiento en empresas como Amazon, Cintas y Hillenbrand. También soy Bar Raiser de Amazon: formo parte de un grupo selecto de entrevistadores capacitados para mantener la objetividad y asegurar que cada nueva contratación eleve el nivel de talento de toda la empresa.",
     ],
+    insider: {
+      heading: "La contratación vista desde adentro",
+      intro:
+        "He liderado iniciativas de reclutamiento universitario, así que sé de primera mano qué buscan los empleadores en estudiantes y recién graduados. Mi experiencia en el lado operativo de la adquisición de talento me permite entender cada paso del proceso de contratación:",
+      items: [
+        "Cómo los sistemas de seguimiento de candidatos (ATS) filtran y clasifican los currículums",
+        "Cómo los reclutadores deciden quién avanza",
+        "Cómo entrevistan los gerentes de contratación",
+        "Cómo los equipos deliberan para elegir al candidato final",
+        "Cómo se arman las ofertas de trabajo",
+      ],
+      closing: "Me encantaría ayudarte a dar tu próximo paso. ¡Agenda tu consulta gratis hoy!",
+    },
     facts: [
       "Más de 15 años en adquisición de talento",
       "Bilingüe: español e inglés",
       "Lista de clientes corta, a propósito",
       "En Ohio, con clientes en todo el mundo",
     ],
-    cta: "Trabajemos juntos",
+    cta: "Agenda una consulta gratis",
     teaserCta: "Más sobre mí",
     // Describe la ilustración de marca. Reescribir cuando haya una foto real.
     imageAlt:
@@ -265,27 +279,38 @@ const es = {
   testimonials: {
     eyebrow: "Estudiantes reales. Resultados reales.",
     heading: "Lo que dicen mis clientes",
-    // PLACEHOLDER: quitar esta nota cuando haya testimonios reales
-    placeholderNote:
-      "Testimonios de ejemplo para el diseño. Reemplázalos con historias reales antes de publicar.",
+    // Clientes de Ana. Los testimonios originales están en inglés.
+    translatedNote: "Testimonios traducidos del inglés.",
+    featured: {
+      quote:
+        "Pasé meses avanzando poco o nada y entendía muy poco sobre cómo abordar las entrevistas. Después de entrar al programa, recibí ofertas en todas las entrevistas que tuve.",
+      name: "Mathias H.",
+      role: "Técnico de mantenimiento de aviación en FEMA",
+    },
     items: [
       {
         quote:
-          "Había enviado 60 solicitudes sin ninguna respuesta. Dos semanas después de rehacer mi currículum, tenía tres entrevistas.",
-        name: "Nombre de ejemplo",
-        role: "Recién graduada, marketing",
+          "Antes de trabajar con Ana, no tenía mucha confianza a la hora de hacer entrevistas, hacer networking o contactar a posibles empleadores. Gracias a nuestro trabajo juntos, me siento mucho más cómodo presentando mis experiencias, contactando a personas en LinkedIn y teniendo conversaciones de networking, porque llegaba preparado. En general, tengo mucha más confianza para manejar la búsqueda de empleo y darme a conocer profesionalmente.",
+        name: "Brian C.",
+        role: "Recién graduado, Ciencias Ambientales",
       },
       {
         quote:
-          "Ana me ayudó a explicar por qué una maestra encaja en capacitación corporativa. Empiezo mi nuevo puesto el próximo mes.",
-        name: "Nombre de ejemplo",
-        role: "Cambio de carrera, de educación a capacitación corporativa",
+          "¡Estoy muy agradecido por la ayuda de Ana! Estaba perdido y no sabía cómo manejar las nuevas formas de buscar y solicitar empleo. Ana me ayudó a arreglar mi currículum y mi página de LinkedIn. El currículum quedó tan bien que el gerente que me entrevistó comentó que no tenía preguntas, porque mi currículum era muy bueno y preciso. Ana también me ayudó a prepararme para la entrevista, para poder llevar el control y sentir confianza en lo que tengo para ofrecer. Recomiendo mucho a Ana, ¡es una profesional!",
+        name: "Andres A.",
+        role: "Asesor de ventas en Grubbs Acura",
       },
       {
         quote:
-          "Sus entrevistas de práctica eran más difíciles que las reales. En la ronda final llegué con calma.",
-        name: "Nombre de ejemplo",
-        role: "Estudiante de ingeniería",
+          "Antes de empezar a trabajar con Ana, enviaba solicitudes al vacío y mis habilidades para las entrevistas eran regulares en el mejor de los casos (según la situación). Ni siquiera había considerado tener una cuenta de LinkedIn. Ana incluso me señaló aspectos del proceso en los que ya tenía confianza (como mi currículum) y que en realidad me estaban perjudicando. Ahora tengo mucha más confianza en mis habilidades para las entrevistas y mucha más preparación para postularme a los puestos que quiero.",
+        name: "Nico B.",
+        role: "Estudiante de cuarto año de Comunicación Estratégica",
+      },
+      {
+        quote:
+          "Ana ha sido una gran ayuda durante todo mi proceso de reclutamiento. Me ha orientado mucho sobre cómo abordar distintas oportunidades y me ha ayudado a llegar a las entrevistas con mucha más preparación y confianza. Lo que más valoro es lo disponible que está. Cuando tengo una pregunta o necesito un consejo, siempre está dispuesta a ayudar y siempre está ahí para mí. ¡Gracias por todo siempre!",
+        name: "Luis F.",
+        role: "Estudiante de tercer año, FSU",
       },
     ],
   },

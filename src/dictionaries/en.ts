@@ -56,12 +56,13 @@ const en = {
     en: "English",
     es: "Español",
   },
-  // Hero, "How can I help?", the goals band and the closing band follow the
-  // approved home page mockup word for word.
+  // The goals band and the closing band follow the approved home page mockup
+  // word for word. Hero and "How can I help?" carry Ana's own copy.
   hero: {
     eyebrow: "Career coaching with Ana Prato",
-    headline: ["Find your direction.", "Take your next step."],
-    promise: "Personal guidance for a more confident career move.",
+    headline: ["Your career starts with the right plan", "and Get Hired helps you build it."],
+    promise:
+      "One-on-one career coaching for students and young professionals ready to launch their careers.",
     cta: "Book a free consultation",
     note: ["Online", "English & Spanish"],
     // PLACEHOLDER: rewrite the alt text and delete the caption once Ana's
@@ -73,9 +74,10 @@ const en = {
     heading: "How can I help?",
     link: "Explore service",
     items: [
-      { title: "Resume & LinkedIn", text: "Present your experience clearly." },
-      { title: "Interview preparation", text: "Practice with personal feedback." },
-      { title: "Career direction", text: "Build a plan for what’s next." },
+      { title: "Resume and LinkedIn Optimization", text: "Crafted to get past ATS and stand out." },
+      { title: "Job Search Strategy", text: "Company selection, personal branding, research and more." },
+      { title: "Networking", text: "Build real connections that open doors." },
+      { title: "Mock Interviews", text: "Real-time feedback to get you ready." },
     ],
   },
   goals: {
@@ -167,19 +169,31 @@ const en = {
   },
   about: {
     eyebrow: "About me",
-    heading: "Hi, I'm Ana.",
-    // PLACEHOLDER: confirm employers and background with Ana
+    heading: "Hi, I'm Ana!",
+    // Ana's own words. Her doc spells it "Hillebrand"; the company is Hillenbrand.
     paragraphs: [
-      "For more than 15 years I've worked in talent acquisition and HR operations, including roles at Amazon and Hillenbrand. I've read thousands of resumes, sat in hiring debriefs, and watched strong candidates lose offers over things they could have fixed in an afternoon.",
-      "I started Get Hired Program to give you that inside view. We work on your resume, your LinkedIn, your interviews and your story, in English or Spanish, until you're ready to go after the job you want.",
+      "I'm a Talent Acquisition expert with more than 15 years of recruiting experience at companies including Amazon, Cintas and Hillenbrand. I'm also an Amazon Bar Raiser, one of a select group of interviewers trained to stay objective and make sure every new hire raises the bar for talent across the company.",
     ],
+    insider: {
+      heading: "An insider's view of hiring",
+      intro:
+        "I've led campus recruiting efforts, so I know firsthand what employers look for in students and new graduates. My experience on the operational side of Talent Acquisition means I understand every step of the hiring process:",
+      items: [
+        "How Applicant Tracking Systems filter and rank resumes",
+        "How recruiters decide who moves forward",
+        "How hiring managers interview",
+        "How teams debrief to choose the final candidate",
+        "How job offers are put together",
+      ],
+      closing: "I'd love to help you take your next step. Book your free consultation today!",
+    },
     facts: [
       "15+ years in talent acquisition",
       "Bilingual: English and Spanish",
       "A short client list, on purpose",
       "Based in Ohio, coaching clients worldwide",
     ],
-    cta: "Work with me",
+    cta: "Book a free consultation",
     teaserCta: "More about me",
     // Describes the brand art. Rewrite when a real photo replaces it.
     imageAlt:
@@ -266,26 +280,38 @@ const en = {
   testimonials: {
     eyebrow: "Real students. Real results.",
     heading: "What clients say",
-    // PLACEHOLDER: remove this note once real quotes are in
-    placeholderNote: "Sample quotes for layout. Replace with real client stories before launch.",
+    // Ana's clients, in their own words. Typos fixed, nothing reworded.
+    translatedNote: "",
+    featured: {
+      quote:
+        "I spent months making little to no progress and had little understanding of how to approach interviews. After joining the program, I got offers from every interview I had.",
+      name: "Mathias H.",
+      role: "Aviation Maintenance Technician at FEMA",
+    },
     items: [
       {
         quote:
-          "I had sent 60 applications with zero replies. Two weeks after we rebuilt my resume, I had three interviews.",
-        name: "Placeholder Name",
-        role: "Recent graduate, marketing",
+          "Before working with Ana, I wasn't very confident when it came to interviewing, networking, or reaching out to potential employers. Through our work together, I became much more comfortable presenting my experiences, reaching out to people on LinkedIn, and having networking conversations because I felt prepared going into them. Overall, I feel much more confident navigating the job search and putting myself out there professionally.",
+        name: "Brian C.",
+        role: "Recent graduate, Environmental Science",
       },
       {
         quote:
-          "Ana helped me explain why a teacher belongs in corporate training. I start my new role next month.",
-        name: "Placeholder Name",
-        role: "Career changer, education to corporate training",
+          "I am very grateful for Ana's help! I was lost and did not know how to navigate the new ways of looking and applying for jobs. Ana helped me fix my resume and LinkedIn page. The resume was so good the manager that interviewed me mentioned that he did not have any questions because my resume was very good and precise. Ana also helped me prepare for my interview so that I could control it and feel confident about what I have to offer. I highly recommend Ana, she is a pro!",
+        name: "Andres A.",
+        role: "Sales Associate at Grubbs Acura",
       },
       {
         quote:
-          "Her mock interviews were harder than the real thing. By the final round I felt calm.",
-        name: "Placeholder Name",
-        role: "Engineering student",
+          "Before I started working with Ana I was just sending applications into the void and my interview skills were meh at best (depending on the situation). I didn't even consider a LinkedIn account. Ana even pointed out aspects of the process I was already confident in (like my resume) that were actually working against me. Now, I'm feeling a lot more confident in my interview skills and far more prepared for applying to my desired positions.",
+        name: "Nico B.",
+        role: "Fourth year Strategic Communications student",
+      },
+      {
+        quote:
+          "Ana has been a huge help throughout my recruiting process. She's given me a lot of direction on how to approach different opportunities and has helped me feel much more prepared and confident going into interviews. What I appreciate most is how available she is. Whenever I have a question or need advice, she's always willing to help and she's always there for me. Gracias por todo siempre!",
+        name: "Luis F.",
+        role: "Junior, FSU",
       },
     ],
   },
