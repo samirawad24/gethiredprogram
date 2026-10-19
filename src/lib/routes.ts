@@ -1,8 +1,11 @@
 import type { Locale } from "./site";
 
-// The site's pages, in nav order. Add one here and it appears in the header,
-// the mobile menu, the footer and the sitemap.
-export const pages = ["home", "about", "services", "contact"] as const;
+// The site's pages, in mobile menu order. Add one here and it appears in the
+// mobile menu and the sitemap; the desktop header picks its own (see Header).
+export const pages = ["home", "about", "parents", "services", "contact"] as const;
+
+// Pages that sit under another one in the menus: For Parents hangs off About.
+export const subPages: Partial<Record<NavPageKey, NavPageKey>> = { parents: "about" };
 
 // Policy pages. Linked from the footer and listed in the sitemap, kept out of
 // the nav.
@@ -15,6 +18,7 @@ export type PageKey = NavPageKey | LegalPageKey;
 const segments: Record<PageKey, string> = {
   home: "",
   about: "about",
+  parents: "parents",
   services: "services",
   contact: "contact",
   privacy: "privacy",

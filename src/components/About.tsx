@@ -12,7 +12,7 @@ export default function About({ dict, lang }: { dict: Dictionary; lang: Locale }
     <section id="about" aria-labelledby="about-heading" className="shell">
       <hr className="hairline" />
       <div className="section grid items-center gap-10 md:grid-cols-[529fr_462fr] md:gap-[calc(56*var(--u))]">
-        {/* PLACEHOLDER: same stand-in portrait as Home until the real photo is in. */}
+        {/* Ana's portrait, the same one as on Home. */}
         <figure>
           <Image
             src={asset(site.images.hero)}
@@ -22,9 +22,6 @@ export default function About({ dict, lang }: { dict: Dictionary; lang: Locale }
             sizes="(min-width: 768px) 50vw, 100vw"
             className="hero__img"
           />
-          <figcaption className="text-caption" style={{ marginTop: "calc(8 * var(--u))" }}>
-            {dict.hero.imageCaption}
-          </figcaption>
         </figure>
 
         <div data-reveal>

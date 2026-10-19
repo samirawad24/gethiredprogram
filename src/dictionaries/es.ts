@@ -21,6 +21,11 @@ const es = {
       description:
         "Optimización de CV y LinkedIn, estrategia de búsqueda de empleo, networking y entrevistas simuladas, además del programa de ocho sesiones. Uno a uno, en español o inglés.",
     },
+    parents: {
+      title: "Para padres: ayuda a tu hijo a conseguir empleo | Get Hired Program",
+      description:
+        "Tu hijo trabaja uno a uno con una reclutadora con más de 15 años del lado de la contratación, en español o en inglés. Tú vuelves a ser su apoyo, no su gerente de proyecto.",
+    },
     contact: {
       title: "Agenda tu consulta gratuita | Get Hired Program",
       description:
@@ -43,6 +48,7 @@ const es = {
   nav: {
     home: "Inicio",
     about: "Sobre mí",
+    parents: "Para padres",
     services: "Servicios",
     contact: "Contacto",
     book: "Agenda una consulta gratis",
@@ -65,10 +71,7 @@ const es = {
       "Coaching de carrera uno a uno para estudiantes y jóvenes profesionales listos para lanzar su carrera.",
     cta: "Agenda una consulta gratis",
     note: ["En línea", "Español e inglés"],
-    // PLACEHOLDER: reescribir el texto alternativo y borrar la leyenda cuando
-    // esté el retrato real de Ana.
-    imageAlt: "Una mujer sonriente en un escritorio con una laptop, una libreta y una taza de café",
-    imageCaption: "Retrato provisional · Aquí va la foto de Ana",
+    imageAlt: "Ana Prato sonriendo en su escritorio con una laptop, una libreta abierta y una taza de café",
   },
   help: {
     heading: "¿Cómo puedo ayudarte?",
@@ -281,6 +284,9 @@ const es = {
     eyebrow: "Estudiantes reales. Resultados reales.",
     heading: "Lo que dicen mis clientes",
     // Clientes de Ana. Los testimonios originales están en inglés.
+    prev: "Testimonio anterior",
+    next: "Siguiente testimonio",
+    goTo: "Ver testimonio de",
     translatedNote: "Testimonios traducidos del inglés.",
     featured: {
       quote:
@@ -289,6 +295,12 @@ const es = {
       role: "Técnico de mantenimiento de aviación en FEMA",
     },
     items: [
+      {
+        quote:
+          "Ana fue clave para darle un nuevo impulso a mi búsqueda de empleo. Me enseñó consejos y trucos muy valiosos sobre cómo usar LinkedIn, las mejores formas de enfrentar una entrevista y cómo darme a conocer al hacer networking. Ella y sus contactos han sido personas realmente maravillosas, siempre dispuestas a guiarme en el mercado laboral actual. Después de trabajar con Ana, me siento lista e incluso un poco emocionada por tener entrevistas y ver dónde termino.",
+        name: "Alejandra B.",
+        role: "Recién graduada",
+      },
       {
         quote:
           "Antes de trabajar con Ana, no tenía mucha confianza a la hora de hacer entrevistas, hacer networking o contactar a posibles empleadores. Gracias a nuestro trabajo juntos, me siento mucho más cómodo presentando mis experiencias, contactando a personas en LinkedIn y teniendo conversaciones de networking, porque llegaba preparado. En general, tengo mucha más confianza para manejar la búsqueda de empleo y darme a conocer profesionalmente.",
@@ -314,6 +326,84 @@ const es = {
         role: "Estudiante de tercer año, FSU",
       },
     ],
+  },
+  // La página Para padres, traducción fiel del texto de Ana. Se llega desde el
+  // menú de Sobre mí y desde la nota para padres del inicio.
+  parents: {
+    hero: {
+      eyebrow: "Para padres",
+      heading: "Ayuda a tu hijo a conseguir empleo, sin tensiones.",
+      lead: "Has invertido en su educación. Ayudémoslo a sacarle el máximo provecho.",
+    },
+    intro:
+      "Has acompañado a tu hijo durante sus estudios y ahora llega uno de los pasos más importantes: conseguir esa pasantía o su primer empleo de tiempo completo. Es natural querer intervenir y ayudar.",
+    introQuote: {
+      before: "Muchos padres me dicen lo mismo: ",
+      quote: "“Trato de darle consejos, pero no los quiere escuchar de mí”.",
+      after:
+        " No es un reflejo de ti. A esta edad, los consejos suelen llegar mejor cuando vienen de un experto externo. Mi papel es ser esa persona, para que tú puedas volver a ser mamá o papá.",
+    },
+    changed: {
+      heading: "Por qué la búsqueda de empleo es distinta hoy",
+      items: [
+        { lead: "Un software filtra las postulaciones", rest: " antes de que una persona las vea." },
+        { lead: "LinkedIn y el networking", rest: " generan hoy una gran parte de las contrataciones, sobre todo en puestos de nivel inicial." },
+        { lead: "Las entrevistas suelen ser virtuales o grabadas", rest: ", con sus propias reglas." },
+        { lead: "Las pasantías suelen ser el camino", rest: " hacia una oferta de tiempo completo." },
+      ],
+      closing:
+        "Lo que funcionaba hace apenas 10 años no siempre funciona ahora. Llevo más de 15 años del lado de la contratación, así que sé lo que buscan hoy los reclutadores.",
+    },
+    gets: {
+      heading: "Lo que recibe tu hijo",
+      items: [
+        "Sesiones de coaching uno a uno (de 45 minutos, por video)",
+        "Un CV y un perfil de LinkedIn rehechos para llamar la atención",
+        "Un plan de búsqueda enfocado (se acabó postularse a todo)",
+        "Coaching de networking y plantillas de mensajes",
+        "Entrevistas de práctica con comentarios honestos",
+        "Guías y listas de verificación exclusivas",
+        "Coaching en español o en inglés",
+        "Contacto continuo después de terminar el programa",
+      ],
+    },
+    small: {
+      heading: "Por qué mantengo mi programa pequeño",
+      text: "Trabajo con pocos estudiantes a la vez. Cada uno recibe toda mi atención y sigo en contacto con ellos mucho después de terminar el programa.",
+    },
+    faq: {
+      heading: "Preguntas de los padres",
+      items: [
+        {
+          q: "¿Me vas a informar sobre el progreso de mi hijo?",
+          a: [
+            "Por lo general, no, y es a propósito. Parte de conseguir empleo es aprender a hacerse cargo de la propia carrera. Trato a tu hijo como el joven profesional en el que se está convirtiendo. Él maneja sus sesiones, sus tareas y su comunicación conmigo, tal como lo hará con un futuro jefe.",
+            "Dicho esto, no desaparezco. Me comunicaré contigo directamente si veo que hace falta, por ejemplo:",
+          ],
+          list: [
+            "Si tu hijo deja de presentarse, de cumplir o de responder",
+            "Si noto algo que lo está afectando y creo que deberías saberlo",
+          ],
+          after:
+            "Cuando eso pase, hablaré primero con tu hijo siempre que sea posible, para que no haya sorpresas. Tendrás la tranquilidad de saber que estoy pendiente, y tu hijo conserva el espacio para crecer y hablar con libertad.",
+        },
+        {
+          q: "¿Garantizas un empleo?",
+          a: [
+            "Ningún coach ético puede garantizar una oferta de empleo. Lo que sí garantizo es que tu hijo tendrá un CV más sólido, una estrategia clara y más confianza en las entrevistas. He visto cuánto cambian esas cosas el resultado.",
+          ],
+          list: [],
+          after: "",
+        },
+        {
+          q: "Mi hijo no sabe bien qué quiere hacer. ¿Le sirve el programa?",
+          a: ["Sí. Empezamos por definir el rumbo y los puestos a los que apunta, y después armamos la búsqueda alrededor de eso."],
+          list: [],
+          after: "",
+        },
+      ],
+    },
+    cta: "Agenda una llamada gratis",
   },
   cta: {
     heading: "Hablemos de tu próximo paso.",

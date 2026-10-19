@@ -318,6 +318,60 @@
     border-bottom-color: var(--color-gold);
   }
 
+  /* About's dropdown. Hangs below the link, hidden until hover or focus. The
+     invisible top padding bridges the gap so the pointer can travel down. */
+  .site-nav__parent {
+    position: relative;
+  }
+
+  .site-nav__sub {
+    position: absolute;
+    top: 100%;
+    left: calc(-18 * var(--u));
+    z-index: 60;
+    min-width: calc(190 * var(--u));
+    padding-top: calc(10 * var(--u));
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4px);
+    transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s linear 0.18s;
+  }
+
+  .site-nav__sub li {
+    background: var(--color-paper);
+    border-inline: 1px solid var(--color-line);
+  }
+
+  .site-nav__sub li:first-child {
+    border-top: 2px solid var(--color-gold);
+  }
+
+  .site-nav__sub li:last-child {
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .site-nav__links .site-nav__sub a {
+    display: flex;
+    padding: calc(12 * var(--u)) calc(18 * var(--u));
+    border-bottom: 0;
+    white-space: nowrap;
+    transition: color 0.2s ease, background-color 0.2s ease;
+  }
+
+  .site-nav__links .site-nav__sub a:hover,
+  .site-nav__links .site-nav__sub a[aria-current="page"] {
+    color: var(--color-gold-deep);
+    background: color-mix(in srgb, var(--color-gold) 7%, var(--color-paper));
+  }
+
+  .site-nav__parent:hover .site-nav__sub,
+  .site-nav__parent:focus-within .site-nav__sub {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s;
+  }
+
   .site-nav__divider {
     width: 1px;
     height: calc(28 * var(--u));
@@ -464,6 +518,130 @@
     width: 100%;
     height: calc(198 * var(--u));
     object-fit: cover;
+  }
+
+  /* --- Home: rotating testimonials under the hero ----------------------- */
+  .quote-band {
+    display: grid;
+    gap: calc(28 * var(--u));
+    padding-block: calc(44 * var(--u)) calc(40 * var(--u));
+  }
+
+  /* Desktop: heading and arrows on the left, quote on the right, so the
+     space a short quote leaves sits under the quote, not between it and the
+     arrows. Phones: heading, quote, arrows. */
+  @media (min-width: 768px) {
+    .quote-band {
+      grid-template-columns: 300fr 690fr;
+      grid-template-rows: auto 1fr;
+      column-gap: calc(56 * var(--u));
+      row-gap: 0;
+    }
+
+    .quote-band > :nth-child(2) {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+    }
+
+    .quote-band__controls {
+      align-self: start;
+      margin-top: calc(26 * var(--u));
+    }
+  }
+
+  .quote-band__stack {
+    display: grid;
+    align-items: start;
+    overflow: hidden;
+    transition: height 0.4s ease;
+  }
+
+  .quote-band__slide {
+    grid-area: 1 / 1;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(6px);
+    transition: opacity 0.35s ease, transform 0.35s ease, visibility 0s linear 0.35s;
+  }
+
+  .quote-band__slide[data-active] {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition: opacity 0.35s ease 0.08s, transform 0.35s ease 0.08s, visibility 0s;
+  }
+
+  .quote--band {
+    font-size: calc(17.5 * var(--u));
+    line-height: 1.55;
+    letter-spacing: -0.01em;
+  }
+
+  .quote-band__controls {
+    display: flex;
+    align-items: center;
+    gap: calc(10 * var(--u));
+    margin-left: -2px;
+  }
+
+  .quote-band__arrow {
+    display: inline-flex;
+    width: 2.75rem;
+    height: 2.75rem;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--color-line);
+    border-radius: 999px;
+    color: var(--color-navy);
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .quote-band__arrow:hover {
+    border-color: var(--color-gold);
+    color: var(--color-gold-deep);
+  }
+
+  .quote-band__marks {
+    display: flex;
+    margin-left: calc(14 * var(--u));
+  }
+
+  /* Thin rules, the active one gold and longer. The button is taller than
+     the rule so it is still easy to tap. */
+  .quote-band__marks button {
+    display: flex;
+    align-items: center;
+    width: 1.75rem;
+    height: 2.75rem;
+    cursor: pointer;
+  }
+
+  .quote-band__marks button::before {
+    content: "";
+    width: 1rem;
+    height: 1px;
+    background: var(--color-line);
+    transition: width 0.25s ease, background-color 0.25s ease;
+  }
+
+  .quote-band__marks button:hover::before {
+    background: var(--color-faint);
+  }
+
+  .quote-band__marks button[aria-current]::before {
+    width: 1.4rem;
+    height: 2px;
+    background: var(--color-gold);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .quote-band__stack,
+    .quote-band__slide,
+    .quote-band__slide[data-active] {
+      transition: none;
+      transform: none;
+    }
   }
 
   /* --- Closing band and footer ----------------------------------------- */

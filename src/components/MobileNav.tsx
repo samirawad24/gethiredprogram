@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
-type NavLink = { href: string; label: string; current: boolean };
+type NavLink = { href: string; label: string; current: boolean; sub?: boolean };
 
 type Props = {
   links: NavLink[];
@@ -36,7 +36,7 @@ function lockScroll(y: number) {
   };
 }
 
-// Four pages cannot hide behind a hamburger that does not exist, so phones get
+// Five pages cannot hide behind a hamburger that does not exist, so phones get
 // a real menu. Desktop uses the inline nav in Header and never renders this.
 export default function MobileNav({ links, bookHref, bookLabel, openLabel, closeLabel, languages }: Props) {
   const [open, setOpen] = useState(false);
@@ -87,9 +87,9 @@ export default function MobileNav({ links, bookHref, bookLabel, openLabel, close
             href={link.href}
             onClick={() => setOpen(false)}
             aria-current={link.current ? "page" : undefined}
-            className={`border-b border-line py-4 font-serif text-[1.75rem] tracking-tight ${
-              link.current ? "text-gold" : "text-heading"
-            }`}
+            className={`border-b border-line font-serif tracking-tight ${
+              link.sub ? "py-3 pl-6 text-[1.35rem]" : "py-4 text-[1.75rem]"
+            } ${link.current ? "text-gold" : "text-heading"}`}
           >
             {link.label}
           </Link>

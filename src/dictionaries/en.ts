@@ -21,6 +21,11 @@ const en = {
       description:
         "Resume and LinkedIn optimization, job search strategy, networking and mock interviews, plus the eight-session program. One to one, in English or Spanish.",
     },
+    parents: {
+      title: "For parents: help your student get hired | Get Hired Program",
+      description:
+        "Your student gets a recruiter with 15+ years on the hiring side as their coach, one to one, in English or Spanish. You get to be the support system, not the project manager.",
+    },
     contact: {
       title: "Book a free consultation | Get Hired Program",
       description:
@@ -43,6 +48,7 @@ const en = {
   nav: {
     home: "Home",
     about: "About",
+    parents: "For Parents",
     services: "Services",
     contact: "Contact",
     book: "Book a free consultation",
@@ -65,10 +71,7 @@ const en = {
       "One-on-one career coaching for students and young professionals ready to launch their careers.",
     cta: "Book a free consultation",
     note: ["Online", "English & Spanish"],
-    // PLACEHOLDER: rewrite the alt text and delete the caption once Ana's
-    // real portrait is in.
-    imageAlt: "A smiling woman at a desk with a laptop, a notebook and a coffee mug",
-    imageCaption: "Placeholder portrait · Ana’s photo goes here",
+    imageAlt: "Ana Prato smiling at her desk with a laptop, an open notebook and a coffee mug",
   },
   help: {
     heading: "How can I help?",
@@ -282,6 +285,9 @@ const en = {
     eyebrow: "Real students. Real results.",
     heading: "What clients say",
     // Ana's clients, in their own words. Typos fixed, nothing reworded.
+    prev: "Previous testimonial",
+    next: "Next testimonial",
+    goTo: "Show testimonial from",
     translatedNote: "",
     featured: {
       quote:
@@ -290,6 +296,12 @@ const en = {
       role: "Aviation Maintenance Technician at FEMA",
     },
     items: [
+      {
+        quote:
+          "Ana was instrumental in revitalizing my job search. She taught me instrumental tips and tricks in how to use LinkedIn, the best ways to interview, and how to put myself out there while networking. She and her connections have been truly wonderful people that are always willing to guide me through the current job market. After working with Ana, I feel ready and even a little excited to interview and see where I land.",
+        name: "Alejandra B.",
+        role: "Recent graduate",
+      },
       {
         quote:
           "Before working with Ana, I wasn't very confident when it came to interviewing, networking, or reaching out to potential employers. Through our work together, I became much more comfortable presenting my experiences, reaching out to people on LinkedIn, and having networking conversations because I felt prepared going into them. Overall, I feel much more confident navigating the job search and putting myself out there professionally.",
@@ -315,6 +327,85 @@ const en = {
         role: "Junior, FSU",
       },
     ],
+  },
+  // The For Parents page, Ana's copy word for word. Reached from the About
+  // dropdown and the parents note on Home.
+  parents: {
+    hero: {
+      eyebrow: "For parents",
+      heading: "Help your student get hired, without the tension.",
+      lead: "You’ve invested in their education. Let’s help them make the most of it.",
+    },
+    intro:
+      "You’ve supported your student through school, and now comes one of the biggest steps: landing that internship or first full-time job. It’s natural to want to jump in and help.",
+    // The quote is set in italics, with the rest of the paragraph around it.
+    introQuote: {
+      before: "Many parents tell me the same thing: ",
+      quote: "“I try to give advice, but my kid doesn’t want to hear it from me.”",
+      after:
+        " That isn’t a reflection on you. At this age, guidance often lands better coming from an outside expert. My role is to be that person, so you can go back to being mom or dad.",
+    },
+    changed: {
+      heading: "Why the job search feels different today",
+      items: [
+        { lead: "Applications are screened by software", rest: " before a human ever sees them." },
+        { lead: "LinkedIn and networking", rest: " now drive a large share of hires, especially for entry-level roles." },
+        { lead: "Interviews are often virtual or recorded", rest: ", with their own rules." },
+        { lead: "Internships are often the path", rest: " to full-time offers." },
+      ],
+      closing:
+        "What worked even 10 years ago doesn’t always work now. I’ve been on the hiring side for more than 15 years, so I know what recruiters look for today.",
+    },
+    gets: {
+      heading: "What your student gets",
+      items: [
+        "One-on-one coaching sessions (45 minutes each, by video)",
+        "A resume and LinkedIn profile rebuilt to get noticed",
+        "A focused job search plan (no more applying to everything)",
+        "Networking coaching and message templates",
+        "Mock interviews with honest feedback",
+        "Exclusive guides and checklists",
+        "Coaching in English or Spanish",
+        "Ongoing connection after the program ends",
+      ],
+    },
+    small: {
+      heading: "Why I keep my program small",
+      text: "I work with only a few students at a time. Every student gets my full attention, and I stay connected with them well after the program ends.",
+    },
+    faq: {
+      heading: "Questions parents ask",
+      items: [
+        {
+          q: "Will you update me on my student’s progress?",
+          a: [
+            "In general, no, and that’s on purpose. Part of getting hired is learning to own your career. I treat your student as the young professional they’re becoming. They manage their sessions, their action items and their communication with me, just as they will with a future manager.",
+            "That said, I’m not out of the picture. I’ll reach out to you directly if I see it’s needed, for example:",
+          ],
+          list: [
+            "If your student stops showing up, following through or responding",
+            "If I notice something affecting them that I believe you should know about",
+          ],
+          after:
+            "When that happens, I’ll talk with your student first whenever possible, so there are no surprises. You’ll have peace of mind that I’m paying attention, and your student keeps the space to grow and speak openly.",
+        },
+        {
+          q: "Do you guarantee a job?",
+          a: [
+            "No ethical coach can guarantee a job offer. What I guarantee is your student will have a stronger resume, a clear strategy and more confidence in interviews. I’ve seen how much those things change the outcome.",
+          ],
+          list: [] as string[],
+          after: "",
+        },
+        {
+          q: "My student isn’t sure what they want to do. Is this still a good fit?",
+          a: ["Yes. We start by getting clear on direction and target roles before building the search around them."],
+          list: [] as string[],
+          after: "",
+        },
+      ],
+    },
+    cta: "Book a free intro call",
   },
   cta: {
     heading: "Let’s talk about your next move.",

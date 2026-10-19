@@ -42,10 +42,6 @@ export default function Hero({ dict, lang }: { dict: Dictionary; lang: Locale })
             sizes="(min-width: 768px) 50vw, 100vw"
             className="hero__img"
           />
-          {/* PLACEHOLDER: delete this caption with the real portrait. */}
-          <figcaption className="text-caption" style={{ marginTop: "calc(8 * var(--u))" }}>
-            {hero.imageCaption}
-          </figcaption>
         </figure>
       </div>
     </section>

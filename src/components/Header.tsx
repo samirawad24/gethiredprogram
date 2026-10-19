@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Dictionary } from "@/dictionaries";
-import { pagePath, pages, type NavPageKey, type PageKey } from "@/lib/routes";
+import { pagePath, pages, subPages, type NavPageKey, type PageKey } from "@/lib/routes";
 import { site, type Locale } from "@/lib/site";
 import Button from "./Button";
 import LanguageToggle from "./LanguageToggle";
@@ -10,15 +10,19 @@ import MobileNav from "./MobileNav";
 
 type Props = { lang: Locale; dict: Dictionary; page: PageKey };
 
-// Wordmark left; Services, About, EN/ES and the booking button right, as in
-// the mockup. Phones get every page in the menu instead.
+// Wordmark left; Home, About (with For Parents under it), Services, EN/ES and
+// the booking button right. Phones get every page in the menu instead.
 export default function Header({ lang, dict, page }: Props) {
   const link = (key: NavPageKey) => ({
     href: pagePath(lang, key),
     label: dict.nav[key],
     current: key === page,
+    sub: key in subPages,
   });
-  const desktopLinks = (["services", "about"] as const).map(link);
+  const desktopLinks = (["home", "about", "services"] as const).map((key) => ({
+    ...link(key),
+    children: pages.filter((child) => subPages[child] === key).map(link),
+  }));
   const bookHref = pagePath(lang, "contact");
 
   return (
@@ -32,10 +36,26 @@ export default function Header({ lang, dict, page }: Props) {
         <nav aria-label={dict.nav.primary} className="site-nav">
           <ul className="site-nav__links max-md:hidden">
             {desktopLinks.map((item) => (
-              <li key={item.href}>
-                <Link href={item.href} aria-current={item.current ? "page" : undefined}>
+              <li key={item.href} className={item.children.length ? "site-nav__parent" : undefined}>
+                <Link
+                  href={item.href}
+                  aria-current={item.current || item.children.some((child) => child.current) ? "page" : undefined}
+                >
                   <RandomLetterSwap label={item.label} staggerDuration={0.025} duration={0.6} />
                 </Link>
+                {item.children.length > 0 && (
+                  // Opens on hover and on keyboard focus (focus-within), so
+                  // tabbing past About walks straight into it. No JS.
+                  <ul className="site-nav__sub">
+                    {item.children.map((child) => (
+                      <li key={child.href}>
+                        <Link href={child.href} aria-current={child.current ? "page" : undefined}>
+                          {child.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </li>
             ))}
           </ul>
