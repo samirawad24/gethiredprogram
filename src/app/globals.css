@@ -477,7 +477,7 @@
      across columns however the titles wrap. */
   .columns--help > * {
     display: grid;
-    grid-row: span 3;
+    grid-row: span 2;
     grid-template-rows: subgrid;
     padding-left: calc(24 * var(--u));
     padding-right: calc(12 * var(--u));
@@ -488,9 +488,11 @@
     text-wrap: balance;
   }
 
-  .columns--help .link-arrow {
-    align-self: end;
-    justify-self: start;
+  /* One link under all four: they are parts of one program, not
+     separate services. */
+  .help__more {
+    margin-top: calc(28 * var(--u));
+    text-align: center;
   }
 
   .columns > * + * {
@@ -817,6 +819,15 @@
   .step__title {
     font-size: calc(24 * var(--u));
     line-height: 1.2;
+  }
+
+  .step__leave {
+    margin-top: calc(10 * var(--u));
+    color: var(--color-heading);
+  }
+
+  .step__leave strong {
+    font-weight: 600;
   }
 
   .media-img {

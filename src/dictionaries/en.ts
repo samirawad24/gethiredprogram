@@ -9,7 +9,7 @@ const en = {
     home: {
       title: "Ana Prato, Career Coach | Get Hired Program",
       description:
-        "One-to-one bilingual career coaching from a recruiter with 15+ years on the hiring side. A deliberately small practice, for students, recent graduates and career changers in the US and abroad. Book a free consultation.",
+        "One-to-one bilingual career coaching from a recruiter with 15+ years on the hiring side. A deliberately small practice, for students, recent graduates and career changers in the US and abroad. Book a free career kickoff call.",
     },
     about: {
       title: "About Ana Prato | Get Hired Program",
@@ -17,9 +17,9 @@ const en = {
         "Fifteen years in talent acquisition, on the side of the table where hiring decisions get made. Why Ana keeps her client list short, and who she works with.",
     },
     services: {
-      title: "Services and the eight-session program | Get Hired Program",
+      title: "Services: the eight-session program | Get Hired Program",
       description:
-        "Resume and LinkedIn optimization, job search strategy, networking and mock interviews, plus the eight-session program. One to one, in English or Spanish.",
+        "One eight-session program that covers your resume, LinkedIn, job search strategy, networking and mock interviews. One to one, at your own pace, in English or Spanish.",
     },
     parents: {
       title: "For parents: help your student get hired | Get Hired Program",
@@ -27,7 +27,7 @@ const en = {
         "Your student gets a recruiter with 15+ years on the hiring side as their coach, one to one, in English or Spanish. You get to be the support system, not the project manager.",
     },
     contact: {
-      title: "Book a free consultation | Get Hired Program",
+      title: "Book a free career kickoff call | Get Hired Program",
       description:
         "Thirty minutes, no cost. Pick a time that works wherever you are, and we will see whether the program fits.",
     },
@@ -51,7 +51,7 @@ const en = {
     parents: "For Parents",
     services: "Services",
     contact: "Contact",
-    book: "Book a free consultation",
+    book: "Book a free kickoff call",
     homeAria: "Get Hired Program home",
     primary: "Main",
     openMenu: "Open menu",
@@ -68,14 +68,14 @@ const en = {
     eyebrow: "Career coaching with Ana Prato",
     headline: ["Your career starts with the right plan", "and Get Hired helps you build it."],
     promise:
-      "One-on-one career coaching for students and young professionals ready to launch their careers.",
-    cta: "Book a free consultation",
+      "One-on-one coaching to help students and young professionals prepare, practice and get hired.",
+    cta: "Book your free career kickoff call",
     note: ["Online", "English & Spanish"],
     imageAlt: "Ana Prato smiling at her desk with a laptop, an open notebook and a coffee mug",
   },
   help: {
     heading: "How can I help?",
-    link: "Explore service",
+    link: "See the full program",
     items: [
       { title: "Resume and LinkedIn Optimization", text: "Crafted to get past ATS and stand out." },
       { title: "Job Search Strategy", text: "Company selection, personal branding, research and more." },
@@ -111,7 +111,7 @@ const en = {
     services: {
       eyebrow: "Services",
       heading: "Everything you need to stand out and get hired.",
-      lead: "Four ways I help, and the eight-session program that puts them in order.",
+      lead: "One eight-session program that covers your resume, LinkedIn, job search, networking and interviews.",
     },
     contact: {
       eyebrow: "Contact",
@@ -121,9 +121,9 @@ const en = {
   },
   services: {
     eyebrow: "Services",
-    heading: "How I can help",
+    heading: "What we’ll work on together",
     allCta: "See all services",
-    intro: "Practical guidance, built on how hiring decisions actually get made.",
+    intro: "The four areas the program covers, all in one plan.",
     // Same four services, same titles, as "How can I help?" on the home page.
     items: [
       {
@@ -189,7 +189,7 @@ const en = {
         "How teams debrief to choose the final candidate",
         "How job offers are put together",
       ],
-      closing: "I'd love to help you take your next step. Book your free consultation today!",
+      closing: "I'd love to help you take your next step. Book your free career kickoff call today!",
     },
     facts: [
       "15+ years in talent acquisition",
@@ -197,7 +197,7 @@ const en = {
       "A short client list, on purpose",
       "Based in Ohio, coaching clients worldwide",
     ],
-    cta: "Book a free consultation",
+    cta: "Book your free career kickoff call",
     teaserCta: "More about me",
     // Describes the brand art. Rewrite when a real photo replaces it.
     imageAlt:
@@ -231,55 +231,71 @@ const en = {
   program: {
     eyebrow: "The program",
     heading: "The eight-session program",
-    // PLACEHOLDER: confirm session format and cadence
+    pace: "Your schedule, your pace.",
     intro:
-      "One session a week for eight weeks. You finish each session with work you can use that same day.",
+      "Take one session a week, a few sessions in one week, or even the whole program in a single day. You decide what works best for you. To get the best results, the program should be completed within two months.",
+    tagline: "Every session ends with real work done, not just advice.",
     stepLabel: "Session",
+    leaveLabel: "You leave with:",
+    // Ana's own words (2026-10-20 doc).
     steps: [
       {
-        title: "Where you are, where you're going",
-        text: "We map your experience, your goals and what has held your search back.",
+        title: "Your Starting Point",
+        text: "We talk about your major, your experience, your goals and what has held your search back. You fill out a Career Interest Form so we know exactly where to focus.",
+        leave: "a personal job search game plan and clear goals.",
       },
       {
-        title: "Your strengths and your story",
-        text: "You leave with a clear two-minute answer to \"tell me about yourself.\"",
+        title: "Your Strengths and Your Story",
+        text: "We uncover what makes you stand out, including class projects, part-time jobs, clubs and volunteering. Everything counts.",
+        leave: "a 30-second pitch for career fairs and a confident answer to “Tell me about yourself.”",
       },
       {
-        title: "Target roles and companies",
-        text: "We pick the roles that fit and build a short list of companies to go after.",
+        title: "Target Roles and Companies",
+        text: "We match your strengths to roles that fit and research the companies worth your time. You’ll learn to use company career sites and Handshake the smart way.",
+        leave: "a target list of companies and job alerts working for you.",
       },
       {
-        title: "A resume that passes the scan",
-        text: "We rewrite your resume together so it clears applicant tracking systems and reads well to a person.",
+        title: "A Resume That Gets Read",
+        text: "We rewrite your resume together so it passes applicant tracking systems and impresses a real person. You’ll also learn how to use AI tools the right way in your search, without sounding like a robot.",
+        leave: "a polished resume and a cover letter template you can tailor in minutes.",
       },
       {
-        title: "A LinkedIn profile that gets found",
-        text: "We fix your headline, summary and keywords so recruiters start showing up in your inbox.",
+        title: "A Profile Recruiters Can Find",
+        text: "We build your LinkedIn and Handshake profiles step by step: headline, summary, photo, skills and the keywords recruiters search for.",
+        leave: "complete, professional profiles that work for you 24/7.",
       },
       {
-        title: "Networking and outreach",
-        text: "You get message templates and a weekly plan for reaching the people who hire.",
+        title: "Networking and Career Fairs",
+        text: "Networking is how most jobs get filled. We practice how to start conversations, ask for informational interviews and follow up.",
+        leave: "ready-to-send LinkedIn messages, a career fair game plan and an outreach routine.",
       },
       {
-        title: "Interview practice",
-        text: "We run mock interviews the way I ran real ones, with straight feedback after each answer.",
+        title: "Interview Preparation",
+        text: "We break down how interviews really work and what recruiters listen for. You’ll learn the STAR method, build your best stories and practice answering the tough questions, in person and on video.",
+        leave: "your top interview stories ready to go, a virtual interview checklist and thank-you email templates.",
       },
       {
-        title: "Offers and your first 90 days",
-        text: "We compare offers, rehearse the negotiation and plan how you start the new job.",
+        title: "Final Mock Interviews and Program Recap",
+        text: "Time to put it all together. We run full mock interviews the way real recruiters do, with honest feedback so you walk into the real thing with confidence. Then we recap the most important lessons from the program, review your progress and answer any questions you still have.",
+        leave: "real interview practice under your belt, a clear plan for your next steps and the confidence to keep going on your own.",
       },
     ],
   },
+  afterProgram: {
+    heading: "This isn’t goodbye.",
+    text: "When the program ends, our relationship doesn’t. You and I stay in touch. Whether you have a question, need advice before an interview, want a second pair of eyes on an offer or just need some guidance along the way, I’ll be here for you, at no additional cost.",
+    closing: "Great preparation doesn’t end with the program. Neither does my support.",
+  },
   promise: {
-    heading: "Discipline today leads to the career you want tomorrow.",
-    sub: "Small, specific work each week, and someone who keeps you honest about it.",
-    cta: "Book a session",
+    heading: "Preparation today opens the doors you want tomorrow.",
+    sub: "Small, specific steps at your own pace, and a coach in your corner who keeps you on track.",
+    cta: "Book your free career kickoff call",
     // Describes the brand art. Rewrite when a real photo replaces it.
     imageAlt:
       "An open notebook listing better resume, brighter opportunities and you got this, beside a pen and a Get Hired mug",
   },
   values: {
-    items: ["Confidence today.", "Interviews tomorrow.", "A career you’ll love."],
+    items: ["Prepare.", "Practice.", "Get hired."],
   },
   testimonials: {
     eyebrow: "Real students. Real results.",
@@ -288,6 +304,8 @@ const en = {
     prev: "Previous testimonial",
     next: "Next testimonial",
     goTo: "Show testimonial from",
+    pause: "Pause testimonials",
+    play: "Play testimonials",
     translatedNote: "",
     featured: {
       quote:
@@ -405,16 +423,16 @@ const en = {
         },
       ],
     },
-    cta: "Book a free intro call",
+    cta: "Book your free career kickoff call",
   },
   cta: {
     heading: "Let’s talk about your next move.",
-    button: "Book a free consultation",
+    button: "Book your free career kickoff call",
   },
   booking: {
     // Shown until NEXT_PUBLIC_CAL_LINK is set and the calendar replaces it.
     fallback:
-      "To book your free consultation, email Ana with a few times that work for you:",
+      "To book your free career kickoff call, email Ana with a few times that work for you:",
     calendarTitle: "Booking calendar",
     consent: "By booking or emailing, you agree to our {terms} and confirm you have read our {privacy}. The booking calendar is run by Cal.com.",
   },

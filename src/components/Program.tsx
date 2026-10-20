@@ -9,7 +9,17 @@ export default function Program({ dict }: { dict: Dictionary }) {
     <section id="program" aria-labelledby="program-heading" className="shell">
       <hr className="hairline" />
       <div className="section">
-        <SectionHead id="program-heading" eyebrow={program.eyebrow} heading={program.heading} intro={program.intro} />
+        <SectionHead id="program-heading" eyebrow={program.eyebrow} heading={program.heading}>
+          <h3 className="serif h-card" style={{ marginTop: "calc(24 * var(--u))" }}>
+            {program.pace}
+          </h3>
+          <p className="text-body" style={{ marginTop: "calc(10 * var(--u))" }}>
+            {program.intro}
+          </p>
+          <p className="text-body step__leave" style={{ marginTop: "calc(16 * var(--u))" }}>
+            <strong>{program.tagline}</strong>
+          </p>
+        </SectionHead>
         <ol
           className="grid gap-x-[calc(56*var(--u))] md:grid-cols-2"
           style={{ marginTop: "calc(36 * var(--u))" }}
@@ -22,6 +32,8 @@ export default function Program({ dict }: { dict: Dictionary }) {
               label={program.stepLabel}
               title={step.title}
               text={step.text}
+              leaveLabel={program.leaveLabel}
+              leave={step.leave}
             />
           ))}
         </ol>

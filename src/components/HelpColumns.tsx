@@ -3,8 +3,8 @@ import { pagePath } from "@/lib/routes";
 import type { Locale } from "@/lib/site";
 import ArrowLink from "./ArrowLink";
 
-// "How can I help?": four short columns split by hairlines, each linking to
-// the full service list.
+// "How can I help?": four short columns split by hairlines, then one link to
+// the program. Ana wants them read as one program, not four things to buy.
 export default function HelpColumns({ dict, lang }: { dict: Dictionary; lang: Locale }) {
   const { help } = dict;
   const href = pagePath(lang, "services");
@@ -20,18 +20,15 @@ export default function HelpColumns({ dict, lang }: { dict: Dictionary; lang: Lo
           {help.items.map((item) => (
             <li key={item.title}>
               <h3 className="serif h-card">{item.title}</h3>
-              <p className="text-body" style={{ marginTop: "calc(12 * var(--u))", marginBottom: "calc(18 * var(--u))" }}>
+              <p className="text-body" style={{ marginTop: "calc(12 * var(--u))" }}>
                 {item.text}
               </p>
-              {/* Four identical "Explore service" links; the hidden title
-                  tells screen reader users which one this is. */}
-              <ArrowLink href={href}>
-                {help.link}
-                <span className="sr-only">: {item.title}</span>
-              </ArrowLink>
             </li>
           ))}
         </ul>
+        <p className="help__more" data-reveal>
+          <ArrowLink href={href}>{help.link}</ArrowLink>
+        </p>
       </div>
     </section>
   );

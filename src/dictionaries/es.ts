@@ -9,7 +9,7 @@ const es = {
     home: {
       title: "Ana Prato, Coach de Carrera | Get Hired Program",
       description:
-        "Coaching de carrera bilingüe y uno a uno, con una reclutadora con más de 15 años del lado de la contratación. Una práctica pequeña a propósito, para estudiantes, recién graduados y quienes cambian de carrera, dentro y fuera de Estados Unidos. Agenda una consulta gratuita.",
+        "Coaching de carrera bilingüe y uno a uno, con una reclutadora con más de 15 años del lado de la contratación. Una práctica pequeña a propósito, para estudiantes, recién graduados y quienes cambian de carrera, dentro y fuera de Estados Unidos. Agenda tu llamada inicial gratis.",
     },
     about: {
       title: "Sobre Ana Prato | Get Hired Program",
@@ -17,9 +17,9 @@ const es = {
         "Quince años en adquisición de talento, del lado de la mesa donde se decide a quién contratar. Por qué Ana mantiene su lista de clientes corta, y con quién trabaja.",
     },
     services: {
-      title: "Servicios y el programa de ocho sesiones | Get Hired Program",
+      title: "Servicios: el programa de ocho sesiones | Get Hired Program",
       description:
-        "Optimización de CV y LinkedIn, estrategia de búsqueda de empleo, networking y entrevistas simuladas, además del programa de ocho sesiones. Uno a uno, en español o inglés.",
+        "Un programa de ocho sesiones que cubre tu currículum, LinkedIn, estrategia de búsqueda de empleo, networking y entrevistas simuladas. Uno a uno, a tu ritmo, en español o inglés.",
     },
     parents: {
       title: "Para padres: ayuda a tu hijo a conseguir empleo | Get Hired Program",
@@ -27,7 +27,7 @@ const es = {
         "Tu hijo trabaja uno a uno con una reclutadora con más de 15 años del lado de la contratación, en español o en inglés. Tú vuelves a ser su apoyo, no su gerente de proyecto.",
     },
     contact: {
-      title: "Agenda tu consulta gratuita | Get Hired Program",
+      title: "Agenda tu llamada inicial gratis | Get Hired Program",
       description:
         "Treinta minutos, sin costo. Elige la hora que te funcione, estés donde estés, y vemos si el programa es para ti.",
     },
@@ -51,7 +51,7 @@ const es = {
     parents: "Para padres",
     services: "Servicios",
     contact: "Contacto",
-    book: "Agenda una consulta gratis",
+    book: "Agenda tu llamada inicial",
     homeAria: "Inicio de Get Hired Program",
     primary: "Principal",
     openMenu: "Abrir menú",
@@ -68,14 +68,14 @@ const es = {
     eyebrow: "Coaching de carrera con Ana Prato",
     headline: ["Tu carrera empieza con el plan correcto", "y Get Hired te ayuda a construirlo."],
     promise:
-      "Coaching de carrera uno a uno para estudiantes y jóvenes profesionales listos para lanzar su carrera.",
-    cta: "Agenda una consulta gratis",
+      "Coaching uno a uno para ayudar a estudiantes y jóvenes profesionales a prepararse, practicar y conseguir empleo.",
+    cta: "Agenda tu llamada inicial gratis",
     note: ["En línea", "Español e inglés"],
     imageAlt: "Ana Prato sonriendo en su escritorio con una laptop, una libreta abierta y una taza de café",
   },
   help: {
     heading: "¿Cómo puedo ayudarte?",
-    link: "Ver servicio",
+    link: "Ver el programa completo",
     items: [
       { title: "Optimización de CV y LinkedIn", text: "Hechos para superar los ATS y destacar." },
       { title: "Estrategia de búsqueda de empleo", text: "Selección de empresas, marca personal, investigación y más." },
@@ -110,7 +110,7 @@ const es = {
     services: {
       eyebrow: "Servicios",
       heading: "Todo lo que necesitas para destacar y ser contratado.",
-      lead: "Cuatro formas en las que te ayudo, y el programa de ocho sesiones que las pone en orden.",
+      lead: "Un programa de ocho sesiones que cubre tu currículum, LinkedIn, búsqueda de empleo, networking y entrevistas.",
     },
     contact: {
       eyebrow: "Contacto",
@@ -120,9 +120,9 @@ const es = {
   },
   services: {
     eyebrow: "Servicios",
-    heading: "Cómo te puedo ayudar",
+    heading: "Lo que trabajaremos juntos",
     allCta: "Ver todos los servicios",
-    intro: "Guía práctica, basada en cómo se toman de verdad las decisiones de contratación.",
+    intro: "Las cuatro áreas que cubre el programa, en un solo plan.",
     // Same four services, same titles, as "How can I help?" on the home page.
     items: [
       {
@@ -188,7 +188,7 @@ const es = {
         "Cómo los equipos deliberan para elegir al candidato final",
         "Cómo se arman las ofertas de trabajo",
       ],
-      closing: "Me encantaría ayudarte a dar tu próximo paso. ¡Agenda tu consulta gratis hoy!",
+      closing: "Me encantaría ayudarte a dar tu próximo paso. ¡Agenda hoy tu llamada inicial gratis!",
     },
     facts: [
       "Más de 15 años en adquisición de talento",
@@ -196,7 +196,7 @@ const es = {
       "Lista de clientes corta, a propósito",
       "En Ohio, con clientes en todo el mundo",
     ],
-    cta: "Agenda una consulta gratis",
+    cta: "Agenda tu llamada inicial gratis",
     teaserCta: "Más sobre mí",
     // Describe la ilustración de marca. Reescribir cuando haya una foto real.
     imageAlt:
@@ -230,55 +230,70 @@ const es = {
   program: {
     eyebrow: "El programa",
     heading: "El programa de ocho sesiones",
-    // PLACEHOLDER: confirmar formato y frecuencia de las sesiones
+    pace: "Tu horario, tu ritmo.",
     intro:
-      "Una sesión por semana durante ocho semanas. Terminas cada sesión con trabajo que puedes usar ese mismo día.",
+      "Toma una sesión por semana, varias sesiones en una semana o incluso el programa completo en un solo día. Tú decides lo que mejor te funciona. Para obtener los mejores resultados, el programa debe completarse en un plazo de dos meses.",
+    tagline: "Cada sesión termina con trabajo real hecho, no solo con consejos.",
     stepLabel: "Sesión",
+    leaveLabel: "Te llevas:",
     steps: [
       {
-        title: "Dónde estás y a dónde vas",
-        text: "Revisamos tu experiencia, tus metas y qué ha frenado tu búsqueda.",
+        title: "Tu punto de partida",
+        text: "Hablamos de tu carrera universitaria, tu experiencia, tus metas y lo que ha frenado tu búsqueda. Llenas un Formulario de Intereses Profesionales para saber exactamente dónde enfocarnos.",
+        leave: "un plan personal de búsqueda de empleo y metas claras.",
       },
       {
         title: "Tus fortalezas y tu historia",
-        text: "Sales con una respuesta clara de dos minutos a «háblame de ti».",
+        text: "Descubrimos lo que te hace destacar, incluidos proyectos de clase, trabajos de medio tiempo, clubes y voluntariado. Todo cuenta.",
+        leave: "un pitch de 30 segundos para ferias de empleo y una respuesta segura a «Háblame de ti».",
       },
       {
         title: "Puestos y empresas objetivo",
-        text: "Elegimos los puestos que encajan y armamos una lista corta de empresas.",
+        text: "Conectamos tus fortalezas con los puestos que encajan contigo e investigamos las empresas que valen tu tiempo. Aprenderás a usar los sitios de empleo de las empresas y Handshake de forma inteligente.",
+        leave: "una lista de empresas objetivo y alertas de empleo trabajando para ti.",
       },
       {
-        title: "Un currículum que pasa el filtro",
-        text: "Reescribimos tu currículum para que pase los sistemas automáticos y se lea bien para una persona.",
+        title: "Un currículum que sí se lee",
+        text: "Reescribimos tu currículum juntos para que pase los sistemas de seguimiento de candidatos (ATS) y convenza a una persona real. También aprenderás a usar bien las herramientas de IA en tu búsqueda, sin sonar como un robot.",
+        leave: "un currículum pulido y una plantilla de carta de presentación que adaptas en minutos.",
       },
       {
-        title: "Un LinkedIn que te encuentren",
-        text: "Ajustamos tu titular, tu resumen y tus palabras clave para que los reclutadores te escriban.",
+        title: "Un perfil que los reclutadores encuentran",
+        text: "Construimos tus perfiles de LinkedIn y Handshake paso a paso: titular, resumen, foto, habilidades y las palabras clave que buscan los reclutadores.",
+        leave: "perfiles completos y profesionales que trabajan para ti las 24 horas.",
       },
       {
-        title: "Networking y contacto",
-        text: "Recibes plantillas de mensajes y un plan semanal para llegar a quienes contratan.",
+        title: "Networking y ferias de empleo",
+        text: "La mayoría de los empleos se consiguen gracias al networking. Practicamos cómo iniciar conversaciones, pedir entrevistas informativas y dar seguimiento.",
+        leave: "mensajes de LinkedIn listos para enviar, un plan para ferias de empleo y una rutina de contacto.",
       },
       {
-        title: "Práctica de entrevistas",
-        text: "Hacemos entrevistas simuladas como las que yo dirigía, con comentarios claros después de cada respuesta.",
+        title: "Preparación para entrevistas",
+        text: "Vemos cómo funcionan de verdad las entrevistas y qué escuchan los reclutadores. Aprenderás el método STAR, armarás tus mejores historias y practicarás las preguntas difíciles, en persona y por video.",
+        leave: "tus mejores historias para entrevistas, una lista de verificación para entrevistas virtuales y plantillas de correos de agradecimiento.",
       },
       {
-        title: "Ofertas y tus primeros 90 días",
-        text: "Comparamos ofertas, ensayamos la negociación y planeamos cómo empiezas en el nuevo trabajo.",
+        title: "Entrevistas simuladas finales y repaso del programa",
+        text: "Es hora de unirlo todo. Hacemos entrevistas simuladas completas como las hacen los reclutadores de verdad, con comentarios honestos para que llegues a la entrevista real con confianza. Luego repasamos las lecciones más importantes del programa, revisamos tu progreso y respondemos las preguntas que aún tengas.",
+        leave: "práctica real de entrevistas, un plan claro para tus próximos pasos y la confianza para seguir por tu cuenta.",
       },
     ],
   },
+  afterProgram: {
+    heading: "Esto no es un adiós.",
+    text: "Cuando el programa termina, nuestra relación no. Seguimos en contacto. Ya sea que tengas una pregunta, necesites un consejo antes de una entrevista, quieras una segunda opinión sobre una oferta o simplemente necesites orientación en el camino, aquí estaré para ti, sin costo adicional.",
+    closing: "Una buena preparación no termina con el programa. Mi apoyo tampoco.",
+  },
   promise: {
-    heading: "La disciplina de hoy construye la carrera que quieres mañana.",
-    sub: "Trabajo concreto cada semana, y alguien que te mantiene en el camino.",
-    cta: "Agendar sesión",
+    heading: "La preparación de hoy abre las puertas que quieres mañana.",
+    sub: "Pasos pequeños y concretos a tu ritmo, y una coach de tu lado que te mantiene en el camino.",
+    cta: "Agenda tu llamada inicial gratis",
     // Describe la ilustración de marca. Reescribir cuando haya una foto real.
     imageAlt:
       "Un cuaderno abierto con la lista mejor currículum, mejores oportunidades y tú puedes, junto a un bolígrafo y una taza de Get Hired",
   },
   values: {
-    items: ["Confianza hoy.", "Entrevistas mañana.", "Una carrera que te guste."],
+    items: ["Prepárate.", "Practica.", "Consigue empleo."],
   },
   testimonials: {
     eyebrow: "Estudiantes reales. Resultados reales.",
@@ -287,6 +302,8 @@ const es = {
     prev: "Testimonio anterior",
     next: "Siguiente testimonio",
     goTo: "Ver testimonio de",
+    pause: "Pausar testimonios",
+    play: "Reproducir testimonios",
     translatedNote: "Testimonios traducidos del inglés.",
     featured: {
       quote:
@@ -403,16 +420,16 @@ const es = {
         },
       ],
     },
-    cta: "Agenda una llamada gratis",
+    cta: "Agenda tu llamada inicial gratis",
   },
   cta: {
     heading: "Hablemos de tu próximo paso.",
-    button: "Agenda una consulta gratis",
+    button: "Agenda tu llamada inicial gratis",
   },
   booking: {
     // Shown until NEXT_PUBLIC_CAL_LINK is set and the calendar replaces it.
     fallback:
-      "Para agendar tu consulta gratuita, escríbele a Ana con algunos horarios que te funcionen:",
+      "Para agendar tu llamada inicial gratis, escríbele a Ana con algunos horarios que te funcionen:",
     calendarTitle: "Calendario de reservas",
     consent: "Al agendar o escribirnos, aceptas nuestros {terms} y confirmas que leíste nuestra {privacy}. El calendario de reservas funciona con Cal.com.",
   },

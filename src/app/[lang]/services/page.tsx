@@ -6,6 +6,7 @@ import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
 import Services from "@/components/Services";
 import Program from "@/components/Program";
+import AfterProgram from "@/components/AfterProgram";
 import PromiseBand from "@/components/PromiseBand";
 import CtaBand from "@/components/CtaBand";
 
@@ -25,6 +26,7 @@ export default async function ServicesPage({ params }: PageProps<"/[lang]/servic
       <PageHero {...dict.pageHero.services} />
       <Services dict={dict} />
       <Program dict={dict} />
+      <AfterProgram dict={dict} />
       <PromiseBand dict={dict} lang={lang} />
       <CtaBand dict={dict} lang={lang} />
     </PageShell>
