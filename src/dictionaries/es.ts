@@ -14,7 +14,7 @@ const es = {
     about: {
       title: "Sobre Ana Prato | Get Hired Program",
       description:
-        "Quince años en adquisición de talento, del lado de la mesa donde se decide a quién contratar. Por qué Ana mantiene su lista de clientes corta, y con quién trabaja.",
+        "Quince años en adquisición de talento, del lado de la mesa donde se decide a quién contratar. Por qué Ana mantiene su lista de clientes corta.",
     },
     services: {
       title: "Servicios: el programa de ocho sesiones | Get Hired Program",

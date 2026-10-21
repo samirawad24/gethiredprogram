@@ -14,7 +14,7 @@ const en = {
     about: {
       title: "About Ana Prato | Get Hired Program",
       description:
-        "Fifteen years in talent acquisition, on the side of the table where hiring decisions get made. Why Ana keeps her client list short, and who she works with.",
+        "Fifteen years in talent acquisition, on the side of the table where hiring decisions get made. Why Ana keeps her client list short.",
     },
     services: {
       title: "Services: the eight-session program | Get Hired Program",

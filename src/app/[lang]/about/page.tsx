@@ -5,7 +5,6 @@ import { hasLocale } from "@/lib/site";
 import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
 import About from "@/components/About";
-import Audiences from "@/components/Audiences";
 import ValueBand from "@/components/ValueBand";
 import CtaBand from "@/components/CtaBand";
 
@@ -25,7 +24,6 @@ export default async function AboutPage({ params }: PageProps<"/[lang]/about">) 
       <PageHero {...dict.pageHero.about} />
       <About dict={dict} lang={lang} />
       <ValueBand dict={dict} />
-      <Audiences dict={dict} lang={lang} />
       <CtaBand dict={dict} lang={lang} divider />
     </PageShell>
   );
