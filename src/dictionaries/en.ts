@@ -311,7 +311,7 @@ const en = {
       quote:
         "I spent months making little to no progress and had little understanding of how to approach interviews. After joining the program, I got offers from every interview I had.",
       name: "Mathias H.",
-      role: "Aviation Maintenance Technician at FEMA",
+      role: "Aviation Maintenance Technician at FEAM",
     },
     items: [
       {
@@ -343,6 +343,12 @@ const en = {
           "Ana has been a huge help throughout my recruiting process. She's given me a lot of direction on how to approach different opportunities and has helped me feel much more prepared and confident going into interviews. What I appreciate most is how available she is. Whenever I have a question or need advice, she's always willing to help and she's always there for me. Gracias por todo siempre!",
         name: "Luis F.",
         role: "Junior, FSU",
+      },
+      {
+        quote:
+          "Before I started working with Ana, I was struggling with converting interviews into full-time offers. After working with her, I improved on telling my story and why I was a great fit, which led to me securing a full-time offer.",
+        name: "Diego V.",
+        role: "College Senior",
       },
     ],
   },

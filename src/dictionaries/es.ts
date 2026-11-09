@@ -309,7 +309,7 @@ const es = {
       quote:
         "Pasé meses avanzando poco o nada y entendía muy poco sobre cómo abordar las entrevistas. Después de entrar al programa, recibí ofertas en todas las entrevistas que tuve.",
       name: "Mathias H.",
-      role: "Técnico de mantenimiento de aviación en FEMA",
+      role: "Técnico de mantenimiento de aviación en FEAM",
     },
     items: [
       {
@@ -341,6 +341,12 @@ const es = {
           "Ana ha sido una gran ayuda durante todo mi proceso de reclutamiento. Me ha orientado mucho sobre cómo abordar distintas oportunidades y me ha ayudado a llegar a las entrevistas con mucha más preparación y confianza. Lo que más valoro es lo disponible que está. Cuando tengo una pregunta o necesito un consejo, siempre está dispuesta a ayudar y siempre está ahí para mí. ¡Gracias por todo siempre!",
         name: "Luis F.",
         role: "Estudiante de tercer año, FSU",
+      },
+      {
+        quote:
+          "Antes de empezar a trabajar con Ana, me costaba convertir las entrevistas en ofertas de tiempo completo. Después de trabajar con ella, mejoré la forma de contar mi historia y de explicar por qué era el candidato ideal, y eso me llevó a conseguir una oferta de tiempo completo.",
+        name: "Diego V.",
+        role: "Estudiante de último año universitario",
       },
     ],
   },
